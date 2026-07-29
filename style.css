@@ -1,0 +1,168 @@
+/* SMSMass — Central de Sinal
+   Paleta: papel #F7F5F0 / navy #0B1F2A / verde-sinal #00B871 / âmbar #E8862B / slate #5B6B73
+   Display: Fraunces (serifada editorial) | Corpo: Inter | Dados: IBM Plex Mono
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
+
+:root{
+  --paper:#F7F5F0;
+  --paper-dim:#EFEBE3;
+  --navy:#0B1F2A;
+  --slate:#5B6B73;
+  --green:#00875A;
+  --green-bright:#00B871;
+  --amber:#C8631A;
+  --amber-bg:#FBE8D5;
+  --line:#D8D2C4;
+}
+
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--navy);
+  font-family:'Inter',system-ui,sans-serif;
+  line-height:1.55;
+}
+
+a{color:var(--green);text-decoration:none;}
+a:hover{text-decoration:underline;}
+a:focus-visible, button:focus-visible, input:focus-visible{
+  outline:2px solid var(--green-bright);
+  outline-offset:2px;
+}
+
+h1,h2,h3{
+  font-family:'Fraunces',serif;
+  font-weight:600;
+  margin:0 0 .4em;
+  color:var(--navy);
+}
+
+.mono{font-family:'IBM Plex Mono',monospace;}
+
+.wrap{max-width:760px;margin:0 auto;padding:0 24px;}
+
+/* Top route bar — small nav, looks like a hop trail */
+.routebar{
+  border-bottom:1px solid var(--line);
+  padding:18px 0;
+}
+.routebar .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;}
+.routebar .brand{font-family:'Fraunces',serif;font-weight:700;font-size:1.1rem;letter-spacing:.02em;}
+.routebar .brand span{color:var(--green);}
+.routebar nav{display:flex;gap:18px;font-size:.92rem;flex-wrap:wrap;}
+.routebar nav a{color:var(--slate);}
+
+/* Hop / eyebrow labels — encode actual sequence (network hops, article steps) */
+.hop{
+  display:inline-flex;align-items:center;gap:8px;
+  font-family:'IBM Plex Mono',monospace;
+  font-size:.78rem;
+  letter-spacing:.06em;
+  color:var(--green);
+  text-transform:uppercase;
+  margin-bottom:10px;
+}
+.hop::before{content:'●';font-size:.6rem;}
+
+.hero{padding:56px 0 36px;border-bottom:1px solid var(--line);}
+.hero h1{font-size:2.1rem;line-height:1.15;max-width:14ch;}
+.hero p.lede{font-size:1.05rem;color:var(--slate);max-width:46ch;}
+
+section{padding:40px 0;}
+section + section{border-top:1px solid var(--line);}
+
+.card{
+  background:var(--paper-dim);
+  border:1px solid var(--line);
+  border-radius:4px;
+  padding:20px;
+}
+
+.grid{display:grid;gap:16px;}
+@media(min-width:640px){.grid-2{grid-template-columns:1fr 1fr;}}
+
+.tool-link{
+  display:block;
+  border:1px solid var(--line);
+  border-radius:4px;
+  padding:18px 20px;
+  background:var(--paper);
+  transition:border-color .15s;
+}
+.tool-link:hover{border-color:var(--green-bright);text-decoration:none;}
+.tool-link .hop{margin-bottom:6px;}
+.tool-link h3{font-size:1.05rem;margin-bottom:4px;}
+.tool-link p{margin:0;color:var(--slate);font-size:.92rem;}
+
+footer{padding:32px 0 48px;color:var(--slate);font-size:.85rem;}
+
+/* Character counter widget */
+.counter-box textarea{
+  width:100%;
+  min-height:120px;
+  font-family:'IBM Plex Mono',monospace;
+  font-size:1rem;
+  padding:14px;
+  border:1px solid var(--line);
+  border-radius:4px;
+  background:#fff;
+  color:var(--navy);
+  resize:vertical;
+}
+.counter-stats{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:12px;
+  margin-top:16px;
+}
+@media(min-width:560px){.counter-stats{grid-template-columns:repeat(4,1fr);}}
+.stat{
+  border:1px solid var(--line);
+  border-radius:4px;
+  padding:12px 14px;
+  background:var(--paper);
+}
+.stat .num{font-family:'IBM Plex Mono',monospace;font-size:1.5rem;font-weight:600;color:var(--navy);}
+.stat .label{font-size:.78rem;color:var(--slate);text-transform:uppercase;letter-spacing:.04em;}
+
+/* Segment trace — visual row of SMS packets, the signature element */
+.trace{display:flex;flex-wrap:wrap;gap:4px;margin-top:14px;}
+.seg{
+  width:28px;height:28px;
+  border-radius:3px;
+  background:var(--paper);
+  border:1px solid var(--line);
+}
+.seg.filled{background:var(--green-bright);border-color:var(--green);}
+.seg.over{background:var(--amber);border-color:var(--amber);}
+
+.notice{
+  border-left:3px solid var(--amber);
+  background:var(--amber-bg);
+  padding:12px 16px;
+  font-size:.92rem;
+  border-radius:0 4px 4px 0;
+}
+.notice strong{color:var(--amber);}
+
+.btn{
+  display:inline-block;
+  background:var(--navy);
+  color:#fff;
+  padding:10px 18px;
+  border-radius:4px;
+  border:none;
+  font-family:'Inter',sans-serif;
+  font-weight:600;
+  font-size:.95rem;
+  cursor:pointer;
+}
+.btn:hover{background:#0e2837;text-decoration:none;}
+
+table{width:100%;border-collapse:collapse;margin:16px 0;}
+th,td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);font-size:.92rem;}
+th{font-family:'IBM Plex Mono',monospace;text-transform:uppercase;font-size:.75rem;letter-spacing:.04em;color:var(--slate);}
