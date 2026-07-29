@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SMSMass — Disparo de SMS em massa!</title>
+<meta name="description" content="Ferramentas e guias técnicos sobre SMS: contador de caracteres GSM-7/UCS-2, como a mensagem trafega pela rede, simulador de operadora e legislação de SMS marketing no Brasil.">
+<link rel="canonical" href="https://smsmass.com.br/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="SMSMass — Disparo de SMS em massa">
+<meta property="og:description" content="Ferramentas e guias sobre SMS: contador de caracteres, simulador de operadora e como o SMS trafega pelas redes.">
+<meta property="og:url" content="https://smsmass.com.br/">
+<meta property="og:locale" content="pt_BR">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="SMSMass — Disparo de SMS em massa">
+<meta name="twitter:description" content="Ferramentas e guias sobre SMS: contador de caracteres, simulador de operadora e como o SMS trafega pelas redes.">
+
+<link rel="stylesheet" href="style.css">
+<style>
+.topbar{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  background:#fff;border-bottom:1px solid var(--line);
+  height:54px;display:flex;align-items:center;
+}
+.topbar-inner{
+  width:100%;padding:0 24px;
+  display:flex;align-items:center;justify-content:flex-start;gap:20px;
+}
+.topbar .brand{font-family:'Fraunces',serif;font-weight:700;font-size:1.1rem;}
+.topbar .brand span{color:var(--green);}
+.topbar nav{display:flex;gap:18px;font-size:.88rem;margin-left:170px;}
+.topbar nav a{color:var(--green);}
+.topbar nav a:hover{color:var(--navy);text-decoration:none;}
+
+.topbar-right{margin-left:auto;display:flex;align-items:center;gap:12px;}
+.topbar-search{
+  display:flex;align-items:center;background:var(--paper-dim);
+  border:1px solid var(--line);border-radius:20px;padding:5px 12px;font-size:.85rem;
+}
+.topbar-search input{
+  border:none;background:transparent;outline:none;font-size:.85rem;width:160px;
+  color:var(--navy);font-family:'Inter',sans-serif;
+}
+.topbar-search input::placeholder{color:var(--slate);}
+.topbar-search .search-icon{color:var(--slate);margin-right:6px;}
+.topbar-help{color:var(--green);font-size:.88rem;text-decoration:none;}
+.topbar-help:hover{color:var(--navy);text-decoration:none;}
+
+/* Search results dropdown */
+.search-results{
+  position:fixed;top:54px;right:24px;
+  background:#fff;border:1px solid var(--line);border-radius:4px;
+  width:340px;max-height:400px;overflow-y:auto;
+  box-shadow:0 4px 12px rgba(0,0,0,0.08);
+  z-index:200;display:none;
+}
+.search-results.show{display:block;}
+.search-results a{
+  display:block;padding:10px 14px;color:var(--navy);
+  border-bottom:1px solid var(--line);text-decoration:none;font-size:.88rem;
+}
+.search-results a:last-child{border-bottom:none;}
+.search-results a:hover{background:var(--paper-dim);}
+.search-results .rtitle{color:var(--green);}
+.search-results .rsnippet{color:var(--slate);font-size:.8rem;margin-top:2px;}
+.search-results .rempty{padding:14px;color:var(--slate);font-size:.85rem;text-align:center;}
+
+/* Sidebar */
+.sidebar{
+  position:fixed;top:54px;left:0;bottom:0;width:230px;
+  background:var(--paper-dim);border-right:1px solid var(--line);
+  overflow-y:auto;padding:20px 0;
+}
+.sidebar-group{margin-bottom:8px;}
+.sidebar-label{
+  font-family:'Inter',sans-serif;
+  font-size:.85rem;letter-spacing:.04em;text-transform:uppercase;
+  color:#000;font-weight:700;padding:14px 18px 4px;
+}
+.sidebar a{
+  display:block;padding:7px 18px;font-size:.88rem;color:var(--green);
+  border-left:2px solid transparent;transition:border-color .12s, background .12s;
+  text-decoration:none;
+}
+.sidebar a:hover{background:var(--paper);border-left-color:var(--green);text-decoration:none;color:var(--navy);}
+.sidebar a.ativo{border-left-color:var(--green-bright);color:var(--green);font-weight:600;}
+
+.sidebar .sublist{
+  list-style:disc;
+  margin:0 0 4px 34px;
+  padding:0;
+}
+.sidebar .sublist li{margin:0;padding:0;}
+.sidebar .sublist a{
+  display:block;padding:3px 0;font-size:.82rem;color:var(--green);
+  border-left:none;
+}
+.sidebar .sublist a:hover{color:var(--navy);background:transparent;text-decoration:underline;}
+
+/* Sidebar contact block at bottom */
+.sidebar-contact{
+  border-top:1px solid var(--line);
+  margin-top:16px;padding:16px 18px;
+}
+.sidebar-contact .clabel{
+  font-size:.85rem;letter-spacing:.04em;text-transform:uppercase;
+  color:#000;margin-bottom:10px;font-weight:700;
+}
+.sidebar-contact a.whats{
+  display:block;padding:9px 12px;background:#25D366;color:#fff !important;
+  text-decoration:none;border-radius:4px;font-size:.85rem;margin-bottom:8px;
+  border-left:none !important;text-align:center;
+}
+.sidebar-contact a.whats:hover{background:#1EBE5C;color:#fff !important;}
+.sidebar-contact a.share{
+  display:block;padding:9px 12px;background:transparent;color:var(--green);
+  text-decoration:none;border-radius:4px;font-size:.85rem;
+  border:1px solid var(--green) !important;text-align:center;
+}
+.sidebar-contact a.share:hover{background:var(--paper);color:var(--navy);}
+
+/* Main content */
+.main{margin-left:230px;margin-top:54px;min-height:calc(100vh - 54px);}
+
+/* Hamburger mobile */
+.menu-toggle{display:none;background:none;border:none;cursor:pointer;padding:8px;}
+.menu-toggle span{display:block;width:22px;height:2px;background:var(--navy);margin:4px 0;}
+
+@media(max-width:768px){
+  .sidebar{transform:translateX(-100%);transition:transform .2s;}
+  .sidebar.open{transform:translateX(0);}
+  .main{margin-left:0;}
+  .menu-toggle{display:block;}
+  .topbar nav{display:none;}
+  .topbar-search input{width:110px;}
+}
+</style>
+</head>
+<body>
+
+<!-- Barra superior -->
+<div class="topbar">
+  <div class="topbar-inner">
+    <div style="display:flex;align-items:center;gap:12px;">
+      <button class="menu-toggle" onclick="document.querySelector('.sidebar').classList.toggle('open')" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+      <div class="brand"><a href="index.html" style="text-decoration:none;color:inherit;">SMS<span>Mass</span></a></div>
+    </div>
+    <nav>
+      <a href="index.html" class="ativo">Início</a>
+      <a href="loja.html#escolha">Produtos</a>
+      <a href="index.html#ferramentas">Ferramentas</a>
+      <a href="index.html#artigos">Artigos</a>
+      <a href="loja.html">Planos</a>
+      <a href="manual.html">Manual</a>
+      <a href="ajuda.html">Ajuda</a>
+      <a href="#" onclick="event.preventDefault();compartilharSite();" aria-label="Compartilhar" title="Compartilhar">🔗</a>
+    </nav>
+    <div class="topbar-right">
+      <div class="topbar-search">
+        <span class="search-icon">🔍</span>
+        <input type="text" id="siteSearch" placeholder="Buscar no site..." aria-label="Buscar no site">
+      </div>
+    </div>
+  </div>
+</div>
+<div id="searchResults" class="search-results"></div>
+
+<!-- Sidebar esquerda -->
+<div class="sidebar">
+  <div class="sidebar-group">
+    <div class="sidebar-label">Início</div>
+    <a href="index.html">Home</a>
+    <a href="loja.html">Planos</a>
+  </div>
+
+  <div class="sidebar-group">
+    <div class="sidebar-label">Manual do App</div>
+    <a href="manual.html">Índice</a>
+    <ul class="sublist">
+      <li><a href="manual-link-contatos.html">Como obter o link dos contatos</a></li>
+      <li><a href="manual-instalar.html">Como instalar o app</a></li>
+      <li><a href="manual-ativar-licenca.html">Como ativar a licença</a></li>
+      <li><a href="manual-mensagem.html">Digitar mensagem personalizada</a></li>
+      <li><a href="manual-intervalo.html">Intervalo entre disparos<br>Cuidado especial!</a></li>
+      <li><a href="manual-de-ate.html">Usar intervalo De/Até</a></li>
+      <li><a href="manual-relatorio.html">Ler o relatório</a></li>
+      <li><a href="manual-faq.html">Perguntas frequentes</a></li>
+    </ul>
+  </div>
+
+  <div class="sidebar-group">
+    <div class="sidebar-label">Ferramentas</div>
+    <a href="contador-caracteres.html">Contador de caracteres</a>
+    <ul class="sublist">
+      <li><a href="contador-caracteres.html#teste">Teste sua mensagem</a></li>
+      <li><a href="contador-caracteres.html#gsm7">Como funciona GSM-7</a></li>
+      <li><a href="contador-caracteres.html#ucs2">Como funciona UCS-2</a></li>
+    </ul>
+    <a href="simulador-operadora.html">Simulador de operadora</a>
+    <ul class="sublist">
+      <li><a href="simulador-operadora.html#abr">Consulta oficial ABR</a></li>
+      <li><a href="simulador-operadora.html#portabilidade">Portabilidade numérica</a></li>
+    </ul>
+  </div>
+
+  <div class="sidebar-group">
+    <div class="sidebar-label">Como o SMS funciona</div>
+    <a href="como-sms-trafega.html">Como o SMS trafega</a>
+    <ul class="sublist">
+      <li><a href="como-sms-trafega.html#smsc">SMSC</a></li>
+      <li><a href="como-sms-trafega.html#smpp-ss7">SMPP e SS7</a></li>
+    </ul>
+    <a href="gsm7-ucs2.html">GSM-7 vs UCS-2</a>
+    <ul class="sublist">
+      <li><a href="gsm7-ucs2.html#padrao-gsm7">O padrão GSM-7</a></li>
+      <li><a href="gsm7-ucs2.html#quando-ucs2">Quando UCS-2 ativa</a></li>
+    </ul>
+  </div>
+
+  <div class="sidebar-group">
+    <div class="sidebar-label">Comparação e uso</div>
+    <a href="sms-vs-whatsapp.html">SMS vs WhatsApp vs RCS</a>
+    <a href="legislacao-sms.html">SMS marketing e LGPD</a>
+    <ul class="sublist">
+      <li><a href="legislacao-sms.html#base-legal">Base legal LGPD</a></li>
+      <li><a href="legislacao-sms.html#opt-out">Opt-out</a></li>
+      <li><a href="legislacao-sms.html#bloqueio">Bloqueio na operadora</a></li>
+    </ul>
+  </div>
+
+  <div class="sidebar-group">
+    <div class="sidebar-label">Recursos externos</div>
+    <a href="sms-avulso-operadoras.html">SMS avulso via operadoras</a>
+    <ul class="sublist">
+      <li><a href="sms-avulso-operadoras.html#tarifas">Tarifas das operadoras</a></li>
+      <li><a href="sms-avulso-operadoras.html#plataformas">Plataformas web</a></li>
+      <li><a href="sms-avulso-operadoras.html#avulso-faq">Perguntas frequentes</a></li>
+    </ul>
+    <a href="sms-massa-chipeiras.html">SMS em massa por chipeiras</a>
+    <ul class="sublist">
+      <li><a href="sms-massa-chipeiras.html#o-que-e">O que é uma chipeira</a></li>
+      <li><a href="sms-massa-chipeiras.html#custo">Componentes do custo</a></li>
+      <li><a href="sms-massa-chipeiras.html#comprar">Onde comprar</a></li>
+      <li><a href="sms-massa-chipeiras.html#chipeira-faq">Perguntas frequentes</a></li>
+    </ul>
+  </div>
+
+  <div class="sidebar-contact">
+    <div class="clabel">Contato</div>
+    <a href="https://wa.me/5531993085667?text=Ol%C3%A1%2C%20vim%20pelo%20site%20SMSMass" target="_blank" rel="noopener" class="whats" aria-label="Falar no WhatsApp" title="Falar no WhatsApp">💬</a>
+    <a href="ajuda.html" class="share">Ajuda</a>
+    <a href="#" onclick="event.preventDefault();compartilharSite();" class="share" aria-label="Compartilhar" title="Compartilhar">🔗</a>
+  </div>
+</div>
+
+<div class="main">
+
+  <div class="hero" id="inicio">
+    <div class="wrap">
+      <div class="hop">Ponto de partida</div>
+      <h1>Envie mensagens impactantes para seus contatos, clientes, eleitores, prospectos!</h1>
+      <p class="lede">SMS que chega, é lido e converte. Ferramenta feita para quem precisa comunicar em massa — com personalização, controle de horário e sem depender de internet do destinatário.</p>
+      <a href="loja.html" class="btn" style="margin-top:16px;">Planos</a>
+    </div>
+  </div>
+
+  <section id="ferramentas">
+    <div class="wrap">
+      <div class="hop">Ferramentas</div>
+      <div class="grid grid-2">
+        <a class="tool-link" href="contador-caracteres.html">
+          <div class="hop">Ferramenta</div>
+          <h3>Contador de caracteres SMS</h3>
+          <p>Veja em tempo real quantos SMS sua mensagem vai gerar — e por que um acento pode dobrar o custo.</p>
+        </a>
+        <a class="tool-link" href="simulador-operadora.html">
+          <div class="hop">Ferramenta</div>
+          <h3>Simulador de operadora por DDD/prefixo</h3>
+          <p>Estimativa educativa da operadora de origem de um número — com aviso claro sobre os limites da portabilidade.</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section id="artigos">
+    <div class="wrap">
+      <div class="hop">Como o sinal viaja</div>
+      <div class="grid grid-2">
+        <a class="tool-link" href="como-sms-trafega.html">
+          <div class="hop">Artigo</div>
+          <h3>Como o SMS trafega pelas redes</h3>
+          <p>SMSC, SMPP, SS7: o caminho real de uma mensagem entre operadoras — e por que algumas demoram mais.</p>
+        </a>
+        <a class="tool-link" href="gsm7-ucs2.html">
+          <div class="hop">Artigo</div>
+          <h3>GSM-7 vs UCS-2: o motivo do limite de 160 caracteres</h3>
+          <p>Por que "ã" custa mais caro que "a" — e como escrever para nunca pagar SMS em dobro.</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="hop">Comparação e uso</div>
+      <div class="grid grid-2">
+        <a class="tool-link" href="sms-vs-whatsapp.html">
+          <div class="hop">Artigo</div>
+          <h3>SMS vs WhatsApp vs RCS para cobrança e consignado</h3>
+          <p>Por que SMS ainda converte melhor que WhatsApp em campanhas de INSS e CLT — e quando trocar.</p>
+        </a>
+        <a class="tool-link" href="legislacao-sms.html">
+          <div class="hop">Artigo</div>
+          <h3>SMS marketing e a LGPD: o que é permitido</h3>
+          <p>Opt-out, consentimento e o que aprender com casos de bloqueio na operadora.</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap">
+      SMSMass — ferramentas para correspondentes bancários que disparam SMS em massa.
+    </div>
+  </footer>
+
+</div><!-- /main -->
+
+<script>
+// Search index: title, description, url
+const searchIndex = [
+  {t:"Home",d:"Página inicial do SMSMass",u:"index.html"},
+  {t:"Planos",d:"Trial, 2000, 5000 SMS ou ilimitado",u:"loja.html"},
+  {t:"Contador de caracteres SMS",d:"GSM-7, UCS-2 e cálculo de segmentos",u:"contador-caracteres.html"},
+  {t:"Simulador de operadora",d:"Consulta oficial ABR e portabilidade",u:"simulador-operadora.html"},
+  {t:"Como o SMS trafega",d:"SMSC, SMPP e SS7",u:"como-sms-trafega.html"},
+  {t:"GSM-7 vs UCS-2",d:"Por que o SMS tem limite de 160 caracteres",u:"gsm7-ucs2.html"},
+  {t:"SMS vs WhatsApp vs RCS",d:"Comparação para cobrança e consignado",u:"sms-vs-whatsapp.html"},
+  {t:"SMS marketing e LGPD",d:"Opt-out, base legal e bloqueio",u:"legislacao-sms.html"},
+  {t:"SMS avulso via operadoras",d:"Vivo, Claro, TIM, Oi e plataformas web",u:"sms-avulso-operadoras.html"},
+  {t:"SMS em massa por chipeiras",d:"Hardware GSM para disparo em volume",u:"sms-massa-chipeiras.html"},
+  {t:"Manual do App - Índice",d:"Guia completo de uso do SMSMass",u:"manual.html"},
+  {t:"Como obter o link dos contatos",d:"Preparação do Google Sheets",u:"manual-link-contatos.html"},
+  {t:"Como instalar o app",d:"Instalação no Android",u:"manual-instalar.html"},
+  {t:"Como ativar a licença",d:"Trial e planos pagos",u:"manual-ativar-licenca.html"},
+  {t:"Digitar mensagem personalizada",d:"Variáveis nome, valor, horário",u:"manual-mensagem.html"},
+  {t:"Intervalo entre disparos",d:"Ajuste de tempo entre SMS",u:"manual-intervalo.html"},
+  {t:"Usar intervalo De/Até",d:"Disparar parte da lista",u:"manual-de-ate.html"},
+  {t:"Ler o relatório",d:"Interpretação do report de envios",u:"manual-relatorio.html"},
+  {t:"Manual - Perguntas frequentes",d:"Dúvidas comuns sobre o app",u:"manual-faq.html"},
+  {t:"Ajuda",d:"FAQ geral e contato",u:"ajuda.html"}
+];
+
+function normalizar(s){
+  return s.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"");
+}
+function buscar(q){
+  const nq = normalizar(q);
+  if(nq.length < 2) return [];
+  return searchIndex.filter(i =>
+    normalizar(i.t).includes(nq) || normalizar(i.d).includes(nq)
+  ).slice(0,10);
+}
+function renderResultados(items){
+  const box = document.getElementById("searchResults");
+  if(items.length === 0){
+    box.innerHTML = '<div class="rempty">Nada encontrado.</div>';
+    box.classList.add("show");
+    return;
+  }
+  box.innerHTML = items.map(i =>
+    '<a href="' + i.u + '"><div class="rtitle">' + i.t + '</div><div class="rsnippet">' + i.d + '</div></a>'
+  ).join("");
+  box.classList.add("show");
+}
+document.addEventListener("DOMContentLoaded", function(){
+  const inp = document.getElementById("siteSearch");
+  const box = document.getElementById("searchResults");
+  if(inp){
+    inp.addEventListener("input", function(){
+      const r = buscar(this.value);
+      if(this.value.trim().length < 2){ box.classList.remove("show"); return; }
+      renderResultados(r);
+    });
+    inp.addEventListener("blur", function(){ setTimeout(()=>box.classList.remove("show"), 200); });
+    inp.addEventListener("focus", function(){ if(this.value.trim().length >= 2){ renderResultados(buscar(this.value)); } });
+  }
+});
+
+// Compartilhar site
+function compartilharSite(){
+  const url = "https://smsmass.com.br";
+  const txt = "Olha o site do SMSMass - disparo de SMS em massa direto do celular Android: " + url;
+  if(navigator.share){
+    navigator.share({title:"SMSMass", text:"Disparo de SMS em massa", url:url}).catch(()=>{});
+  } else {
+    window.open("https://wa.me/?text=" + encodeURIComponent(txt), "_blank");
+  }
+}
+</script>
+
+</body>
+</html>
