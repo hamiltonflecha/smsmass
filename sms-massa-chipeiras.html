@@ -21,6 +21,7 @@
   position:fixed;top:0;left:0;right:0;z-index:100;
   background:#fff;border-bottom:1px solid var(--line);
   height:54px;display:flex;align-items:center;
+  -webkit-transform:translateZ(0);transform:translateZ(0);will-change:transform;
 }
 .topbar-inner{
   width:100%;padding:0 24px;
@@ -80,6 +81,7 @@
   position:fixed;top:54px;left:0;bottom:0;width:230px;
   background:var(--paper-dim);border-right:1px solid var(--line);
   overflow-y:auto;padding:20px 0;
+  -webkit-transform:translateZ(0);transform:translateZ(0);will-change:transform;
 }
 .sidebar-group{margin-bottom:8px;}
 .sidebar-label{
@@ -106,28 +108,6 @@
   border-left:none;
 }
 .sidebar .sublist a:hover{color:var(--navy);background:transparent;text-decoration:underline;}
-
-/* Sidebar contact block at bottom */
-.sidebar-contact{
-  border-top:1px solid var(--line);
-  margin-top:16px;padding:16px 18px;
-}
-.sidebar-contact .clabel{
-  font-size:.85rem;letter-spacing:.04em;text-transform:uppercase;
-  color:#000;margin-bottom:10px;font-weight:700;
-}
-.sidebar-contact a.whats{
-  display:block;padding:9px 12px;background:#25D366;color:#fff !important;
-  text-decoration:none;border-radius:4px;font-size:.85rem;margin-bottom:8px;
-  border-left:none !important;text-align:center;
-}
-.sidebar-contact a.whats:hover{background:#1EBE5C;color:#fff !important;}
-.sidebar-contact a.share{
-  display:block;padding:9px 12px;background:transparent;color:var(--green);
-  text-decoration:none;border-radius:4px;font-size:.85rem;
-  border:1px solid var(--green) !important;text-align:center;
-}
-.sidebar-contact a.share:hover{background:var(--paper);color:var(--navy);}
 
 /* Main content */
 .main{margin-left:230px;margin-top:54px;min-height:calc(100vh - 54px);}
@@ -236,6 +216,7 @@
   <div class="sidebar-group">
     <div class="sidebar-label">Comparação e uso</div>
     <a href="sms-vs-whatsapp.html">SMS vs WhatsApp vs RCS</a>
+    <a href="rcs.html">RCS: o sucessor do SMS</a>
     <a href="legislacao-sms.html">SMS marketing e LGPD</a>
     <ul class="sublist">
       <li><a href="legislacao-sms.html#base-legal">Base legal LGPD</a></li>
@@ -380,6 +361,7 @@ const searchIndex = [
   {t:"Como o SMS trafega",d:"SMSC, SMPP e SS7",u:"como-sms-trafega.html"},
   {t:"GSM-7 vs UCS-2",d:"Por que o SMS tem limite de 160 caracteres",u:"gsm7-ucs2.html"},
   {t:"SMS vs WhatsApp vs RCS",d:"Comparação para cobrança e consignado",u:"sms-vs-whatsapp.html"},
+  {t:"RCS: o sucessor do SMS",d:"Cobertura no Brasil e por que o SMSMass ainda nao envia por RCS",u:"rcs.html"},
   {t:"SMS marketing e LGPD",d:"Opt-out, base legal e bloqueio",u:"legislacao-sms.html"},
   {t:"SMS avulso via operadoras",d:"Vivo, Claro, TIM, Oi e plataformas web",u:"sms-avulso-operadoras.html"},
   {t:"SMS em massa por chipeiras",d:"Hardware GSM para disparo em volume",u:"sms-massa-chipeiras.html"},

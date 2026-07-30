@@ -3,17 +3,17 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Como ativar a licença — Manual SMSMass</title>
-<meta name="description" content="Ativação com a chave TRIAL para testar ou com a chave paga enviada por e-mail.">
-<link rel="canonical" href="https://smsmass.com.br/manual-ativar-licenca.html">
+<title>RCS: o sucessor do SMS, e por que o SMSMass ainda não envia por ele | SMSMass</title>
+<meta name="description" content="O que é RCS (Rich Communication Services), a cobertura das operadoras no Brasil em 2026, e por que enviar em massa por RCS exige uma infraestrutura diferente do SMS direto pelo chip.">
+<link rel="canonical" href="https://smsmass.com.br/rcs.html">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Como ativar a licença — Manual SMSMass">
-<meta property="og:description" content="Ativação com a chave TRIAL para testar ou com a chave paga enviada por e-mail.">
-<meta property="og:url" content="https://smsmass.com.br/manual-ativar-licenca.html">
+<meta property="og:title" content="RCS: o sucessor do SMS, explicado">
+<meta property="og:description" content="O que é RCS, cobertura das operadoras no Brasil e por que ele não funciona do mesmo jeito que o SMS pelo chip.">
+<meta property="og:url" content="https://smsmass.com.br/rcs.html">
 <meta property="og:locale" content="pt_BR">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Como ativar a licença — Manual SMSMass">
-<meta name="twitter:description" content="Ativação com a chave TRIAL para testar ou com a chave paga enviada por e-mail.">
+<meta name="twitter:title" content="RCS: o sucessor do SMS, explicado">
+<meta name="twitter:description" content="O que é RCS, cobertura das operadoras no Brasil e por que ele não funciona do mesmo jeito que o SMS pelo chip.">
 
 <link rel="stylesheet" href="style.css">
 <style>
@@ -124,7 +124,6 @@
   .topbar nav{display:none;}
   .topbar-search input{width:110px;}
 }
-:target{scroll-margin-top:70px;}
 </style>
 </head>
 <body>
@@ -175,7 +174,7 @@
     <ul class="sublist">
       <li><a href="manual-link-contatos.html">Como obter o link dos contatos</a></li>
       <li><a href="manual-instalar.html">Como instalar o app</a></li>
-      <li><a href="manual-ativar-licenca.html" class="ativo">Como ativar a licença</a></li>
+      <li><a href="manual-ativar-licenca.html">Como ativar a licença</a></li>
       <li><a href="manual-mensagem.html">Digitar mensagem personalizada</a></li>
       <li><a href="manual-intervalo.html">Intervalo entre disparos<br><span class="aviso-especial">⚠ Cuidado especial!</span></a></li>
       <li><a href="manual-de-ate.html">Usar intervalo De/Até</a></li>
@@ -186,7 +185,7 @@
 
   <div class="sidebar-group">
     <div class="sidebar-label">Ferramentas</div>
-    <a href="contador-caracteres.html" class="ativo">Contador de caracteres</a>
+    <a href="contador-caracteres.html">Contador de caracteres</a>
     <ul class="sublist">
       <li><a href="contador-caracteres.html#teste">Teste sua mensagem</a></li>
       <li><a href="contador-caracteres.html#gsm7">Como funciona GSM-7</a></li>
@@ -216,7 +215,7 @@
   <div class="sidebar-group">
     <div class="sidebar-label">Comparação e uso</div>
     <a href="sms-vs-whatsapp.html">SMS vs WhatsApp vs RCS</a>
-    <a href="rcs.html">RCS: o sucessor do SMS</a>
+    <a href="rcs.html" class="ativo">RCS: o sucessor do SMS</a>
     <a href="legislacao-sms.html">SMS marketing e LGPD</a>
     <ul class="sublist">
       <li><a href="legislacao-sms.html#base-legal">Base legal LGPD</a></li>
@@ -246,90 +245,60 @@
 
 <div class="main">
 
+
+
+
 <div class="hero">
   <div class="wrap">
-    <div class="hop">Manual do App · Passo 3</div>
-    <h1>Como ativar a licença</h1>
-    <p class="lede">Usar a chave TRIAL para os 5 SMS gratuitos, ou a chave recebida por e-mail após a compra no Kiwify.</p>
+    <div class="hop">Artigo</div>
+    <h1>RCS: o sucessor do SMS, e por que o SMSMass ainda não envia por ele</h1>
+    <p class="lede">RCS (Rich Communication Services) é o padrão que o Google e a GSMA criaram para substituir o SMS. Ele já roda no Brasil, ainda não sofre o mesmo bloqueio agressivo que o SMS em massa, mas funciona de um jeito tecnicamente diferente do disparo pelo chip.</p>
   </div>
 </div>
 
 <section>
   <div class="wrap">
-    <div class="hop">Em breve</div>
-    <p>Este tópico está em preparação. Enquanto isso, você pode voltar ao <a href="manual.html">Índice</a> ou falar diretamente pelo <a href="https://wa.me/5531993085667" target="_blank" rel="noopener">WhatsApp</a> se tiver dúvida sobre este passo.</p>
+    <div class="hop">O que é</div>
+    <h2 style="font-size:1.25rem;">RCS em poucas palavras</h2>
+    <p>RCS troca a rede de sinalização do SMS (SS7) por internet — dados móveis ou Wi-Fi. Isso permite recursos que o SMS nunca teve: imagens, botões clicáveis, carrosséis de produto, confirmação de leitura e um selo de remetente verificado com nome e logo da empresa. No Android, ele já vem ativado de fábrica no app Mensagens do Google na maioria dos aparelhos vendidos no Brasil; desde o iOS 18, a Apple também passou a suportar o protocolo.</p>
   </div>
 </section>
 
+<section>
+  <div class="wrap">
+    <div class="hop">Panorama 2026</div>
+    <h2 style="font-size:1.25rem;">Cobertura das operadoras no Brasil</h2>
+    <table>
+      <tr><th>Operadora</th><th>Situação do RCS empresarial (P2A)</th></tr>
+      <tr><td>Vivo</td><td>Entrega em escala nas regiões metropolitanas, cobertura acima de 80% dos Android habilitados</td></tr>
+      <tr><td>Claro</td><td>Mesmo nível de cobertura da Vivo nas capitais</td></tr>
+      <tr><td>TIM</td><td>Avançando, mas com lacunas relevantes no Norte e Nordeste — cai para SMS como reserva</td></tr>
+      <tr><td>Oi e MVNOs</td><td>Sem entrega RCS estável para uso comercial — praticamente sempre cai para SMS</td></tr>
+    </table>
+    <p style="color:var(--slate);font-size:.9rem;">Diferente do SMS em massa — hoje bloqueado com frequência pela TIM e pela Claro — o RCS empresarial ainda não tem esse tipo de filtro agressivo no Brasil. Isso pode mudar conforme o volume de spam por esse canal crescer, como já aconteceu com o SMS.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="hop">A pergunta que importa</div>
+    <h2 style="font-size:1.25rem;">O SMSMass pode enviar por RCS?</h2>
+    <p>Não do jeito que ele funciona hoje — e essa é uma diferença de arquitetura, não um recurso que falta ligar. O SMSMass dispara SMS usando uma função do próprio Android (SmsManager) que manda a mensagem direto pelo chip da operadora inserido no celular. É por isso que o app não depende de servidor, gateway ou aprovação prévia de conteúdo.</p>
+    <p>O RCS empresarial não funciona assim. Ele é do tipo <strong>aplicação para pessoa (P2A)</strong>, não pessoa para pessoa como o SMS do seu chip. Não existe uma função pública do Android que um app comum possa chamar para disparar RCS para números arbitrários. Para enviar RCS de verdade em escala, é preciso:</p>
+    <ul>
+      <li>Se tornar (ou contratar) um Agente RBM (RCS Business Messaging) verificado pelo Google;</li>
+      <li>Passar por aprovação de marca e conteúdo, normalmente por meio de uma plataforma intermediária (CPaaS) como Zenvia, Comtele, 360dialog ou similares;</li>
+      <li>Migrar de "SMS disparado pelo chip do celular" para "mensagens disparadas por servidor via API", cobradas por mensagem/mês.</li>
+    </ul>
+    <p>Ou seja: oferecer RCS não é um ajuste no app, seria essencialmente um produto novo, com um modelo de custo e de infraestrutura diferente do que torna o SMSMass barato hoje. Vale ficar de olho conforme a adoção crescer no Brasil, mas por enquanto o SMS pelo chip continua sendo a rota mais direta e sem intermediários para disparo em massa.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap"><a href="central.html">← Voltar para a Central de SMS</a></div>
+</footer>
+
 </div><!-- /main -->
-
-<script>
-const GSM7 = "@£$¥èéùìòÇ\nØø\rÅåΔ_ΦΓΛΩΠΨΣΘΞ\u001bÆæßÉ !\"#¤%&'()*+,-./0123456789:;<=>?¡ABCDEFGHIJKLMNOPQRSTUVWXYZÄÖÑÜ§¿abcdefghijklmnopqrstuvwxyzäöñüà";
-
-function isGSM7(text){
-  for(const ch of text){
-    if(GSM7.indexOf(ch) === -1) return false;
-  }
-  return true;
-}
-
-function numeroExtenso(n){
-  const nomes = ['zero','um','dois','três','quatro','cinco','seis','sete','oito','nove','dez','onze','doze','treze','quatorze','quinze','dezesseis','dezessete','dezoito','dezenove','vinte'];
-  return nomes[n] || n;
-}
-
-function update(){
-  const text = document.getElementById('msg').value;
-  const len = text.length;
-  const gsm7 = isGSM7(text);
-  const limitSingle = gsm7 ? 160 : 70;
-  const limitMulti = gsm7 ? 153 : 67;
-
-  let smsCount;
-  if(len === 0){ smsCount = 0; }
-  else if(len <= limitSingle){ smsCount = 1; }
-  else { smsCount = Math.ceil(len / limitMulti); }
-
-  document.getElementById('charCount').textContent = len;
-  document.getElementById('encoding').textContent = gsm7 ? 'GSM-7' : 'UCS-2';
-  document.getElementById('limitPerSms').textContent = limitSingle;
-  document.getElementById('smsCount').textContent = smsCount;
-
-  // trace: one block per SMS segment, capped visually at 20 for sanity
-  const trace = document.getElementById('trace');
-  trace.innerHTML = '';
-  const blocks = Math.min(smsCount, 20);
-  for(let i=0;i<blocks;i++){
-    const d = document.createElement('div');
-    d.className = 'seg filled';
-    trace.appendChild(d);
-  }
-  if(smsCount > 20){
-    const d = document.createElement('div');
-    d.className = 'seg over';
-    d.title = '+' + (smsCount-20) + ' segmentos';
-    trace.appendChild(d);
-  }
-
-  const warning = document.getElementById('warning');
-  if(len === 0){
-    warning.innerHTML = '';
-  } else if(smsCount === 1 && gsm7){
-    warning.innerHTML = '<div class="notice">Tudo certo: sua mensagem cabe em 1 SMS (codificação GSM-7). Será cobrado apenas 1 envio por contato.</div>';
-  } else if(smsCount === 1 && !gsm7){
-    warning.innerHTML = '<div class="notice">Atenção: sua mensagem cabe em 1 SMS, mas usa codificação UCS-2 (por causa de acento, ç ou emoji), que reduz o limite de 160 para 70 caracteres. Ainda dentro do limite — 1 envio por contato.</div>';
-  } else if(smsCount > 1 && !gsm7){
-    const ext = numeroExtenso(smsCount);
-    warning.innerHTML = '<div class="notice"><p style="margin:0 0 10px;">Atenção!</p><p style="margin:0 0 10px;">Remova acentos, ç ou emojis.</p><p style="margin:0 0 10px;">Ela será dividida em ' + smsCount + '(' + ext + ') partes, e para cada contato, serão enviados ' + smsCount + '(' + ext + ') SMS, impactando seu custo.</p><p style="margin:0;">Sua mensagem contém acento, ç ou emoji, o que ativa a codificação UCS-2 e reduz o limite de 160 para 70 caracteres por SMS.</p></div>';
-  } else {
-    const ext = numeroExtenso(smsCount);
-    warning.innerHTML = '<div class="notice"><p style="margin:0 0 10px;">Atenção!</p><p style="margin:0;">Sua mensagem ultrapassa 160 caracteres. Ela será dividida em ' + smsCount + '(' + ext + ') partes, e para cada contato, serão enviados ' + smsCount + '(' + ext + ') SMS, impactando seu custo.</p></div>';
-  }
-}
-
-document.getElementById('msg').addEventListener('input', update);
-update();
-</script>
 <script>
 // Search index: title, description, url
 const searchIndex = [
