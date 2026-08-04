@@ -122,9 +122,6 @@
   .main{margin-left:0;}
   .menu-toggle{display:block;}
   .topbar nav{display:none;}
-  .topbar-search input{width:110px;}
-}
-@media(max-width:480px){
   .topbar-search{display:none;}
   .topbar-inner{padding:0 14px;gap:10px;}
   .topbar-icons{gap:6px;}
@@ -180,14 +177,15 @@
     <div class="sidebar-label">Manual do App</div>
     <a href="manual.html" class="ativo">Índice</a>
     <ul class="sublist">
-      <li><a href="manual-link-contatos.html">Como obter o link dos contatos</a></li>
-      <li><a href="manual-instalar.html">Como instalar o app</a></li>
-      <li><a href="manual-ativar-licenca.html">Como ativar a licença</a></li>
-      <li><a href="manual-mensagem.html">Digitar mensagem personalizada</a></li>
-      <li><a href="manual-intervalo.html">Intervalo entre disparos<br><span class="aviso-especial">⚠ Cuidado especial!</span></a></li>
-      <li><a href="manual-de-ate.html">Usar intervalo De/Até</a></li>
-      <li><a href="manual-relatorio.html">Ler o relatório</a></li>
-      <li><a href="manual-faq.html">Perguntas frequentes</a></li>
+      <li><a href="manual.html#requisitos">Requisitos</a></li>
+      <li><a href="manual.html#instalacao">Instalação</a></li>
+      <li><a href="manual.html#obter-contatos">Como obter o link dos contatos</a></li>
+      <li><a href="manual.html#ativar-licenca">Como ativar a licença</a></li>
+      <li><a href="manual.html#mensagem-personalizada">Digitar mensagem personalizada</a></li>
+      <li><a href="manual.html#intervalo-disparos">Intervalo entre disparos<br><span class="aviso-especial">⚠ Cuidado especial!</span></a></li>
+      <li><a href="manual.html#intervalo-de-ate">Usar intervalo De/Até</a></li>
+      <li><a href="manual.html#relatorio">Ler o relatório</a></li>
+      <li><a href="manual.html#faq">Perguntas frequentes</a></li>
     </ul>
   </div>
 
@@ -256,55 +254,128 @@
 <div class="hero">
   <div class="wrap">
     <div class="hop">Manual do App</div>
-    <h1>Índice do manual do SMSMass</h1>
-    <p class="lede">Guia completo passo a passo do aplicativo. Comece pelo primeiro tópico, ou vá direto ao ponto que precisa resolver.</p>
+    <h1>Manual do SMSMass</h1>
+    <p class="lede">Guia completo em uma página só, pensado para ficar disponível também dentro do próprio app. Use o índice abaixo para pular direto ao tópico que precisa.</p>
   </div>
 </div>
 
 <section>
   <div class="wrap">
-    <div class="grid grid-2">
-      <a class="tool-link" href="manual-link-contatos.html">
-        <div class="hop">Passo 1</div>
-        <h3>Como obter o link dos contatos</h3>
-        <p>Preparar a planilha do Google Sheets e gerar o link no formato TSV que o app entende.</p>
-      </a>
-      <a class="tool-link" href="manual-instalar.html">
-        <div class="hop">Passo 2</div>
-        <h3>Como instalar o app</h3>
-        <p>Baixar o APK, habilitar instalação e primeiras permissões no Android.</p>
-      </a>
-      <a class="tool-link" href="manual-ativar-licenca.html">
-        <div class="hop">Passo 3</div>
-        <h3>Como ativar a licença</h3>
-        <p>Usar a chave TRIAL para testar, ou a chave enviada por e-mail após a compra.</p>
-      </a>
-      <a class="tool-link" href="manual-mensagem.html">
-        <div class="hop">Passo 4</div>
-        <h3>Digitar mensagem personalizada</h3>
-        <p>Como usar as variáveis nome, valor e horário para deixar cada SMS único.</p>
-      </a>
-      <a class="tool-link" href="manual-intervalo.html">
-        <div class="hop">Passo 5</div>
-        <h3>Intervalo entre disparos</h3>
-        <p>Como ajustar o tempo mínimo e máximo entre SMS para evitar bloqueio da operadora.</p>
-      </a>
-      <a class="tool-link" href="manual-de-ate.html">
-        <div class="hop">Passo 6</div>
-        <h3>Usar intervalo De/Até</h3>
-        <p>Disparar apenas parte da lista, por exemplo do contato 501 ao 800.</p>
-      </a>
-      <a class="tool-link" href="manual-relatorio.html">
-        <div class="hop">Passo 7</div>
-        <h3>Ler o relatório</h3>
-        <p>Interpretar o report de envios e identificar mensagens falhadas.</p>
-      </a>
-      <a class="tool-link" href="manual-faq.html">
-        <div class="hop">Extra</div>
-        <h3>Perguntas frequentes</h3>
-        <p>Respostas rápidas para dúvidas comuns sobre o SMSMass.</p>
-      </a>
-    </div>
+    <div class="hop">Índice</div>
+    <ul style="columns:2;column-gap:32px;line-height:2;">
+      <li><a href="#requisitos">Requisitos</a></li>
+      <li><a href="#instalacao">Instalação</a></li>
+      <li><a href="#obter-contatos">Como obter o link dos contatos</a></li>
+      <li><a href="#ativar-licenca">Como ativar a licença</a></li>
+      <li><a href="#mensagem-personalizada">Digitar mensagem personalizada</a></li>
+      <li><a href="#intervalo-disparos">Intervalo entre disparos <span class="aviso-especial">⚠</span></a></li>
+      <li><a href="#intervalo-de-ate">Usar intervalo De/Até</a></li>
+      <li><a href="#relatorio">Ler o relatório</a></li>
+      <li><a href="#faq">Perguntas frequentes</a></li>
+    </ul>
+  </div>
+</section>
+
+<section id="requisitos">
+  <div class="wrap">
+    <div class="hop">1</div>
+    <h2 style="font-size:1.25rem;">Requisitos</h2>
+    <ul>
+      <li>Aparelho com Android 5.0 (Lollipop) ou superior.</li>
+      <li>Chip de operadora ativo, com plano ou saldo disponível para envio de SMS — o app dispara pelo chip físico do celular, não pela internet.</li>
+      <li>Conexão com internet (Wi-Fi ou dados móveis), usada apenas para ativar a licença e para enviar os relatórios de disparo ao servidor. O envio do SMS em si não depende de internet.</li>
+      <li>Uma planilha do Google Sheets com a lista de contatos, compartilhada como "qualquer pessoa com o link pode visualizar".</li>
+    </ul>
+    <p style="color:var(--slate);font-size:.9rem;">O SMSMass não funciona em iPhone. Isso não é uma limitação do app: ele usa uma função exclusiva do sistema Android para enviar SMS diretamente pelo chip, e o iOS não concede esse tipo de acesso a nenhum aplicativo, de nenhum desenvolvedor — é uma restrição da própria Apple.</p>
+  </div>
+</section>
+
+<section id="instalacao">
+  <div class="wrap">
+    <div class="hop">2</div>
+    <h2 style="font-size:1.25rem;">Instalação</h2>
+    <p>Depois de instalar o APK, o Android vai pedir a permissão de envio de SMS — sem conceder essa permissão nas configurações do aparelho, o app não consegue disparar nada.</p>
+    <p style="color:var(--slate);">Passo a passo completo (baixar o APK, liberar fontes desconhecidas e conceder a permissão) em preparação. Se tiver dúvida agora, chama no <a href="https://wa.me/5531993085667" target="_blank" rel="noopener">WhatsApp</a>.</p>
+  </div>
+</section>
+
+<section id="obter-contatos">
+  <div class="wrap">
+    <div class="hop">3</div>
+    <h2 style="font-size:1.25rem;">Como obter o link dos contatos</h2>
+    <p>O SMSMass carrega os contatos direto de uma planilha do Google Sheets.</p>
+    <h3 style="font-size:1.05rem;margin-top:20px;">Prepare a planilha</h3>
+    <p>Acesse sheets.google.com e crie uma planilha nova. A primeira linha deve ter os cabeçalhos exatamente como abaixo, todos em letras minúsculas:</p>
+    <table>
+      <tr><th>Coluna A</th><th>Coluna B</th><th>Coluna C</th></tr>
+      <tr><td>nome</td><td>telefone</td><td>valor</td></tr>
+    </table>
+    <p>A partir da segunda linha, insira um contato por linha. Exemplo:</p>
+    <table>
+      <tr><th>nome</th><th>telefone</th><th>valor</th></tr>
+      <tr><td>Maria</td><td class="mono">31987654321</td><td class="mono">1250,00</td></tr>
+      <tr><td>João</td><td class="mono">31912345678</td><td class="mono">890,50</td></tr>
+    </table>
+    <p style="color:var(--slate);font-size:.9rem;">O telefone deve incluir DDD, sem espaços, traços ou parênteses. O valor pode ficar com vírgula ou ponto como separador decimal — o app aceita os dois.</p>
+
+    <h3 style="font-size:1.05rem;margin-top:20px;">Compartilhe a planilha</h3>
+    <p>No canto superior direito do Google Sheets, clique em Compartilhar, depois em Alterar para qualquer pessoa com o link. Deixe a permissão como Leitor (o app não precisa editar, só ler). Feche essa janela — não precisa copiar o link que aparece ali, o link que o SMSMass usa é diferente.</p>
+
+    <h3 style="font-size:1.05rem;margin-top:20px;">Gere o link</h3>
+    <p>Copie o endereço que aparece na barra do navegador enquanto a planilha estiver aberta. Ele parece com isso:</p>
+    <p class="mono" style="background:var(--paper-dim);padding:12px;border-radius:4px;font-size:.85rem;">https://docs.google.com/spreadsheets/d/1AbCdEfGhIjKlMnOpQrStUvWxYz1234567890/edit#gid=0</p>
+    <p>Cole esse endereço direto no campo do app — a partir da versão V158, o SMSMass corrige automaticamente esse link para o formato correto. Você não precisa fazer nada manual, ele detecta o ID da planilha e a aba (gid) e monta a URL de exportação sozinho.</p>
+
+    <h3 style="font-size:1.05rem;margin-top:20px;">Confira a leitura no app</h3>
+    <p>Após colar o link, toque em Carregar Contatos. O app vai mostrar quantos contatos foram lidos. Se aparecer zero, revise: se a primeira linha tem os cabeçalhos exatos (nome, telefone, valor), se a planilha está compartilhada como qualquer pessoa com o link pode ler, e se não há linhas vazias entre os contatos.</p>
+  </div>
+</section>
+
+<section id="ativar-licenca">
+  <div class="wrap">
+    <div class="hop">4</div>
+    <h2 style="font-size:1.25rem;">Como ativar a licença</h2>
+    <p style="color:var(--slate);">Usar a chave TRIAL para os 5 SMS gratuitos, ou a chave recebida por e-mail após a compra no Kiwify. Passo a passo em preparação.</p>
+  </div>
+</section>
+
+<section id="mensagem-personalizada">
+  <div class="wrap">
+    <div class="hop">5</div>
+    <h2 style="font-size:1.25rem;">Digitar mensagem personalizada</h2>
+    <p style="color:var(--slate);">Uso das variáveis {nome}, {valor} e {horario}, e como o app faz a substituição para cada contato. Em preparação.</p>
+  </div>
+</section>
+
+<section id="intervalo-disparos">
+  <div class="wrap">
+    <div class="hop">6</div>
+    <h2 style="font-size:1.25rem;">Intervalo entre disparos <span class="aviso-especial">⚠ Cuidado especial!</span></h2>
+    <p style="color:var(--slate);">Configuração do intervalo mínimo e máximo em segundos, e por que isso é importante para não ser bloqueado pela operadora. Em preparação.</p>
+  </div>
+</section>
+
+<section id="intervalo-de-ate">
+  <div class="wrap">
+    <div class="hop">7</div>
+    <h2 style="font-size:1.25rem;">Usar intervalo De/Até</h2>
+    <p style="color:var(--slate);">Uso dos campos De e Até para segmentar a lista e reprocessar contatos. Em preparação.</p>
+  </div>
+</section>
+
+<section id="relatorio">
+  <div class="wrap">
+    <div class="hop">8</div>
+    <h2 style="font-size:1.25rem;">Ler o relatório</h2>
+    <p style="color:var(--slate);">Interpretação do relatório de envios, mensagens de sucesso e mensagens falhadas. Em preparação.</p>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="wrap">
+    <div class="hop">9</div>
+    <h2 style="font-size:1.25rem;">Perguntas frequentes</h2>
+    <p style="color:var(--slate);">Dúvidas mais comuns sobre operação, licença, disparo e relatório. Em preparação.</p>
   </div>
 </section>
 
