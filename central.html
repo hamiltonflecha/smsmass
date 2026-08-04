@@ -123,10 +123,12 @@
   .main{margin-left:0;}
   .menu-toggle{display:block;}
   .topbar nav{display:none;}
+}
+@media(max-width:1024px){
   .topbar-search{display:none;}
   .topbar-inner{padding:0 14px;gap:10px;}
-  .topbar-icons{gap:6px;}
-  .icon-link{width:30px;height:30px;border-radius:8px;}
+  .topbar-icons{gap:6px;flex-shrink:0;}
+  .icon-link{width:30px;height:30px;border-radius:8px;flex-shrink:0;}
   .icon-link svg{width:16px;height:16px;}
 }
 </style>
@@ -168,7 +170,7 @@
 
 <!-- Sidebar esquerda -->
 <div class="sidebar">
-  <div class="sidebar-version">v001</div>
+  <div class="sidebar-version">v002</div>
   <div class="sidebar-group">
     <div class="sidebar-label">Início</div>
     <a href="index.html">Home</a>
