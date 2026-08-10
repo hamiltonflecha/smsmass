@@ -170,7 +170,7 @@
 
 <!-- Sidebar esquerda -->
 <div class="sidebar">
-  <div class="sidebar-version">v006</div>
+  <div class="sidebar-version">v007</div>
   <div class="sidebar-group">
     <div class="sidebar-label">Início</div>
     <a href="index.html">Home</a>
@@ -184,12 +184,15 @@
       <li><a href="manual.html#requisitos">Requisitos</a></li>
       <li><a href="manual.html#instalacao">Instalação</a></li>
       <li><a href="manual.html#reinstalacao">Reinstalação</a></li>
+      <li><a href="manual.html#legislacao">Legislação</a></li>
       <li><a href="manual.html#criando-mensagem">Criando sua mensagem</a></li>
       <li><a href="manual.html#obter-contatos">Link dos contatos</a></li>
       <li><a href="manual.html#ativar-licenca">Como ativar a licença</a></li>
       <li><a href="manual.html#intervalo-disparos">Intervalo entre disparos<br><span class="aviso-especial">⚠ Cuidado especial!</span></a></li>
       <li><a href="manual.html#intervalo-de-ate">Usar intervalo De/Até</a></li>
+      <li><a href="manual.html#enviando">Enviando</a></li>
       <li><a href="manual.html#relatorio">Ler o relatório</a></li>
+      <li><a href="manual.html#envio-avulso">Envio avulso</a></li>
       <li><a href="manual.html#faq">Perguntas frequentes</a></li>
     </ul>
   </div>
@@ -229,7 +232,6 @@
     <a href="rcs.html">RCS: o sucessor do SMS</a>
     <a href="legislacao-sms.html">SMS marketing e LGPD</a>
     <ul class="sublist">
-      <li><a href="legislacao-sms.html#base-legal">Base legal LGPD</a></li>
       <li><a href="legislacao-sms.html#opt-out">Opt-out</a></li>
       <li><a href="legislacao-sms.html#bloqueio">Bloqueio na operadora</a></li>
     </ul>
@@ -271,12 +273,15 @@
       <li><a href="#requisitos">Requisitos</a></li>
       <li><a href="#instalacao">Instalação</a></li>
       <li><a href="#reinstalacao">Reinstalação</a></li>
+      <li><a href="#legislacao">Legislação</a></li>
       <li><a href="#criando-mensagem">Criando sua mensagem</a></li>
       <li><a href="#obter-contatos">Link dos contatos</a></li>
       <li><a href="#ativar-licenca">Como ativar a licença</a></li>
       <li><a href="#intervalo-disparos">Intervalo entre disparos <span class="aviso-especial">⚠</span></a></li>
       <li><a href="#intervalo-de-ate">Usar intervalo De/Até</a></li>
+      <li><a href="#enviando">Enviando</a></li>
       <li><a href="#relatorio">Ler o relatório</a></li>
+      <li><a href="#envio-avulso">Envio avulso</a></li>
       <li><a href="#faq">Perguntas frequentes</a></li>
     </ul>
   </div>
@@ -292,7 +297,7 @@
       <li>Conexão com internet (Wi-Fi ou dados móveis), usada apenas para ativar a licença e para enviar os relatórios de disparo ao servidor. O envio do SMS em si não depende de internet.</li>
       <li>Conta no Gmail.</li>
       <li>Conta no Google Drive.</li>
-      <li>Planilha do Google Sheets com a lista de contatos, compartilhada como "qualquer pessoa com o link pode visualizar".</li>
+      <li>Planilha do Google Sheets com a lista de contatos.</li>
     </ul>
     <p style="color:var(--slate);font-size:.9rem;">O SMSMass não funciona em iPhone. Isso não é uma limitação do app. O SMSMass usa uma função exclusiva do sistema Android para enviar SMS diretamente pelo chip. O iOS não concede esse tipo de acesso a nenhum aplicativo, de nenhum desenvolvedor. É uma restrição da própria Apple.</p>
   </div>
@@ -310,6 +315,7 @@
       <li>Clique em Abrir. Nos usos seguintes, depois de fechar o app, abra pela interface do celular, clicando no ícone dele.</li>
       <li>Se for a versão Trial, a licença já vem preenchida no topo da tela. Se for outra versão, coloque o código recebido por e-mail no topo da tela e clique em Ativar.</li>
     </ol>
+    <p style="color:var(--slate);font-size:.9rem;">Observação: em alguns aparelhos Android a instalação pode parecer travada, demorando bem mais do que o esperado. Nesse caso, cancele a instalação e tente instalar novamente.</p>
   </div>
 </section>
 
@@ -317,22 +323,47 @@
   <div class="wrap">
     <div class="hop">3</div>
     <h2 style="font-size:1.25rem;">Reinstalação</h2>
-    <p>Nesse caso, remova completamente o app — em Configurações do celular ou desinstalando pela interface. Sobrescrever a instalação anterior não funciona.</p>
+    <p>Nesse caso, remova completamente o app — em Configurações do celular ou desinstalando pela interface. Sobrescrever a instalação anterior não funciona. Após fazer isso, reinstale como na Instalação descrita.</p>
+  </div>
+</section>
+
+<section id="legislacao">
+  <div class="wrap">
+    <div class="hop">4</div>
+    <h2 style="font-size:1.25rem;">Legislação</h2>
+
+    <h3 style="font-size:1.05rem;margin-top:20px;" id="legislacao-base-legal">Base legal (LGPD)</h3>
+    <p>A Lei Geral de Proteção de Dados (Lei 13.709/2018) não proíbe SMS marketing, mas exige uma base legal para o uso do número de telefone — geralmente consentimento do titular ou legítimo interesse, quando há uma relação comercial prévia (por exemplo, um cliente que já contratou um produto consignado). Números obtidos de bases compradas sem rastreabilidade de origem são um risco jurídico maior, porque não há como comprovar a base legal se houver reclamação.</p>
+
+    <h3 style="font-size:1.05rem;margin-top:20px;" id="legislacao-eleicoes">Eleições</h3>
+    <p>Se a intenção é usar o SMSMass para propaganda político-eleitoral, as regras são diferentes das do uso comercial. A propaganda eleitoral na internet só é permitida a partir de 16 de agosto — antes disso vale o período de pré-campanha, com restrições a pedido explícito de voto.</p>
+    <p>O disparo em massa de mensagens de conteúdo político-eleitoral é proibido em qualquer canal, incluindo SMS, WhatsApp e Telegram — mesmo usando uma base de contatos própria. Uma base comercial usada para outra finalidade (por exemplo, uma lista de clientes de crédito consignado) não pode ser reaproveitada para propaganda eleitoral sem consentimento específico para essa finalidade. A base legal para isso está na Resolução TSE 23.610, que exige consentimento específico, expresso e destacado para o tratamento desse tipo de dado.</p>
+    <p>Conteúdo gerado por inteligência artificial precisa exibir aviso identificando a tecnologia usada, e há uma janela de 72h antes até 24h depois do pleito em que fica vedado republicar conteúdo sintético com voz ou imagem de candidatos.</p>
+    <p style="color:var(--slate);font-size:.9rem;">Na prática: o SMSMass é uma ferramenta de disparo em massa, o que é estruturalmente incompatível com propaganda político-eleitoral, mesmo usando uma lista de contatos própria — diferente do uso comercial (INSS, consignado, vendas em geral), que não tem essa restrição.</p>
   </div>
 </section>
 
 <section id="criando-mensagem">
   <div class="wrap">
-    <div class="hop">4</div>
+    <div class="hop">5</div>
     <h2 style="font-size:1.25rem;">Criando sua mensagem</h2>
     <p>A mensagem pode ter até 160 caracteres — esse é o limite de um SMS único usando codificação padrão (GSM-7). Ultrapassar esse limite não trava o envio, mas gera cobrança de mais de um SMS por disparo. Use o <a href="contador-caracteres.html">Contador de caracteres</a> para conferir em tempo real quantos SMS sua mensagem vai gerar antes de sair disparando.</p>
     <p>A mensagem pode ser mesclada com os dados da planilha de contatos: o SMSMass substitui automaticamente variáveis como {nome} e {valor} pelo conteúdo de cada linha da planilha, uma por contato, gerando uma mensagem personalizada para cada pessoa em vez de um texto único igual para todos.</p>
+
+    <h3 style="font-size:1.05rem;margin-top:20px;">Exemplos de mensagem</h3>
+    <p>1 — {nome} essa mensagem foi enviada pelo app SMSMass e você pode adquiri-lo por apenas {valor} para enviar mensagens ilimitadas.</p>
+    <p>2 — Por apenas {valor} eu adquiri o melhor app de envio de mensagens pelo celular. {nome}, conquiste mais clientes, amplie suas vendas. Visite nosso site www.exemplo.com.br</p>
+    <p>3 — Nome e valor não precisam ser, literalmente, nome e valor. Podem representar qualquer texto — use sua imaginação para customizar suas mensagens conforme sua campanha.</p>
+    <p>4 — {nome}, você tem {valor} disponível para saque no seu benefício. Consulte sem compromisso, sem alterar sua renda.</p>
+    <p>5 — Olá {nome}! Sua proposta de portabilidade consignado está pronta, com economia de até {valor} por mês. Fale com a gente.</p>
+    <p>6 — {nome}, últimas vagas! Garanta já com {valor} de desconto. Oferta válida só hoje.</p>
+    <p>7 — {nome}, seu FGTS saque-aniversário libera até {valor} disponível para retirada. Consulte agora, sem custo.</p>
   </div>
 </section>
 
 <section id="obter-contatos">
   <div class="wrap">
-    <div class="hop">5</div>
+    <div class="hop">6</div>
     <h2 style="font-size:1.25rem;">Link dos contatos</h2>
     <p>O SMSMass carrega os contatos direto de uma planilha do Google Sheets.</p>
 
@@ -371,7 +402,7 @@
 
 <section id="ativar-licenca">
   <div class="wrap">
-    <div class="hop">6</div>
+    <div class="hop">7</div>
     <h2 style="font-size:1.25rem;">Como ativar a licença</h2>
     <p style="color:var(--slate);">Usar a chave TRIAL para os 5 SMS gratuitos, ou a chave recebida por e-mail após a compra no Kiwify. Passo a passo em preparação.</p>
   </div>
@@ -379,31 +410,84 @@
 
 <section id="intervalo-disparos">
   <div class="wrap">
-    <div class="hop">7</div>
+    <div class="hop">8</div>
     <h2 style="font-size:1.25rem;">Intervalo entre disparos <span class="aviso-especial">⚠ Cuidado especial!</span></h2>
-    <p style="color:var(--slate);">Configuração do intervalo mínimo e máximo em segundos, e por que isso é importante para não ser bloqueado pela operadora. Em preparação.</p>
+    <p>Configurar o intervalo errado é a causa mais comum de bloqueio de chip. Operadoras como Vivo, Claro e TIM monitoram o volume e a frequência de disparos saindo de um mesmo número — não é preciso nenhuma denúncia de destinatário para o sistema antifraude identificar um padrão de disparo em massa e bloquear o chip.</p>
+    <p>Recomendamos um tempo mínimo de pelo menos <strong>30 segundos</strong> entre cada SMS. Abaixo disso, o risco de bloqueio é praticamente certo.</p>
+    <p>O tempo máximo define o teto da faixa: junto com o mínimo, ele forma o intervalo de onde o app sorteia, a cada envio, um tempo de espera diferente — de forma aleatória, e não um valor fixo repetido. Isso é importante porque um intervalo sempre igual (por exemplo, sempre exatos 30 segundos) cria um padrão fácil de identificar pelos sistemas das operadoras. Um intervalo aleatório dentro de uma faixa imita melhor o comportamento humano e reduz esse risco.</p>
+    <p>Quanto maior a faixa (mínimo e máximo mais altos), mais seguro o envio — mas menos SMS por hora são enviados. É uma troca entre velocidade e segurança.</p>
+    <table>
+      <tr><th>Tempo mínimo</th><th>Tempo máximo</th><th>Tempo médio</th><th>SMS por hora (aprox.)</th><th>Risco</th></tr>
+      <tr><td>30s</td><td>60s</td><td>~45s</td><td>~80</td><td>Alto risco</td></tr>
+      <tr><td>60s</td><td>120s</td><td>~90s</td><td>~40</td><td>Risco moderado</td></tr>
+      <tr><td>120s</td><td>180s</td><td>~150s</td><td>~24</td><td>Risco baixo</td></tr>
+      <tr><td>180s</td><td>240s</td><td>~210s</td><td>~17</td><td>Seguro</td></tr>
+      <tr><td>220s</td><td>280s</td><td>~250s</td><td>~14</td><td>Muito seguro — faixa usada em produção</td></tr>
+    </table>
+    <p style="color:var(--slate);font-size:.9rem;">Para campanhas grandes, distribuir os envios ao longo do dia (por exemplo, em horário comercial, das 10h às 17h) em vez de tentar enviar tudo de uma vez também reduz o risco de bloqueio.</p>
   </div>
 </section>
 
 <section id="intervalo-de-ate">
   <div class="wrap">
-    <div class="hop">8</div>
+    <div class="hop">9</div>
     <h2 style="font-size:1.25rem;">Usar intervalo De/Até</h2>
-    <p style="color:var(--slate);">Uso dos campos De e Até para segmentar a lista e reprocessar contatos. Em preparação.</p>
+    <p>Os campos De e Até permitem enviar apenas uma parte da lista de contatos da planilha, em vez de todos de uma vez. Isso é útil para dividir uma lista grande em lotes, ou para retomar um envio que parou no meio sem repetir contatos que já receberam a mensagem.</p>
+    <p>Exemplo: imagine uma planilha com 13.595 contatos (linhas de contato 1 até 13.595, sem contar o cabeçalho). Você pode dividir o envio em lotes assim:</p>
+    <table>
+      <tr><th>Lote</th><th>De</th><th>Até</th></tr>
+      <tr><td>1</td><td>1</td><td>3000</td></tr>
+      <tr><td>2</td><td>3001</td><td>6000</td></tr>
+      <tr><td>3</td><td>6001</td><td>9000</td></tr>
+      <tr><td>4</td><td>9001</td><td>12000</td></tr>
+      <tr><td>5</td><td>12001</td><td>13595</td></tr>
+    </table>
+    <p>Cada lote é um envio separado. Você espera o lote terminar (ou usa Parar, se precisar interromper), confere no relatório quantos foram enviados, e inicia o próximo lote alterando apenas os campos De e Até.</p>
+    <p style="color:var(--slate);font-size:.9rem;">Isso também é útil se um envio for interrompido no meio — por exemplo, se parou no contato 4.200 de um lote De 3001 até 6000, o próximo envio pode começar De 4201 até 6000, sem reenviar para quem já recebeu.</p>
+  </div>
+</section>
+
+<section id="enviando">
+  <div class="wrap">
+    <div class="hop">10</div>
+    <h2 style="font-size:1.25rem;">Enviando</h2>
+    <p>Durante o envio, a tela mostra o tempo decorrido, quantos contatos já foram processados do total (por exemplo, "45 de 100") e o andamento do disparo em tempo real.</p>
+
+    <h3 style="font-size:1.05rem;margin-top:20px;">Mantenha o app em foco</h3>
+    <p>O SMSMass precisa ficar aberto e em foco durante todo o envio — não minimize e não deixe a tela apagar, ou o ritmo de disparo pode parar ou ficar irregular.</p>
+
+    <h3 style="font-size:1.05rem;margin-top:20px;">Dicas para envios longos</h3>
+    <ul>
+      <li>Use o app em modo de tela dividida (split screen), se o aparelho tiver esse recurso — ajuda a reduzir o aquecimento do celular.</li>
+      <li>Diminua o brilho da tela.</li>
+      <li>Deixe o carregador conectado durante envios longos, para não ficar sem bateria no meio do disparo.</li>
+    </ul>
+
+    <h3 style="font-size:1.05rem;margin-top:20px;">Se muitos contatos falharem de uma vez</h3>
+    <p>Uma falha geral — muitos contatos seguidos sem entrega — pode ser sinal de bloqueio pela operadora do chip, e não necessariamente um problema do app. Isso costuma acontecer principalmente com chips Claro. Se notar esse padrão, revise o <a href="#intervalo-disparos">intervalo entre disparos</a> e considere aumentar o tempo mínimo e máximo.</p>
   </div>
 </section>
 
 <section id="relatorio">
   <div class="wrap">
-    <div class="hop">9</div>
+    <div class="hop">11</div>
     <h2 style="font-size:1.25rem;">Ler o relatório</h2>
     <p style="color:var(--slate);">Interpretação do relatório de envios, mensagens de sucesso e mensagens falhadas. Em preparação.</p>
   </div>
 </section>
 
+<section id="envio-avulso">
+  <div class="wrap">
+    <div class="hop">12</div>
+    <h2 style="font-size:1.25rem;">Envio avulso</h2>
+    <p>O SMSMass foi feito para disparo em massa, mas o mesmo app também serve para enviar uma mensagem avulsa — para um único contato, ou para poucos. Não existe um modo separado para isso: o processo é o mesmo de sempre, só que com uma planilha menor.</p>
+    <p>Basta preparar a planilha do Google Sheets com apenas uma linha de contato (ou poucas), seguindo o mesmo modelo com as colunas nome, telefone e valor. Cole o link no app, escreva a mensagem e clique em Enviar — funciona igual para 1 contato ou para milhares.</p>
+  </div>
+</section>
+
 <section id="faq">
   <div class="wrap">
-    <div class="hop">10</div>
+    <div class="hop">13</div>
     <h2 style="font-size:1.25rem;">Perguntas frequentes</h2>
     <p style="color:var(--slate);">Dúvidas mais comuns sobre operação, licença, disparo e relatório. Em preparação.</p>
   </div>
@@ -489,19 +573,22 @@ const searchIndex = [
   {t:"GSM-7 vs UCS-2",d:"Por que o SMS tem limite de 160 caracteres",u:"gsm7-ucs2.html"},
   {t:"SMS vs WhatsApp vs RCS",d:"Comparação para cobrança e consignado",u:"sms-vs-whatsapp.html"},
   {t:"RCS: o sucessor do SMS",d:"Cobertura no Brasil e por que o SMSMass ainda nao envia por RCS",u:"rcs.html"},
-  {t:"SMS marketing e LGPD",d:"Opt-out, base legal e bloqueio",u:"legislacao-sms.html"},
+  {t:"SMS marketing e LGPD",d:"Opt-out e bloqueio na operadora",u:"legislacao-sms.html"},
   {t:"SMS avulso via operadoras",d:"Vivo, Claro, TIM, Oi e plataformas web",u:"sms-avulso-operadoras.html"},
   {t:"SMS em massa por chipeiras",d:"Hardware GSM para disparo em volume",u:"sms-massa-chipeiras.html"},
   {t:"Manual do App",d:"Guia completo de uso do SMSMass, tudo em uma pagina",u:"manual.html"},
   {t:"Requisitos",d:"O que o celular precisa ter para rodar o SMSMass",u:"manual.html#requisitos"},
   {t:"Instalacao",d:"Instalar o APK e conceder permissao de SMS",u:"manual.html#instalacao"},
   {t:"Reinstalacao",d:"Como reinstalar o app corretamente",u:"manual.html#reinstalacao"},
+  {t:"Legislacao",d:"Base legal LGPD e regras para uso eleitoral",u:"manual.html#legislacao"},
   {t:"Criando sua mensagem",d:"Limite de 160 caracteres e mesclagem com a planilha",u:"manual.html#criando-mensagem"},
   {t:"Link dos contatos",d:"Modelo de planilha e preparacao do Google Sheets",u:"manual.html#obter-contatos"},
   {t:"Como ativar a licenca",d:"Trial e planos pagos",u:"manual.html#ativar-licenca"},
   {t:"Intervalo entre disparos",d:"Ajuste de tempo entre SMS",u:"manual.html#intervalo-disparos"},
   {t:"Usar intervalo De/Ate",d:"Disparar parte da lista",u:"manual.html#intervalo-de-ate"},
+  {t:"Enviando",d:"O que aparece na tela durante o disparo",u:"manual.html#enviando"},
   {t:"Ler o relatorio",d:"Interpretacao do report de envios",u:"manual.html#relatorio"},
+  {t:"Envio avulso",d:"Enviar SMS para um contato ou poucos",u:"manual.html#envio-avulso"},
   {t:"Manual - Perguntas frequentes",d:"Duvidas comuns sobre o app",u:"manual.html#faq"},
   {t:"Ajuda",d:"FAQ geral e contato",u:"ajuda.html"}
 ];
