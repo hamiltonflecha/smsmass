@@ -9,17 +9,16 @@
 <link rel="shortcut icon" href="favicon.ico">
 
 <title>SMSMass</title>
-<meta name="description" content="O que é RCS (Rich Communication Services), a cobertura das operadoras no Brasil em 2026, e por que enviar em massa por RCS exige uma infraestrutura diferente do SMS direto pelo chip.">
-<link rel="canonical" href="https://smsmass.com.br/rcs.html">
+<meta name="description" content="Consulta de operadora em lote integrada ao SMSMass. Descubra a operadora atual de cada número da sua planilha antes de disparar e evite desperdício de créditos SMS.">
+<link rel="canonical" href="https://smsmass.com.br/consulta-operadora.html">
 <meta property="og:type" content="website">
-<meta property="og:title" content="RCS: o sucessor do SMS, explicado">
-<meta property="og:description" content="O que é RCS, cobertura das operadoras no Brasil e por que ele não funciona do mesmo jeito que o SMS pelo chip.">
-<meta property="og:url" content="https://smsmass.com.br/rcs.html">
+<meta property="og:title" content="Consulta de operadora em lote — SMSMass">
+<meta property="og:description" content="Descubra a operadora atual de cada número da sua planilha, direto pelo app, antes de disparar sua campanha.">
+<meta property="og:url" content="https://smsmass.com.br/consulta-operadora.html">
 <meta property="og:locale" content="pt_BR">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="RCS: o sucessor do SMS, explicado">
-<meta name="twitter:description" content="O que é RCS, cobertura das operadoras no Brasil e por que ele não funciona do mesmo jeito que o SMS pelo chip.">
-
+<meta name="twitter:title" content="Consulta de operadora em lote — SMSMass">
+<meta name="twitter:description" content="Descubra a operadora atual de cada número da sua planilha, direto pelo app, antes de disparar sua campanha.">
 <link rel="stylesheet" href="style.css">
 <style>
 .topbar{
@@ -136,6 +135,7 @@
   .icon-link{width:30px;height:30px;border-radius:8px;flex-shrink:0;}
   .icon-link svg{width:16px;height:16px;}
 }
+:target{scroll-margin-top:70px;}
 </style>
 </head>
 <body>
@@ -214,7 +214,7 @@
       <li><a href="simulador-operadora.html#abr">Consulta oficial ABR</a></li>
       <li><a href="simulador-operadora.html#portabilidade">Portabilidade numérica</a></li>
     </ul>
-    <a href="consulta-operadora.html">Consulta de operadora em lote</a>
+    <a href="consulta-operadora.html" class="ativo">Consulta de operadora em lote</a>
     <ul class="sublist">
       <li><a href="consulta-operadora.html#como-funciona">Como funciona</a></li>
       <li><a href="consulta-operadora.html#precos">Preços</a></li>
@@ -239,7 +239,7 @@
   <div class="sidebar-group">
     <div class="sidebar-label">Comparação e uso</div>
     <a href="sms-vs-whatsapp.html">SMS vs WhatsApp vs RCS</a>
-    <a href="rcs.html" class="ativo">RCS</a>
+    <a href="rcs.html">RCS</a>
     <a href="legislacao-sms.html">SMS marketing e LGPD</a>
     <ul class="sublist">
       <li><a href="legislacao-sms.html#opt-out">Opt-out</a></li>
@@ -273,47 +273,104 @@
 
 <div class="hero">
   <div class="wrap">
-    <div class="hop">Artigo</div>
-    <h1>RCS: o sucessor do SMS, e por que o SMSMass ainda não envia por ele</h1>
-    <p class="lede">RCS (Rich Communication Services) é o padrão que o Google e a GSMA criaram para substituir o SMS. Ele já roda no Brasil, ainda não sofre o mesmo bloqueio agressivo que o SMS em massa, mas funciona de um jeito tecnicamente diferente do disparo pelo chip.</p>
+    <div class="hop">Recurso do app · Pago por consulta</div>
+    <h1>Consulta de operadora em lote, direto no SMSMass</h1>
+    <p class="lede">Antes de disparar uma campanha, descubra a operadora atual de cada número da sua planilha de contatos — sem sair do app. Números portados ou desatualizados são uma das principais causas de desperdício em campanhas de SMS em massa; consultando antes, você direciona melhor o envio e evita gastar créditos com contatos que não vão receber a mensagem.</p>
   </div>
 </div>
 
 <section>
   <div class="wrap">
-    <div class="hop">O que é</div>
-    <h2 style="font-size:1.25rem;">RCS em poucas palavras</h2>
-    <p>RCS troca a rede de sinalização do SMS (SS7) por internet — dados móveis ou Wi-Fi. Isso permite recursos que o SMS nunca teve: imagens, botões clicáveis, carrosséis de produto, confirmação de leitura e um selo de remetente verificado com nome e logo da empresa. No Android, ele já vem ativado de fábrica no app Mensagens do Google na maioria dos aparelhos vendidos no Brasil; desde o iOS 18, a Apple também passou a suportar o protocolo.</p>
+    <div class="hop">Por que consultar antes de disparar</div>
+    <h2 style="font-size:1.25rem;">Portabilidade numérica: o prefixo já não indica a operadora</h2>
+    <p>Desde a portabilidade numérica, um número pode ter trocado de operadora sem trocar de forma alguma o DDD ou o prefixo. Isso significa que uma planilha de contatos antiga ou comprada de terceiros pode ter uma taxa relevante de números com a operadora desatualizada — o que impacta diretamente a taxa de entrega em campanhas de SMS.</p>
+    <p>A consulta de operadora do SMSMass resolve isso em lote: você sobe a mesma planilha que já usa para disparo, o app consulta a operadora atual de cada número através do backend do SMSMass, e devolve o resultado organizado — sem que você precise se cadastrar em nenhum serviço externo ou lidar com credenciais de terceiros.</p>
   </div>
 </section>
 
-<section>
+<section id="como-funciona">
   <div class="wrap">
-    <div class="hop">Panorama 2026</div>
-    <h2 style="font-size:1.25rem;">Cobertura das operadoras no Brasil</h2>
-    <table>
-      <tr><th>Operadora</th><th>Situação do RCS empresarial (P2A)</th></tr>
-      <tr><td>Vivo</td><td>Entrega em escala nas regiões metropolitanas, cobertura acima de 80% dos Android habilitados</td></tr>
-      <tr><td>Claro</td><td>Mesmo nível de cobertura da Vivo nas capitais</td></tr>
-      <tr><td>TIM</td><td>Avançando, mas com lacunas relevantes no Norte e Nordeste — cai para SMS como reserva</td></tr>
-      <tr><td>Oi e MVNOs</td><td>Sem entrega RCS estável para uso comercial — praticamente sempre cai para SMS</td></tr>
-    </table>
-    <p style="color:var(--slate);font-size:.9rem;">Diferente do SMS em massa — hoje bloqueado com frequência pela TIM e pela Claro — o RCS empresarial ainda não tem esse tipo de filtro agressivo no Brasil. Isso pode mudar conforme o volume de spam por esse canal crescer, como já aconteceu com o SMS.</p>
-  </div>
-</section>
-
-<section>
-  <div class="wrap">
-    <div class="hop">A pergunta que importa</div>
-    <h2 style="font-size:1.25rem;">O SMSMass pode enviar por RCS?</h2>
-    <p>Não do jeito que ele funciona hoje — e essa é uma diferença de arquitetura, não um recurso que falta ligar. O SMSMass dispara SMS usando uma função do próprio Android (SmsManager) que manda a mensagem direto pelo chip da operadora inserido no celular. É por isso que o app não depende de servidor, gateway ou aprovação prévia de conteúdo.</p>
-    <p>O RCS empresarial não funciona assim. Ele é do tipo <strong>aplicação para pessoa (P2A)</strong>, não pessoa para pessoa como o SMS do seu chip. Não existe uma função pública do Android que um app comum possa chamar para disparar RCS para números arbitrários. Para enviar RCS de verdade em escala, é preciso:</p>
-    <ul>
-      <li>Se tornar (ou contratar) um Agente RBM (RCS Business Messaging) verificado pelo Google;</li>
-      <li>Passar por aprovação de marca e conteúdo, normalmente por meio de uma plataforma intermediária (CPaaS) como Zenvia, Comtele, 360dialog ou similares;</li>
-      <li>Migrar de "SMS disparado pelo chip do celular" para "mensagens disparadas por servidor via API", cobradas por mensagem/mês.</li>
+    <div class="hop">Como funciona</div>
+    <h2 style="font-size:1.25rem;">Simples, dentro da mesma licença que você já usa</h2>
+    <ul class="plan-items" style="margin-top:12px;">
+      <li>Use a mesma planilha de contatos do SMSMass, sem preparo extra</li>
+      <li>A consulta roda pelo backend do SMSMass — você nunca lida com login ou senha de provedor externo</li>
+      <li>Cada consulta desconta um crédito específico, separado do seu saldo de SMS</li>
+      <li>Resultado com a operadora atual de cada número, pronto para orientar sua campanha</li>
     </ul>
-    <p>Ou seja: oferecer RCS não é um ajuste no app, seria essencialmente um produto novo, com um modelo de custo e de infraestrutura diferente do que torna o SMSMass barato hoje. Vale ficar de olho conforme a adoção crescer no Brasil, mas por enquanto o SMS pelo chip continua sendo a rota mais direta e sem intermediários para disparo em massa.</p>
+    <p style="margin-top:16px;color:var(--slate);font-size:.9rem;">É um recurso adicional à sua licença SMSMass — os créditos de SMS e os créditos de consulta de operadora são saldos independentes.</p>
+  </div>
+</section>
+
+<section id="precos">
+  <div class="wrap">
+    <div class="hop">Preços</div>
+    <h2 style="font-size:1.25rem;">R$ 0,009 por consulta</h2>
+    <p>Os créditos de consulta não vencem e são consumidos apenas quando você efetivamente consulta um número. Compre em pacotes fechados, conforme o volume da sua operação:</p>
+
+    <div class="plans" style="margin-top:20px;">
+
+      <div class="plan">
+        <div class="plan-nome">Pacote 1.000</div>
+        <div class="plan-preco">R$9,90 <span>1.000 consultas</span></div>
+        <p class="plan-desc">Para testar o recurso ou operações pequenas.</p>
+        <ul class="plan-items">
+          <li>1.000 consultas de operadora</li>
+          <li>Créditos sem vencimento</li>
+          <li>Saldo separado dos créditos de SMS</li>
+        </ul>
+        <a class="plan-btn" href="https://wa.me/5531991271321?text=Ol%C3%A1%2C%20quero%20o%20pacote%20de%201.000%20consultas%20de%20operadora" target="_blank" rel="noopener">Comprar agora</a>
+      </div>
+
+      <div class="plan destaque">
+        <div class="badge">Mais popular</div>
+        <div class="plan-nome">Pacote 5.000</div>
+        <div class="plan-preco">R$45,00 <span>5.000 consultas</span></div>
+        <p class="plan-desc">Para operações que já rodam campanhas com regularidade.</p>
+        <ul class="plan-items">
+          <li>5.000 consultas de operadora</li>
+          <li>Créditos sem vencimento</li>
+          <li>Saldo separado dos créditos de SMS</li>
+        </ul>
+        <a class="plan-btn" href="https://wa.me/5531991271321?text=Ol%C3%A1%2C%20quero%20o%20pacote%20de%205.000%20consultas%20de%20operadora" target="_blank" rel="noopener">Comprar agora</a>
+      </div>
+
+      <div class="plan">
+        <div class="plan-nome">Pacote 10.000</div>
+        <div class="plan-preco">R$90,00 <span>10.000 consultas</span></div>
+        <p class="plan-desc">Para bases maiores e uso recorrente.</p>
+        <ul class="plan-items">
+          <li>10.000 consultas de operadora</li>
+          <li>Créditos sem vencimento</li>
+          <li>Saldo separado dos créditos de SMS</li>
+        </ul>
+        <a class="plan-btn" href="https://wa.me/5531991271321?text=Ol%C3%A1%2C%20quero%20o%20pacote%20de%2010.000%20consultas%20de%20operadora" target="_blank" rel="noopener">Comprar agora</a>
+      </div>
+
+    </div>
+
+    <p style="margin-top:20px;color:var(--slate);font-size:.9rem;">Precisa de um volume diferente? Fale com a gente pelo WhatsApp e montamos um pacote sob medida.</p>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="wrap">
+    <div class="hop">Perguntas frequentes</div>
+
+    <h3 style="font-family:'Fraunces',serif;font-size:1.1rem;margin-top:20px;">Os créditos de consulta vencem?</h3>
+    <p style="color:var(--slate);font-size:.95rem;">Não. Assim como o saldo de SMS, os créditos de consulta de operadora ficam disponíveis até serem usados, sem prazo de validade.</p>
+
+    <h3 style="font-family:'Fraunces',serif;font-size:1.1rem;margin-top:20px;">A consulta desconta do meu saldo de SMS?</h3>
+    <p style="color:var(--slate);font-size:.95rem;">Não. São dois saldos independentes na sua licença — um para envio de SMS e outro específico para consulta de operadora.</p>
+
+    <h3 style="font-family:'Fraunces',serif;font-size:1.1rem;margin-top:20px;">Preciso me cadastrar em algum serviço externo?</h3>
+    <p style="color:var(--slate);font-size:.95rem;">Não. A consulta acontece pelo backend do próprio SMSMass, com a sua licença — você não tem contato com nenhuma credencial de provedor de terceiros.</p>
+
+    <h3 style="font-family:'Fraunces',serif;font-size:1.1rem;margin-top:20px;">Qual o tamanho máximo da planilha por consulta em lote?</h3>
+    <p style="color:var(--slate);font-size:.95rem;">O app processa a planilha em lotes internamente, então não há um limite prático relevante para uso comum — planilhas grandes são divididas automaticamente.</p>
+
+    <h3 style="font-family:'Fraunces',serif;font-size:1.1rem;margin-top:20px;">Isso substitui a consulta oficial da ABR Telecom?</h3>
+    <p style="color:var(--slate);font-size:.95rem;">Para consultas avulsas e gratuitas, a <a href="simulador-operadora.html#abr">consulta oficial da ABR Telecom</a> continua sendo a referência. O diferencial deste recurso é a consulta em lote, integrada à sua planilha de contatos, sem precisar consultar número por número.</p>
   </div>
 </section>
 
