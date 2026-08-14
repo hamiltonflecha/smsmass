@@ -175,7 +175,7 @@
 
 <!-- Sidebar esquerda -->
 <div class="sidebar">
-  <div class="sidebar-version">v013</div>
+  <div class="sidebar-version">v014</div>
   <div class="sidebar-group">
     <div class="sidebar-label">Início</div>
     <a href="index.html">Home</a>
@@ -372,16 +372,16 @@
       <div class="trace" id="traceManual" aria-hidden="true" style="margin-top:14px;"></div>
     </div>
 
-    <p style="margin-top:22px;">A mensagem pode ser mesclada com os dados da planilha de contatos: o SMSMass substitui automaticamente variáveis como {A} e {B} pelo conteúdo de cada linha da planilha, uma por contato, gerando uma mensagem personalizada para cada pessoa em vez de um texto único igual para todos.</p>
+    <p style="margin-top:22px;">A mensagem pode ser mesclada com os dados da planilha de contatos: o SMSMass substitui automaticamente variáveis como {Texto 1} e {Texto 2} pelo conteúdo de cada linha da planilha, uma por contato, gerando uma mensagem personalizada para cada pessoa em vez de um texto único igual para todos.</p>
 
     <h3 style="font-size:1.05rem;margin-top:20px;">Exemplos de mensagem</h3>
-    <p>1 — {A} essa mensagem foi enviada pelo app SMSMass e você pode adquiri-lo por apenas {B} para enviar mensagens ilimitadas.</p>
-    <p>2 — Por apenas {B} eu adquiri o melhor app de envio de mensagens pelo celular. {A}, conquiste mais clientes, amplie suas vendas. Visite nosso site www.exemplo.com.br</p>
-    <p>3 — As colunas A e B não precisam conter, literalmente, um nome e um valor. Podem representar qualquer texto — use sua imaginação para customizar suas mensagens conforme sua campanha.</p>
-    <p>4 — {A}, você tem {B} disponível para saque no seu benefício. Consulte sem compromisso, sem alterar sua renda.</p>
-    <p>5 — Olá {A}! Sua proposta de portabilidade consignado está pronta, com economia de até {B} por mês. Fale com a gente.</p>
-    <p>6 — {A}, últimas vagas! Garanta já com {B} de desconto. Oferta válida só hoje.</p>
-    <p>7 — {A}, seu FGTS saque-aniversário libera até {B} disponível para retirada. Consulte agora, sem custo.</p>
+    <p>1 — {Texto 1} essa mensagem foi enviada pelo app SMSMass e você pode adquiri-lo por apenas {Texto 2} para enviar mensagens ilimitadas.</p>
+    <p>2 — Por apenas {Texto 2} eu adquiri o melhor app de envio de mensagens pelo celular. {Texto 1}, conquiste mais clientes, amplie suas vendas. Visite nosso site www.exemplo.com.br</p>
+    <p>3 — As colunas Texto 1 e Texto 2 não precisam conter, literalmente, um nome e um valor. Podem representar qualquer texto — use sua imaginação para customizar suas mensagens conforme sua campanha.</p>
+    <p>4 — {Texto 1}, você tem {Texto 2} disponível para saque no seu benefício. Consulte sem compromisso, sem alterar sua renda.</p>
+    <p>5 — Olá {Texto 1}! Sua proposta de portabilidade consignado está pronta, com economia de até {Texto 2} por mês. Fale com a gente.</p>
+    <p>6 — {Texto 1}, últimas vagas! Garanta já com {Texto 2} de desconto. Oferta válida só hoje.</p>
+    <p>7 — {Texto 1}, seu FGTS saque-aniversário libera até {Texto 2} disponível para retirada. Consulte agora, sem custo.</p>
   </div>
 </section>
 
@@ -400,15 +400,15 @@
     <h3 style="font-size:1.05rem;margin-top:20px;">Prepare a planilha</h3>
     <p>Acesse sheets.google.com e crie uma planilha nova (ou faça upload do modelo baixado acima). A planilha deve ter 3 colunas, com a primeira linha contendo exatamente estes cabeçalhos:</p>
     <table>
-      <tr><th>Telefone</th><th>A</th><th>B</th></tr>
+      <tr><th>Telefone</th><th>Texto 1</th><th>Texto 2</th></tr>
     </table>
-    <p>A partir da segunda linha, insira um contato por linha. As colunas A e B podem conter qualquer texto — nome, valor, ou o que você quiser usar na mensagem. Exemplo:</p>
+    <p>A partir da segunda linha, insira um contato por linha. As colunas Texto 1 e Texto 2 podem conter qualquer texto — nome, valor, ou o que você quiser usar na mensagem. Exemplo:</p>
     <table>
-      <tr><th>Telefone</th><th>A</th><th>B</th></tr>
+      <tr><th>Telefone</th><th>Texto 1</th><th>Texto 2</th></tr>
       <tr><td class="mono">31987654321</td><td>Maria</td><td class="mono">1250,00</td></tr>
       <tr><td class="mono">31912345678</td><td>João</td><td class="mono">890,50</td></tr>
     </table>
-    <p style="color:var(--slate);font-size:.9rem;">O telefone deve incluir DDD, sem espaços, traços ou parênteses. Nas colunas A e B, o valor pode ficar com vírgula ou ponto como separador decimal — o app aceita os dois.</p>
+    <p style="color:var(--slate);font-size:.9rem;">O telefone deve incluir DDD, sem espaços, traços ou parênteses. Nas colunas Texto 1 e Texto 2, o valor pode ficar com vírgula ou ponto como separador decimal — o app aceita os dois.</p>
 
     <h3 style="font-size:1.05rem;margin-top:20px;">Compartilhe a planilha</h3>
     <p>No canto superior direito do Google Sheets, clique em Compartilhar, depois em Alterar para qualquer pessoa com o link. Deixe a permissão como Leitor (o app não precisa editar, só ler). Feche essa janela — não precisa copiar o link que aparece ali, o link que o SMSMass usa é diferente.</p>
@@ -419,7 +419,7 @@
     <p>Cole esse endereço direto no campo do app. A partir da versão V168, o SMSMass corrige esse link sozinho: não importa se o que foi colado é o link de edição (com <span class="mono">/edit?gid=...</span>) ou o link de compartilhamento gerado pelo botão Compartilhar — o app identifica o ID da planilha e o gid da aba automaticamente e monta por conta própria a URL de exportação no formato correto (<span class="mono">/export?format=tsv&amp;gid=...</span>). Você não precisa editar o link manualmente antes de colar.</p>
 
     <h3 style="font-size:1.05rem;margin-top:20px;">Confira a leitura no app</h3>
-    <p>Após colar o link, toque em Carregar Contatos. O app vai mostrar quantos contatos foram lidos. Se aparecer zero, revise: se a primeira linha tem os cabeçalhos exatos (Telefone, A, B), se a planilha está compartilhada como qualquer pessoa com o link pode ler, e se não há linhas vazias entre os contatos.</p>
+    <p>Após colar o link, toque em Carregar Contatos. O app vai mostrar quantos contatos foram lidos. Se aparecer zero, revise: se a primeira linha tem os cabeçalhos exatos (Telefone, Texto 1, Texto 2), se a planilha está compartilhada como qualquer pessoa com o link pode ler, e se não há linhas vazias entre os contatos.</p>
   </div>
 </section>
 
@@ -507,7 +507,7 @@
     <p>Se você precisa mandar SMS para um contato só (ou poucos), tem duas formas: pelo próprio SMSMass, ou direto pela operadora.</p>
 
     <h3 style="font-size:1.05rem;margin-top:20px;">Pelo SMSMass</h3>
-    <p>O app foi feito para disparo em massa, mas o mesmo processo funciona para um único contato. Não existe um modo separado para isso: basta preparar a planilha do Google Sheets com apenas uma linha de contato, seguindo o mesmo modelo com as colunas Telefone, A e B. Cole o link no app, escreva a mensagem e clique em Enviar — funciona igual para 1 contato ou para milhares.</p>
+    <p>O app foi feito para disparo em massa, mas o mesmo processo funciona para um único contato. Não existe um modo separado para isso: basta preparar a planilha do Google Sheets com apenas uma linha de contato, seguindo o mesmo modelo com as colunas Telefone, Texto 1 e Texto 2. Cole o link no app, escreva a mensagem e clique em Enviar — funciona igual para 1 contato ou para milhares.</p>
 
     <h3 style="font-size:1.05rem;margin-top:20px;">Pelas operadoras</h3>
     <p>Vivo, Claro, TIM e Oi também permitem enviar um SMS avulso direto do celular ou por serviços web, com tarifa cobrada por mensagem fora do plano — útil quando é só uma mensagem pontual e não vale a pena montar uma planilha. Detalhes de como cada operadora funciona e as tarifas praticadas estão em <a href="sms-avulso-operadoras.html">Envio de SMS avulso via operadoras</a>.</p>
