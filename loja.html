@@ -169,7 +169,8 @@
     border-radius:20px;
     white-space:nowrap;
   }
-  .plan-nome{font-family:'Fraunces',serif;font-size:1.2rem;font-weight:600;}
+  .plan-nome{font-family:'Fraunces',serif;font-size:1.2rem;font-weight:600;line-height:1.4;}
+  .plan-nome .plan-qtd{display:block;font-family:'IBM Plex Mono',monospace;font-size:.9rem;font-weight:600;color:var(--green);letter-spacing:.02em;}
   .plan-preco{font-family:'IBM Plex Mono',monospace;font-size:2rem;font-weight:600;color:var(--navy);}
   .plan-preco span{font-size:.95rem;font-weight:400;color:var(--slate);}
   .plan-desc{color:var(--slate);font-size:.92rem;line-height:1.5;}
@@ -227,6 +228,7 @@
       <a href="loja.html" class="ativo">Planos</a>
       <a href="manual.html">Manual</a>
       <a href="ajuda.html">Ajuda</a>
+      <a href="sitemap.xml">Mapa do site</a>
     </nav>
     <div class="topbar-right">
       <div class="topbar-search">
@@ -245,11 +247,12 @@
 
 <!-- Sidebar esquerda -->
 <div class="sidebar">
-  <div class="sidebar-version">v015</div>
+  <div class="sidebar-version">v019</div>
   <div class="sidebar-group">
     <div class="sidebar-label">Início</div>
     <a href="index.html">Home</a>
     <a href="loja.html">Planos</a>
+    <a href="sitemap.xml">Mapa do site</a>
   </div>
 
   <div class="sidebar-group">
@@ -352,12 +355,12 @@
 
 <section>
   <div class="wrap">
-    <div class="hop">Escolha seu plano</div>
+    <div class="hop">Escolha já</div>
 
     <div class="plans">
 
       <div class="plan">
-        <div class="plan-nome">Trial Grátis</div>
+        <div class="plan-nome">Trial Grátis<br><span class="plan-qtd">5 SMS</span></div>
         <div class="plan-preco">R$0 <span>sem cartão</span></div>
         <p class="plan-desc">Teste o app antes de comprar, sem compromisso.</p>
         <ul class="plan-items">
@@ -371,7 +374,7 @@
       </div>
 
       <div class="plan">
-        <div class="plan-nome">SMSMass 2000</div>
+        <div class="plan-nome">SMSMass<br><span class="plan-qtd">2.000 SMS</span></div>
         <div class="plan-preco">R$79 <span>pagamento único</span></div>
         <p class="plan-desc">Para quem está começando ou faz campanhas menores.</p>
         <ul class="plan-items">
@@ -386,7 +389,7 @@
 
       <div class="plan destaque">
         <div class="badge">Mais popular</div>
-        <div class="plan-nome">SMSMass 5000</div>
+        <div class="plan-nome">SMSMass<br><span class="plan-qtd">5.000 SMS</span></div>
         <div class="plan-preco">R$119 <span>pagamento único</span></div>
         <p class="plan-desc">Para operações ativas com campanhas semanais regulares.</p>
         <ul class="plan-items">
@@ -400,7 +403,7 @@
       </div>
 
       <div class="plan">
-        <div class="plan-nome">SMSMass Ilimitado</div>
+        <div class="plan-nome">SMSMass<br><span class="plan-qtd">Ilimitado</span></div>
         <div class="plan-preco">R$490 <span>pagamento único</span></div>
         <p class="plan-desc">Para quem faz disparo em volume alto com frequência.</p>
         <ul class="plan-items">

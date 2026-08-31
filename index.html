@@ -101,7 +101,8 @@
   border-radius:20px;
   white-space:nowrap;
 }
-.plan-nome{font-family:'Fraunces',serif;font-size:1.2rem;font-weight:600;}
+.plan-nome{font-family:'Fraunces',serif;font-size:1.2rem;font-weight:600;line-height:1.4;}
+.plan-nome .plan-qtd{display:block;font-family:'IBM Plex Mono',monospace;font-size:.9rem;font-weight:600;color:var(--green);letter-spacing:.02em;}
 .plan-preco{font-family:'IBM Plex Mono',monospace;font-size:2rem;font-weight:600;color:var(--navy);}
 .plan-preco span{font-size:.95rem;font-weight:400;color:var(--slate);}
 .plan-desc{color:var(--slate);font-size:.92rem;line-height:1.5;}
@@ -227,6 +228,7 @@
       <a href="#planos">Planos</a>
       <a href="manual.html">Manual</a>
       <a href="ajuda.html">Ajuda</a>
+      <a href="sitemap.xml">Mapa do site</a>
     </nav>
     <div class="topbar-right">
       <div class="topbar-search">
@@ -245,11 +247,12 @@
 
 <!-- Sidebar esquerda -->
 <div class="sidebar">
-  <div class="sidebar-version">v015</div>
+  <div class="sidebar-version">v019</div>
   <div class="sidebar-group">
     <div class="sidebar-label">Início</div>
     <a href="index.html">Home</a>
     <a href="loja.html">Planos</a>
+    <a href="sitemap.xml">Mapa do site</a>
   </div>
 
   <div class="sidebar-group">
@@ -342,26 +345,19 @@
   <div class="hero" id="inicio">
     <div class="wrap">
       <div class="hop">SMSMass</div>
-      <h1>Seu SMS chega e é lido em minutos — mesmo sem internet no celular de quem recebe</h1>
-      <p class="lede">Disparo em massa direto pelo chip do seu celular Android, para contatos, clientes, eleitores ou prospectos, com mensagem personalizada por nome e valor.</p>
-      <ul class="hero-checks">
-        <li>Sem depender de internet do destinatário</li>
-        <li>Personalização por nome e valor</li>
-        <li>Controle de horário de disparo</li>
-        <li>Relatório completo de envios</li>
-      </ul>
-      <a href="#planos" class="btn" style="margin-top:20px;">Ver planos e baixar o app</a>
+      <h1>Use seu celular! Envie SMS em massa!</h1>
+      <p class="lede">Alta taxa de leitura. Conquiste clientes, eleitores, vendas. Faça ofertas, confirme números de celulares, dê alertas. Use já sua imaginação!</p>
     </div>
   </div>
 
   <section id="planos">
     <div class="wrap">
-      <div class="hop">Escolha seu plano</div>
+      <div class="hop">Escolha já</div>
 
       <div class="plans">
 
         <div class="plan">
-          <div class="plan-nome">Trial Grátis</div>
+          <div class="plan-nome">Trial Grátis<br><span class="plan-qtd">5 SMS</span></div>
           <div class="plan-preco">R$0 <span>sem cartão</span></div>
           <p class="plan-desc">Teste o app antes de comprar, sem compromisso.</p>
           <ul class="plan-items">
@@ -375,7 +371,7 @@
         </div>
 
         <div class="plan">
-          <div class="plan-nome">SMSMass 2000</div>
+          <div class="plan-nome">SMSMass<br><span class="plan-qtd">2.000 SMS</span></div>
           <div class="plan-preco">R$79 <span>pagamento único</span></div>
           <p class="plan-desc">Para quem está começando ou faz campanhas menores.</p>
           <ul class="plan-items">
@@ -390,7 +386,7 @@
 
         <div class="plan destaque">
           <div class="badge">Mais popular</div>
-          <div class="plan-nome">SMSMass 5000</div>
+          <div class="plan-nome">SMSMass<br><span class="plan-qtd">5.000 SMS</span></div>
           <div class="plan-preco">R$119 <span>pagamento único</span></div>
           <p class="plan-desc">Para operações ativas com campanhas semanais regulares.</p>
           <ul class="plan-items">
@@ -404,7 +400,7 @@
         </div>
 
         <div class="plan">
-          <div class="plan-nome">SMSMass Ilimitado</div>
+          <div class="plan-nome">SMSMass<br><span class="plan-qtd">Ilimitado</span></div>
           <div class="plan-preco">R$490 <span>pagamento único</span></div>
           <p class="plan-desc">Para quem faz disparo em volume alto com frequência.</p>
           <ul class="plan-items">
@@ -423,6 +419,20 @@
       <div class="garantia">
         Pagamento processado pelo Kiwify com segurança. Após a confirmação, a chave de ativação é enviada automaticamente.
       </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="hop">SMSMass</div>
+      <h2 style="font-size:1.7rem;line-height:1.2;max-width:20ch;">Seu SMS chega e é lido em minutos — mesmo sem internet no celular de quem recebe</h2>
+      <p class="lede">Disparo em massa direto pelo chip do seu celular Android, para contatos, clientes, eleitores ou prospectos, com mensagem personalizada por nome e valor.</p>
+      <ul class="hero-checks">
+        <li>Sem depender de internet do destinatário</li>
+        <li>Personalização por nome e valor</li>
+        <li>Controle de horário de disparo</li>
+        <li>Relatório completo de envios</li>
+      </ul>
     </div>
   </section>
 
@@ -482,6 +492,12 @@
           <p>Opt-out, consentimento e o que aprender com casos de bloqueio na operadora.</p>
         </a>
       </div>
+    </div>
+  </section>
+
+  <section style="text-align:center;">
+    <div class="wrap">
+      <a href="#planos" class="btn">Ver planos e baixar o app</a>
     </div>
   </section>
 
