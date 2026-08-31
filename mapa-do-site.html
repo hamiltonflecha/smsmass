@@ -9,16 +9,16 @@
 <link rel="shortcut icon" href="favicon.ico">
 
 <title>SMSMass</title>
-<meta name="description" content="Ferramentas e guias técnicos sobre SMS: contador de caracteres GSM-7/UCS-2, como a mensagem trafega pela rede, simulador de operadora e legislação de SMS marketing no Brasil.">
-<link rel="canonical" href="https://smsmass.com.br/central.html">
+<meta name="description" content="Mapa do site SMSMass: todas as páginas, ferramentas e artigos em um só lugar.">
+<link rel="canonical" href="https://smsmass.com.br/mapa-do-site.html">
 <meta property="og:type" content="website">
-<meta property="og:title" content="SMSMass — Central de SMS">
-<meta property="og:description" content="Ferramentas e guias sobre SMS marketing.">
-<meta property="og:url" content="https://smsmass.com.br/central.html">
+<meta property="og:title" content="Mapa do site — SMSMass">
+<meta property="og:description" content="Todas as páginas, ferramentas e artigos do SMSMass em um só lugar.">
+<meta property="og:url" content="https://smsmass.com.br/mapa-do-site.html">
 <meta property="og:locale" content="pt_BR">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="SMSMass — Central de SMS">
-<meta name="twitter:description" content="Ferramentas e guias sobre SMS marketing.">
+<meta name="twitter:title" content="Mapa do site — SMSMass">
+<meta name="twitter:description" content="Todas as páginas, ferramentas e artigos do SMSMass em um só lugar.">
 
 <link rel="stylesheet" href="style.css">
 <style>
@@ -136,10 +136,14 @@
   .icon-link{width:30px;height:30px;border-radius:8px;flex-shrink:0;}
   .icon-link svg{width:16px;height:16px;}
 }
+
+.sitemap-list{list-style:none;padding:0;margin:14px 0 0;display:grid;gap:6px;}
+.sitemap-list li{border-bottom:1px solid var(--line);padding:9px 0;}
+.sitemap-list a{color:var(--green);text-decoration:none;font-size:.95rem;}
+.sitemap-list a:hover{color:var(--navy);text-decoration:underline;}
 </style>
 </head>
 <body>
-
 <!-- Barra superior -->
 <div class="topbar">
   <div class="topbar-inner">
@@ -157,7 +161,7 @@
       <a href="loja.html">Planos</a>
       <a href="manual.html">Manual</a>
       <a href="ajuda.html">Ajuda</a>
-      <a href="mapa-do-site.html">Mapa do site</a>
+      <a href="mapa-do-site.html" class="ativo">Mapa do site</a>
     </nav>
     <div class="topbar-right">
       <div class="topbar-search">
@@ -271,82 +275,106 @@
 
 <div class="main">
 
+
+
+
 <div class="hero">
   <div class="wrap">
-    <div class="hop">Rota 00 · Ponto de partida</div>
-    <h1>Tudo sobre como o SMS realmente funciona</h1>
-    <p class="lede">Ferramentas práticas e explicações diretas sobre o caminho que uma mensagem percorre — da sua tela até a do cliente. Pensado para quem faz disparo em massa e quer entender o que está pagando.</p>
+    <div class="hop">Navegação</div>
+    <h1>Mapa do site</h1>
+    <p class="lede">Todas as páginas do SMSMass reunidas em um só lugar.</p>
   </div>
 </div>
 
 <section>
   <div class="wrap">
-    <div class="hop">Rota 01 · Ferramentas</div>
-    <div class="grid grid-2">
-      <a class="tool-link" href="contador-caracteres.html">
-        <div class="hop">Ferramenta</div>
-        <h3>Contador de caracteres SMS</h3>
-        <p>Veja em tempo real quantos SMS sua mensagem vai gerar — e por que um acento pode dobrar o custo.</p>
-      </a>
-      <a class="tool-link" href="simulador-operadora.html">
-        <div class="hop">Ferramenta</div>
-        <h3>Simulador de operadora por DDD/prefixo</h3>
-        <p>Estimativa educativa da operadora de origem de um número — com aviso claro sobre os limites da portabilidade.</p>
-      </a>
-      <a class="tool-link" href="consulta-operadora.html">
-        <div class="hop">Recurso pago</div>
-        <h3>Consulta de operadora em lote</h3>
-        <p>Consulte a operadora atual de toda a sua planilha de contatos, direto no app, antes de disparar a campanha.</p>
-      </a>
-    </div>
+    <div class="hop">Início</div>
+    <ul class="sitemap-list">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="loja.html">Planos</a></li>
+    </ul>
   </div>
 </section>
 
 <section>
   <div class="wrap">
-    <div class="hop">Rota 02 · Como o sinal viaja</div>
-    <div class="grid grid-2">
-      <a class="tool-link" href="como-sms-trafega.html">
-        <div class="hop">Artigo</div>
-        <h3>Como o SMS trafega pelas redes</h3>
-        <p>SMSC, SMPP, SS7: o caminho real de uma mensagem entre operadoras — e por que algumas demoram mais.</p>
-      </a>
-      <a class="tool-link" href="gsm7-ucs2.html">
-        <div class="hop">Artigo</div>
-        <h3>GSM-7 vs UCS-2: o motivo do limite de 160 caracteres</h3>
-        <p>Por que "ã" custa mais caro que "a" — e como escrever para nunca pagar SMS em dobro.</p>
-      </a>
-    </div>
+    <div class="hop">Ferramentas</div>
+    <ul class="sitemap-list">
+      <li><a href="contador-caracteres.html">Contador de caracteres SMS</a></li>
+      <li><a href="simulador-operadora.html">Simulador de operadora por DDD/prefixo</a></li>
+      <li><a href="consulta-operadora.html">Consulta de operadora em lote</a></li>
+    </ul>
   </div>
 </section>
 
 <section>
   <div class="wrap">
-    <div class="hop">Rota 03 · Comparação e uso</div>
-    <div class="grid grid-2">
-      <a class="tool-link" href="sms-vs-whatsapp.html">
-        <div class="hop">Artigo</div>
-        <h3>SMS vs WhatsApp vs RCS para cobrança e consignado</h3>
-        <p>Por que SMS ainda converte melhor que WhatsApp em campanhas de INSS e CLT — e quando trocar.</p>
-      </a>
-      <a class="tool-link" href="legislacao-sms.html">
-        <div class="hop">Artigo</div>
-        <h3>SMS marketing e a LGPD: o que é permitido</h3>
-        <p>Opt-out, consentimento e o que aprender com casos de bloqueio na operadora.</p>
-      </a>
-    </div>
+    <div class="hop">Manual do App</div>
+    <ul class="sitemap-list">
+      <li><a href="manual.html">Manual completo (índice)</a></li>
+      <li><a href="manual.html#requisitos">Requisitos</a></li>
+      <li><a href="manual.html#instalacao">Instalação</a></li>
+      <li><a href="manual.html#reinstalacao">Reinstalação</a></li>
+      <li><a href="manual.html#legislacao">Legislação</a></li>
+      <li><a href="manual.html#criando-mensagem">Criando sua mensagem</a></li>
+      <li><a href="manual.html#obter-contatos">Link dos contatos</a></li>
+      <li><a href="manual.html#ativar-licenca">Como ativar a licença</a></li>
+      <li><a href="manual.html#intervalo-disparos">Intervalo entre disparos</a></li>
+      <li><a href="manual.html#intervalo-de-ate">Usar intervalo De/Até</a></li>
+      <li><a href="manual.html#enviando">Enviando</a></li>
+      <li><a href="manual.html#relatorio">Ler o relatório</a></li>
+      <li><a href="manual.html#envio-avulso">Envio avulso</a></li>
+      <li><a href="manual.html#faq">Perguntas frequentes</a></li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="hop">Como o SMS funciona</div>
+    <ul class="sitemap-list">
+      <li><a href="como-sms-trafega.html">Como o SMS trafega pelas redes</a></li>
+      <li><a href="gsm7-ucs2.html">GSM-7 vs UCS-2</a></li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="hop">Comparação e uso</div>
+    <ul class="sitemap-list">
+      <li><a href="sms-vs-whatsapp.html">SMS vs WhatsApp vs RCS</a></li>
+      <li><a href="rcs.html">RCS: o sucessor do SMS</a></li>
+      <li><a href="legislacao-sms.html">SMS marketing e LGPD</a></li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="hop">Recursos externos</div>
+    <ul class="sitemap-list">
+      <li><a href="sms-avulso-operadoras.html">SMS avulso via operadoras</a></li>
+      <li><a href="sms-massa-chipeiras.html">SMS em massa por chipeiras</a></li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="hop">Outros</div>
+    <ul class="sitemap-list">
+      <li><a href="central.html">Central de SMS</a></li>
+      <li><a href="ajuda.html">Ajuda</a></li>
+    </ul>
   </div>
 </section>
 
 <footer>
-  <div class="wrap">
-    SMSMass — ferramentas para correspondentes bancários que disparam SMS em massa.
-  </div>
+  <div class="wrap"><a href="index.html">← Voltar para a Home</a></div>
 </footer>
 
-
-</div>
-
+</div><!-- /main -->
 <script>
 // Search index: title, description, url
 const searchIndex = [
