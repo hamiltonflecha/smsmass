@@ -177,7 +177,7 @@
 
 <!-- Sidebar esquerda -->
 <div class="sidebar">
-  <div class="sidebar-version">v030</div>
+  <div class="sidebar-version">v031</div>
   <div class="sidebar-group compact">
     <div class="sidebar-label">Início</div>
     <a href="index.html">Home</a>
@@ -318,10 +318,10 @@
     <div class="hop">Por que isso acontece</div>
     <h2 style="font-size:1.3rem;" id="gsm7">Como funciona o GSM-7</h2>
     <p>O padrão GSM-7 cobre letras sem acento, números e pontuação básica — até 160 caracteres em um único SMS. É a codificação padrão usada pelas operadoras para o SMS tradicional. Cada caractere ocupa 7 bits, o que permite empacotar até 160 caracteres em um pacote de 1120 bits.</p>
-    <table>
+    <div class="table-scroll"><table>
       <tr><th>Codificação</th><th>Limite (1 SMS)</th><th>Limite por segmento (multi-SMS)</th></tr>
       <tr><td>GSM-7 (sem acento)</td><td class="mono">160</td><td class="mono">153</td></tr>
-    </table>
+    </table></div>
   </div>
 </section>
 
@@ -330,10 +330,10 @@
     <div class="hop">Quando entra UCS-2</div>
     <h2 style="font-size:1.3rem;" id="ucs2">Como funciona o UCS-2</h2>
     <p>No momento em que aparece um "ã, ç, é, ñ" ou um emoji, a operadora precisa trocar para UCS-2, que reserva 16 bits por caractere — e o limite cai para 70 caracteres por SMS. Mensagens mais longas são divididas em múltiplos segmentos (concatenação), cada um cobrado separadamente.</p>
-    <table>
+    <div class="table-scroll"><table>
       <tr><th>Codificação</th><th>Limite (1 SMS)</th><th>Limite por segmento (multi-SMS)</th></tr>
       <tr><td>UCS-2 (com acento/emoji)</td><td class="mono">70</td><td class="mono">67</td></tr>
-    </table>
+    </table></div>
     <p style="color:var(--slate);font-size:.9rem;">O limite por segmento é menor que o limite de 1 SMS porque alguns caracteres são reservados para o cabeçalho que remonta a mensagem na tela do destinatário.</p>
   </div>
 </section>

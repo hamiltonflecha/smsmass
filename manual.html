@@ -177,7 +177,7 @@
 
 <!-- Sidebar esquerda -->
 <div class="sidebar">
-  <div class="sidebar-version">v030</div>
+  <div class="sidebar-version">v031</div>
   <div class="sidebar-group compact">
     <div class="sidebar-label">Início</div>
     <a href="index.html">Home</a>
@@ -403,15 +403,15 @@
 
     <h3 style="font-size:1.05rem;margin-top:20px;">Prepare a planilha</h3>
     <p>Acesse sheets.google.com e crie uma planilha nova (ou faça upload do modelo baixado acima). A planilha deve ter 3 colunas, com a primeira linha contendo exatamente estes cabeçalhos:</p>
-    <table>
+    <div class="table-scroll"><table>
       <tr><th>Telefone</th><th>Texto 1</th><th>Texto 2</th></tr>
-    </table>
+    </table></div>
     <p>A partir da segunda linha, insira um contato por linha. As colunas Texto 1 e Texto 2 podem conter qualquer texto — nome, valor, ou o que você quiser usar na mensagem. Exemplo:</p>
-    <table>
+    <div class="table-scroll"><table>
       <tr><th>Telefone</th><th>Texto 1</th><th>Texto 2</th></tr>
       <tr><td class="mono">31987654321</td><td>Maria</td><td class="mono">1250,00</td></tr>
       <tr><td class="mono">31912345678</td><td>João</td><td class="mono">890,50</td></tr>
-    </table>
+    </table></div>
     <p style="color:var(--slate);font-size:.9rem;">O telefone deve incluir DDD, sem espaços, traços ou parênteses. Nas colunas Texto 1 e Texto 2, o valor pode ficar com vírgula ou ponto como separador decimal — o app aceita os dois.</p>
 
     <h3 style="font-size:1.05rem;margin-top:20px;">Compartilhe a planilha</h3>
@@ -443,14 +443,14 @@
     <p>Recomendamos um tempo mínimo de pelo menos <strong>30 segundos</strong> entre cada SMS. Abaixo disso, o risco de bloqueio é praticamente certo.</p>
     <p>O tempo máximo define o teto da faixa: junto com o mínimo, ele forma o intervalo de onde o app sorteia, a cada envio, um tempo de espera diferente — de forma aleatória, e não um valor fixo repetido. Isso é importante porque um intervalo sempre igual (por exemplo, sempre exatos 30 segundos) cria um padrão fácil de identificar pelos sistemas das operadoras. Um intervalo aleatório dentro de uma faixa imita melhor o comportamento humano e reduz esse risco.</p>
     <p>Quanto maior a faixa (mínimo e máximo mais altos), mais seguro o envio — mas menos SMS por hora são enviados. É uma troca entre velocidade e segurança.</p>
-    <table>
+    <div class="table-scroll"><table>
       <tr><th>Tempo mínimo</th><th>Tempo máximo</th><th>Tempo médio</th><th>SMS por hora (aprox.)</th><th>Risco</th></tr>
       <tr><td>30s</td><td>60s</td><td>~45s</td><td>~80</td><td>Alto risco</td></tr>
       <tr><td>60s</td><td>120s</td><td>~90s</td><td>~40</td><td>Risco moderado</td></tr>
       <tr><td>120s</td><td>180s</td><td>~150s</td><td>~24</td><td>Risco baixo</td></tr>
       <tr><td>180s</td><td>240s</td><td>~210s</td><td>~17</td><td>Seguro</td></tr>
       <tr><td>220s</td><td>280s</td><td>~250s</td><td>~14</td><td>Muito seguro — faixa usada em produção</td></tr>
-    </table>
+    </table></div>
     <p style="color:var(--slate);font-size:.9rem;">Para campanhas grandes, distribuir os envios ao longo do dia (por exemplo, em horário comercial, das 10h às 17h) em vez de tentar enviar tudo de uma vez também reduz o risco de bloqueio.</p>
   </div>
 </section>
@@ -461,14 +461,14 @@
     <h2 style="font-size:1.25rem;">Usar intervalo De/Até</h2>
     <p>Os campos De e Até permitem enviar apenas uma parte da lista de contatos da planilha, em vez de todos de uma vez. Isso é útil para dividir uma lista grande em lotes, ou para retomar um envio que parou no meio sem repetir contatos que já receberam a mensagem.</p>
     <p>Exemplo: imagine uma planilha com 13.595 contatos (linhas de contato 1 até 13.595, sem contar o cabeçalho). Você pode dividir o envio em lotes assim:</p>
-    <table>
+    <div class="table-scroll"><table>
       <tr><th>Lote</th><th>De</th><th>Até</th></tr>
       <tr><td>1</td><td>1</td><td>3000</td></tr>
       <tr><td>2</td><td>3001</td><td>6000</td></tr>
       <tr><td>3</td><td>6001</td><td>9000</td></tr>
       <tr><td>4</td><td>9001</td><td>12000</td></tr>
       <tr><td>5</td><td>12001</td><td>13595</td></tr>
-    </table>
+    </table></div>
     <p>Cada lote é um envio separado. Você espera o lote terminar (ou usa Parar, se precisar interromper), confere no relatório quantos foram enviados, e inicia o próximo lote alterando apenas os campos De e Até.</p>
     <p style="color:var(--slate);font-size:.9rem;">Isso também é útil se um envio for interrompido no meio — por exemplo, se parou no contato 4.200 de um lote De 3001 até 6000, o próximo envio pode começar De 4201 até 6000, sem reenviar para quem já recebeu.</p>
   </div>
