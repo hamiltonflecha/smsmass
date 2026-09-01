@@ -95,6 +95,7 @@
   font-size:.85rem;letter-spacing:.04em;text-transform:uppercase;
   color:#000;font-weight:700;padding:14px 18px 4px;
 }
+.sidebar-group.compact a{padding:4px 18px;}
 .sidebar a{
   display:block;padding:7px 18px;font-size:.88rem;color:var(--green);
   border-left:2px solid transparent;transition:border-color .12s, background .12s;
@@ -239,11 +240,12 @@
 
 <!-- Sidebar esquerda -->
 <div class="sidebar">
-  <div class="sidebar-version">v028</div>
-  <div class="sidebar-group">
+  <div class="sidebar-version">v030</div>
+  <div class="sidebar-group compact">
     <div class="sidebar-label">Início</div>
     <a href="index.html">Home</a>
-    <a href="loja.html" class="ativo">Loja</a>
+    <a href="loja.html">Loja</a>
+    <a href="afiliados.html" class="ativo">Programa de Afiliados</a>
     <a href="mapa-do-site.html">Mapa do site</a>
   </div>
 
@@ -361,19 +363,78 @@
         <input type="tel" id="campoTelefone" placeholder="(31) 99999-9999" required style="padding:10px 12px;border:1px solid var(--line);border-radius:4px;font-size:.95rem;font-family:inherit;">
       </label>
 
-      <label style="display:flex;flex-direction:column;gap:6px;font-size:.9rem;font-weight:600;">
-        Como prefere receber a comissão
-        <select id="campoFormaRecebimento" required style="padding:10px 12px;border:1px solid var(--line);border-radius:4px;font-size:.95rem;font-family:inherit;background:#fff;">
-          <option value="">Selecione...</option>
-          <option value="Pix">Pix</option>
-          <option value="Transferência bancária">Transferência bancária</option>
-        </select>
-      </label>
+      <div style="font-size:.9rem;font-weight:600;">Preencha o Pix <strong>ou</strong> os dados bancários — o que for melhor pra você:</div>
 
-      <label style="display:flex;flex-direction:column;gap:6px;font-size:.9rem;font-weight:600;">
-        Chave Pix ou dados bancários (banco, agência, conta)
-        <textarea id="campoDadosPagamento" required rows="2" style="padding:10px 12px;border:1px solid var(--line);border-radius:4px;font-size:.95rem;font-family:inherit;resize:vertical;"></textarea>
-      </label>
+      <div id="blocoPix">
+        <label style="display:flex;flex-direction:column;gap:6px;font-size:.9rem;font-weight:600;">
+          Chave Pix
+          <input type="text" id="campoChavePix" placeholder="CPF, e-mail, telefone ou chave aleatória" style="padding:10px 12px;border:1px solid var(--line);border-radius:4px;font-size:.95rem;font-family:inherit;">
+        </label>
+      </div>
+
+      <div id="blocoBancaria" style="display:flex;flex-direction:column;gap:16px;">
+
+        <label style="display:flex;flex-direction:column;gap:6px;font-size:.9rem;font-weight:600;">
+          Banco
+          <select id="campoBanco" style="padding:10px 12px;border:1px solid var(--line);border-radius:4px;font-size:.95rem;font-family:inherit;background:#fff;">
+            <option value="">Selecione...</option>
+            <option value="001">001 - Banco do Brasil</option>
+            <option value="104">104 - Caixa Econômica Federal</option>
+            <option value="237">237 - Bradesco</option>
+            <option value="341">341 - Itaú Unibanco</option>
+            <option value="033">033 - Santander</option>
+            <option value="260">260 - Nubank</option>
+            <option value="077">077 - Banco Inter</option>
+            <option value="290">290 - PagBank (PagSeguro)</option>
+            <option value="323">323 - Mercado Pago</option>
+            <option value="336">336 - C6 Bank</option>
+            <option value="380">380 - PicPay</option>
+            <option value="outro">Outro (não está na lista)</option>
+          </select>
+        </label>
+
+        <div id="blocoBancoOutro" style="display:none;gap:12px;">
+          <label style="flex:2;display:flex;flex-direction:column;gap:6px;font-size:.9rem;font-weight:600;">
+            Nome do banco
+            <input type="text" id="campoBancoNome" style="padding:10px 12px;border:1px solid var(--line);border-radius:4px;font-size:.95rem;font-family:inherit;">
+          </label>
+          <label style="flex:1;display:flex;flex-direction:column;gap:6px;font-size:.9rem;font-weight:600;">
+            Código
+            <input type="text" id="campoBancoCodigo" placeholder="Ex: 001" style="padding:10px 12px;border:1px solid var(--line);border-radius:4px;font-size:.95rem;font-family:inherit;">
+          </label>
+        </div>
+
+        <div style="display:flex;gap:12px;">
+          <label style="flex:2;display:flex;flex-direction:column;gap:6px;font-size:.9rem;font-weight:600;">
+            Agência
+            <input type="text" id="campoAgencia" style="padding:10px 12px;border:1px solid var(--line);border-radius:4px;font-size:.95rem;font-family:inherit;">
+          </label>
+          <label style="flex:1;display:flex;flex-direction:column;gap:6px;font-size:.9rem;font-weight:600;">
+            Dígito
+            <input type="text" id="campoAgenciaDigito" style="padding:10px 12px;border:1px solid var(--line);border-radius:4px;font-size:.95rem;font-family:inherit;">
+          </label>
+        </div>
+
+        <div style="display:flex;gap:12px;">
+          <label style="flex:2;display:flex;flex-direction:column;gap:6px;font-size:.9rem;font-weight:600;">
+            Conta
+            <input type="text" id="campoConta" style="padding:10px 12px;border:1px solid var(--line);border-radius:4px;font-size:.95rem;font-family:inherit;">
+          </label>
+          <label style="flex:1;display:flex;flex-direction:column;gap:6px;font-size:.9rem;font-weight:600;">
+            Dígito
+            <input type="text" id="campoContaDigito" style="padding:10px 12px;border:1px solid var(--line);border-radius:4px;font-size:.95rem;font-family:inherit;">
+          </label>
+        </div>
+
+        <div style="display:flex;flex-direction:column;gap:6px;font-size:.9rem;font-weight:600;">
+          Tipo de conta
+          <div style="display:flex;gap:10px;" id="grupoTipoConta">
+            <button type="button" class="tipo-conta-btn" data-valor="Corrente" style="flex:1;padding:10px;border:2px solid var(--line);border-radius:4px;background:#fff;cursor:pointer;font-family:inherit;font-size:.9rem;">Corrente</button>
+            <button type="button" class="tipo-conta-btn" data-valor="Poupança" style="flex:1;padding:10px;border:2px solid var(--line);border-radius:4px;background:#fff;cursor:pointer;font-family:inherit;font-size:.9rem;">Poupança</button>
+          </div>
+        </div>
+
+      </div>
 
       <label style="display:flex;flex-direction:column;gap:6px;font-size:.9rem;font-weight:600;">
         Frequência de repasse que prefere
@@ -398,12 +459,49 @@
 </section>
 
 <script>
+// Mostrar campos manuais de banco quando escolher "Outro"
+document.getElementById('campoBanco').addEventListener('change', function(){
+  var outro = document.getElementById('blocoBancoOutro');
+  outro.style.display = (this.value === 'outro') ? 'flex' : 'none';
+});
+
+// Botões de Corrente/Poupança (clique único, alterna seleção)
+var tipoContaSelecionado = '';
+document.querySelectorAll('.tipo-conta-btn').forEach(function(btn){
+  btn.addEventListener('click', function(){
+    document.querySelectorAll('.tipo-conta-btn').forEach(function(b){
+      b.style.background = '#fff';
+      b.style.borderColor = 'var(--line)';
+      b.style.color = 'inherit';
+    });
+    this.style.background = 'var(--navy)';
+    this.style.borderColor = 'var(--navy)';
+    this.style.color = '#fff';
+    tipoContaSelecionado = this.getAttribute('data-valor');
+  });
+});
+
 document.getElementById('formAfiliado').addEventListener('submit', function(e){
   e.preventDefault();
   var nome = document.getElementById('campoNome').value.trim();
   var telefone = document.getElementById('campoTelefone').value.trim();
-  var forma = document.getElementById('campoFormaRecebimento').value;
-  var dados = document.getElementById('campoDadosPagamento').value.trim();
+  var chavePix = document.getElementById('campoChavePix').value.trim();
+
+  var bancoSelect = document.getElementById('campoBanco');
+  var bancoNome = '';
+  var bancoCodigo = '';
+  if (bancoSelect.value === 'outro') {
+    bancoNome = document.getElementById('campoBancoNome').value.trim();
+    bancoCodigo = document.getElementById('campoBancoCodigo').value.trim();
+  } else if (bancoSelect.value) {
+    bancoNome = bancoSelect.options[bancoSelect.selectedIndex].text;
+    bancoCodigo = bancoSelect.value;
+  }
+
+  var agencia = document.getElementById('campoAgencia').value.trim();
+  var agenciaDigito = document.getElementById('campoAgenciaDigito').value.trim();
+  var conta = document.getElementById('campoConta').value.trim();
+  var contaDigito = document.getElementById('campoContaDigito').value.trim();
   var frequencia = document.getElementById('campoFrequencia').value;
   var comoIndica = document.getElementById('campoComoIndica').value.trim();
 
@@ -419,8 +517,14 @@ document.getElementById('formAfiliado').addEventListener('submit', function(e){
       tipo: 'cadastro',
       nome: nome,
       telefone: telefone,
-      forma: forma,
-      dados: dados,
+      chavePix: chavePix,
+      bancoNome: bancoNome,
+      bancoCodigo: bancoCodigo,
+      agencia: agencia,
+      agenciaDigito: agenciaDigito,
+      conta: conta,
+      contaDigito: contaDigito,
+      tipoConta: tipoContaSelecionado,
       frequencia: frequencia,
       comoIndica: comoIndica
     })
