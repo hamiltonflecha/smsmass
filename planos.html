@@ -216,9 +216,10 @@
 <div class="topbar">
   <div class="topbar-inner">
     <div style="display:flex;align-items:center;gap:12px;">
-      <button class="menu-toggle" onclick="document.querySelector('.sidebar').classList.toggle('open')" aria-label="Menu">
+      <button class="menu-toggle" onclick="document.querySelector('.sidebar').classList.toggle('open'); document.getElementById('menuHint').classList.remove('show'); localStorage.setItem('menuHintVisto','1');" aria-label="Menu">
         <span></span><span></span><span></span>
       </button>
+      <div class="menu-hint" id="menuHint">Abra o Menu para mais opções!</div>
       <div class="brand"><a href="index.html" style="text-decoration:none;color:inherit;display:flex;align-items:center;gap:7px;"><img src="favicon-32.png" alt="" style="width:24px;height:24px;border-radius:6px;">SMS<span>Mass</span></a></div>
     </div>
     <nav>
@@ -248,7 +249,7 @@
 
 <!-- Sidebar esquerda -->
 <div class="sidebar">
-  <div class="sidebar-version">v031</div>
+  <div class="sidebar-version">v032</div>
   <div class="sidebar-group compact">
     <div class="sidebar-label">Início</div>
     <a href="index.html">Home</a>
@@ -550,5 +551,11 @@ function compartilharSite(){
 }
 </script>
 
+<script>
+if (window.innerWidth <= 768 && !localStorage.getItem('menuHintVisto')) {
+  var hint = document.getElementById('menuHint');
+  if (hint) { hint.classList.add('show'); }
+}
+</script>
 </body>
 </html>

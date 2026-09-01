@@ -138,6 +138,35 @@
   .icon-link svg{width:16px;height:16px;}
 }
 :target{scroll-margin-top:70px;}
+.app-screen-wrap{position:relative;display:inline-block;max-width:280px;width:100%;}
+.app-screen-wrap img{width:100%;display:block;border-radius:8px;border:1px solid var(--line);}
+.app-pin{
+  position:absolute;
+  width:24px;height:24px;
+  border-radius:50%;
+  background:var(--green);
+  color:#fff;
+  font-weight:700;
+  font-size:.8rem;
+  display:flex;align-items:center;justify-content:center;
+  transform:translate(-50%,-50%);
+  box-shadow:0 0 0 3px rgba(255,255,255,.85);
+}
+.app-legend{list-style:none;padding:0;margin:16px 0 0;display:flex;flex-direction:column;gap:10px;}
+.app-legend li{display:flex;gap:10px;align-items:flex-start;font-size:.92rem;}
+.app-legend .app-legend-num{
+  flex-shrink:0;
+  width:22px;height:22px;
+  border-radius:50%;
+  background:var(--green);
+  color:#fff;
+  font-weight:700;
+  font-size:.75rem;
+  display:flex;align-items:center;justify-content:center;
+  margin-top:1px;
+}
+.app-screen-row{display:flex;flex-wrap:wrap;gap:32px;align-items:flex-start;margin-top:20px;}
+.app-screen-col{flex:1;min-width:260px;}
 </style>
 </head>
 <body>
@@ -145,9 +174,10 @@
 <div class="topbar">
   <div class="topbar-inner">
     <div style="display:flex;align-items:center;gap:12px;">
-      <button class="menu-toggle" onclick="document.querySelector('.sidebar').classList.toggle('open')" aria-label="Menu">
+      <button class="menu-toggle" onclick="document.querySelector('.sidebar').classList.toggle('open'); document.getElementById('menuHint').classList.remove('show'); localStorage.setItem('menuHintVisto','1');" aria-label="Menu">
         <span></span><span></span><span></span>
       </button>
+      <div class="menu-hint" id="menuHint">Abra o Menu para mais opções!</div>
       <div class="brand"><a href="index.html" style="text-decoration:none;color:inherit;display:flex;align-items:center;gap:7px;"><img src="favicon-32.png" alt="" style="width:24px;height:24px;border-radius:6px;">SMS<span>Mass</span></a></div>
     </div>
     <nav>
@@ -177,7 +207,7 @@
 
 <!-- Sidebar esquerda -->
 <div class="sidebar">
-  <div class="sidebar-version">v031</div>
+  <div class="sidebar-version">v032</div>
   <div class="sidebar-group compact">
     <div class="sidebar-label">Início</div>
     <a href="index.html">Home</a>
@@ -285,6 +315,8 @@
   <div class="wrap">
     <div class="hop">Índice</div>
     <ul style="columns:2;column-gap:32px;line-height:2;">
+      <li><a href="#conhecendo-o-app">Conhecendo o app</a></li>
+      <li><a href="#como-usar">Como usar</a></li>
       <li><a href="#requisitos">Requisitos</a></li>
       <li><a href="#instalacao">Instalação</a></li>
       <li><a href="#reinstalacao">Reinstalação</a></li>
@@ -299,6 +331,105 @@
       <li><a href="#envio-avulso">Envio avulso</a></li>
       <li><a href="#faq">Perguntas frequentes</a></li>
     </ul>
+  </div>
+</section>
+
+<section id="conhecendo-o-app">
+  <div class="wrap">
+    <div class="hop">Conhecendo o app</div>
+    <h2 style="font-size:1.25rem;">Um tour rápido pelas 3 telas do SMSMass</h2>
+    <p>Antes de entrar em cada passo em detalhe, veja abaixo o que cada botão e campo faz nas telas do app. Os números na imagem batem com a legenda ao lado.</p>
+
+    <div class="app-screen-row">
+      <div class="app-screen-col">
+        <div class="app-screen-wrap">
+          <img src="img-manual/app-tela-principal.png" alt="Tela principal do SMSMass, com os campos de licença, envio e contatos">
+          <div class="app-pin" style="top:22.5%;left:50%;">1</div>
+          <div class="app-pin" style="top:32.6%;left:50%;">2</div>
+          <div class="app-pin" style="top:42.3%;left:50%;">3</div>
+          <div class="app-pin" style="top:54.3%;left:50%;">4</div>
+          <div class="app-pin" style="top:69.4%;left:50%;">5</div>
+          <div class="app-pin" style="top:81.5%;left:50%;">6</div>
+          <div class="app-pin" style="top:93.6%;left:50%;">7</div>
+        </div>
+      </div>
+      <div class="app-screen-col">
+        <h3 style="font-family:'Fraunces',serif;font-size:1.05rem;">Tela principal</h3>
+        <ul class="app-legend">
+          <li><span class="app-legend-num">1</span><span><strong>Ativar licença</strong> — clique aqui e cole a chave de ativação que você recebeu na compra.</span></li>
+          <li><span class="app-legend-num">2</span><span><strong>Confira / Progresso / 00:00</strong> — acompanhe em tempo real o andamento do disparo.</span></li>
+          <li><span class="app-legend-num">3</span><span><strong>Enviar SMS / Enviado X de Y / Parar</strong> — inicia o disparo, mostra quantos já foram enviados, e permite parar a qualquer momento.</span></li>
+          <li><span class="app-legend-num">4</span><span><strong>Caixa de mensagem</strong> — digite aqui o texto do SMS, até 160 caracteres no padrão GSM-7.</span></li>
+          <li><span class="app-legend-num">5</span><span><strong>Contador de caracteres</strong> — mostra quantos caracteres da mensagem já foram usados.</span></li>
+          <li><span class="app-legend-num">6</span><span><strong>De: Primeiro / Até: Último / Ver</strong> — define qual intervalo de contatos da planilha entra no disparo.</span></li>
+          <li><span class="app-legend-num">7</span><span><strong>Primeiro e último contato carregado</strong> — confirma que a planilha foi lida certo, mostrando o primeiro e o último nome.</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="app-screen-row">
+      <div class="app-screen-col">
+        <div class="app-screen-wrap">
+          <img src="img-manual/app-tela-contatos.png" alt="Tela de carregamento de contatos e envio avulso do SMSMass">
+          <div class="app-pin" style="top:21.5%;left:50%;">1</div>
+          <div class="app-pin" style="top:29.9%;left:50%;">2</div>
+          <div class="app-pin" style="top:45.8%;left:50%;">3</div>
+          <div class="app-pin" style="top:57.4%;left:50%;">4</div>
+          <div class="app-pin" style="top:69.7%;left:50%;">5</div>
+          <div class="app-pin" style="top:82.7%;left:50%;">6</div>
+          <div class="app-pin" style="top:95.6%;left:50%;">7</div>
+        </div>
+      </div>
+      <div class="app-screen-col">
+        <h3 style="font-family:'Fraunces',serif;font-size:1.05rem;">Carregar contatos e envio avulso</h3>
+        <ul class="app-legend">
+          <li><span class="app-legend-num">1</span><span><strong>Primeiro e último contato carregado</strong> — mesma confirmação da tela anterior, sempre visível pra você conferir.</span></li>
+          <li><span class="app-legend-num">2</span><span><strong>Tempo (s) / Mínimo / Máximo</strong> — define o intervalo de tempo entre cada SMS enviado, pra não sobrecarregar a operadora.</span></li>
+          <li><span class="app-legend-num">3</span><span><strong>Carregar contatos da web / Total de contatos carregados</strong> — clique aqui pra carregar os contatos direto da planilha.</span></li>
+          <li><span class="app-legend-num">4</span><span><strong>Cole o link da Web aqui</strong> — cole aqui a URL da sua planilha do Google Sheets, depois clique em Carregar.</span></li>
+          <li><span class="app-legend-num">5</span><span><strong>Limpa tudo / Limpa mensagem / Limpa contatos e link</strong> — botões pra reiniciar cada parte do formulário, separadamente.</span></li>
+          <li><span class="app-legend-num">6</span><span><strong>Envio Avulso / Enviar Agora</strong> — envia um SMS pra um único número digitado na hora, sem precisar de planilha.</span></li>
+          <li><span class="app-legend-num">7</span><span><strong>Relatório do envio / Sair</strong> — abre o relatório da última campanha, ou fecha o app.</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="app-screen-row">
+      <div class="app-screen-col">
+        <div class="app-screen-wrap">
+          <img src="img-manual/app-tela-relatorio.png" alt="Tela de relatório de envios do SMSMass">
+          <div class="app-pin" style="top:47.5%;left:50%;">1</div>
+          <div class="app-pin" style="top:82%;left:50%;">2</div>
+          <div class="app-pin" style="top:92%;left:50%;">3</div>
+        </div>
+      </div>
+      <div class="app-screen-col">
+        <h3 style="font-family:'Fraunces',serif;font-size:1.05rem;">Relatório de envios</h3>
+        <ul class="app-legend">
+          <li><span class="app-legend-num">1</span><span><strong>Área do relatório</strong> — lista cada SMS enviado, com número, texto, data e horário.</span></li>
+          <li><span class="app-legend-num">2</span><span><strong>Compartilhar o relatório / Limpar o relatório / Voltar</strong> — compartilha o relatório por outro app, apaga o histórico, ou volta pra tela principal.</span></li>
+          <li><span class="app-legend-num">3</span><span><strong>Ícones de atalho</strong> — suporte via WhatsApp, compartilhar o app, e-mail, site e manual, todos a um toque.</span></li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section id="como-usar">
+  <div class="wrap">
+    <div class="hop">Como usar</div>
+    <h2 style="font-size:1.25rem;">Pra que tipo de mensagem o SMSMass serve</h2>
+    <p>O SMSMass é uma ferramenta neutra de disparo — o uso depende de você. Alguns exemplos comuns entre quem já usa:</p>
+    <ul class="plan-items" style="margin-top:12px;max-width:640px;">
+      <li><strong>Cobranças</strong> — lembrete de parcela em aberto, vencimento próximo, ou negociação de dívida.</li>
+      <li><strong>Alertas de órgãos públicos</strong> — comunicados oficiais, prazos, convocações e avisos de interesse coletivo.</li>
+      <li><strong>Pedidos de voto</strong> — campanhas eleitorais, de candidatos a cargos variados, dentro do período e das regras permitidas pela legislação eleitoral.</li>
+      <li><strong>Avisos gerais</strong> — mudança de endereço, horário de funcionamento, confirmação de agendamento, reagendamento.</li>
+      <li><strong>Ofertas e promoções</strong> — divulgação de produtos, condições especiais, datas comemorativas.</li>
+      <li><strong>Confirmação de números</strong> — validar se um número de celular está ativo e recebendo mensagens.</li>
+    </ul>
+    <p style="margin-top:14px;color:var(--slate);font-size:.9rem;">Vale sempre observar a <a href="legislacao-sms.html">legislação de SMS marketing e LGPD</a> aplicável ao seu tipo de envio.</p>
   </div>
 </section>
 
@@ -678,5 +809,11 @@ function compartilharSite(){
 }
 </script>
 
+<script>
+if (window.innerWidth <= 768 && !localStorage.getItem('menuHintVisto')) {
+  var hint = document.getElementById('menuHint');
+  if (hint) { hint.classList.add('show'); }
+}
+</script>
 </body>
 </html>

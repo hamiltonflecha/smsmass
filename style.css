@@ -69,6 +69,7 @@ h1,h2,h3{
 .hop::before{content:'●';font-size:.6rem;}
 
 .hero{padding:56px 0 36px;border-bottom:1px solid var(--line);}
+@media(max-width:768px){.hero{padding:28px 0 24px;}}
 .hero h1{font-size:2.1rem;line-height:1.15;max-width:14ch;}
 .hero p.lede{font-size:1.05rem;color:var(--slate);max-width:46ch;}
 
@@ -168,3 +169,28 @@ table{width:100%;border-collapse:collapse;margin:16px 0;}
 .table-scroll table{margin:0;min-width:420px;}
 th,td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);font-size:.92rem;}
 th{font-family:'IBM Plex Mono',monospace;text-transform:uppercase;font-size:.75rem;letter-spacing:.04em;color:var(--slate);}
+
+.menu-hint{
+  display:none;
+  position:fixed;
+  top:56px;left:10px;
+  z-index:150;
+  background:var(--navy);
+  color:#fff;
+  font-size:.8rem;
+  padding:8px 12px;
+  border-radius:6px;
+  max-width:180px;
+  line-height:1.35;
+}
+.menu-hint::before{
+  content:'';
+  position:absolute;
+  top:-8px;left:14px;
+  border-left:7px solid transparent;
+  border-right:7px solid transparent;
+  border-bottom:8px solid var(--navy);
+}
+@media(max-width:768px){
+  .menu-hint.show{display:block;}
+}
