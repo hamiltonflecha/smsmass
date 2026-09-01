@@ -13,12 +13,12 @@
 <link rel="canonical" href="https://smsmass.com.br/consulta-operadora.html">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Consulta de operadora em lote — SMSMass">
-<meta property="og:description" content="Descubra a operadora atual de cada número da sua planilha, direto pelo app, antes de disparar sua campanha.">
+<meta property="og:description" content="Descubra a operadora atual de cada número da sua planilha, direto pelo site, antes de disparar sua campanha.">
 <meta property="og:url" content="https://smsmass.com.br/consulta-operadora.html">
 <meta property="og:locale" content="pt_BR">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Consulta de operadora em lote — SMSMass">
-<meta name="twitter:description" content="Descubra a operadora atual de cada número da sua planilha, direto pelo app, antes de disparar sua campanha.">
+<meta name="twitter:description" content="Descubra a operadora atual de cada número da sua planilha, direto pelo site, antes de disparar sua campanha.">
 <link rel="stylesheet" href="style.css">
 <style>
 .topbar{
@@ -136,6 +136,62 @@
   .icon-link svg{width:16px;height:16px;}
 }
 :target{scroll-margin-top:70px;}
+.plans{display:grid;gap:20px;margin-top:32px;}
+@media(min-width:640px){.plans{grid-template-columns:repeat(2,1fr);}}
+@media(min-width:960px){.plans{grid-template-columns:repeat(4,1fr);}}
+
+.plan{
+  border:1px solid var(--line);
+  border-radius:6px;
+  padding:24px;
+  background:var(--paper);
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+}
+.plan.destaque{
+  border-color:var(--green);
+  border-width:2px;
+  position:relative;
+}
+.badge{
+  position:absolute;
+  top:-13px;
+  left:50%;
+  transform:translateX(-50%);
+  background:var(--green);
+  color:#fff;
+  font-family:'IBM Plex Mono',monospace;
+  font-size:.72rem;
+  letter-spacing:.06em;
+  text-transform:uppercase;
+  padding:3px 12px;
+  border-radius:20px;
+  white-space:nowrap;
+}
+.plan-nome{font-family:'Fraunces',serif;font-size:1.2rem;font-weight:600;line-height:1.4;}
+.plan-nome .plan-qtd{display:block;font-family:'IBM Plex Mono',monospace;font-size:.9rem;font-weight:600;color:var(--green);letter-spacing:.02em;}
+.plan-preco{font-family:'IBM Plex Mono',monospace;font-size:2rem;font-weight:600;color:var(--navy);}
+.plan-preco span{font-size:.95rem;font-weight:400;color:var(--slate);}
+.plan-desc{color:var(--slate);font-size:.92rem;line-height:1.5;}
+.plan-items{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:8px;}
+.plan-items li{font-size:.92rem;padding-left:18px;position:relative;}
+.plan-items li::before{content:'✓';position:absolute;left:0;color:var(--green);font-weight:600;}
+.plan-btn{
+  display:block;
+  text-align:center;
+  padding:12px;
+  border-radius:4px;
+  font-weight:600;
+  font-size:.95rem;
+  margin-top:auto;
+  border:2px solid var(--navy);
+  color:var(--navy);
+  transition:background .15s, color .15s;
+}
+.plan-btn:hover{background:var(--navy);color:#fff;text-decoration:none;}
+.plan.destaque .plan-btn{background:var(--navy);color:#fff;}
+.plan.destaque .plan-btn:hover{background:#0e2837;}
 </style>
 </head>
 <body>
@@ -150,10 +206,10 @@
     </div>
     <nav>
       <a href="index.html">Início</a>
-      <a href="loja.html#escolha">Produtos</a>
+      <a href="planos.html#planos">Produtos</a>
       <a href="index.html#ferramentas">Ferramentas</a>
       <a href="index.html#artigos">Artigos</a>
-      <a href="loja.html">Planos</a>
+      <a href="planos.html">Planos</a>
       <a href="manual.html">Manual</a>
       <a href="ajuda.html">Ajuda</a>
       <a href="mapa-do-site.html">Mapa do site</a>
@@ -175,11 +231,11 @@
 
 <!-- Sidebar esquerda -->
 <div class="sidebar">
-  <div class="sidebar-version">v021</div>
+  <div class="sidebar-version">v026</div>
   <div class="sidebar-group">
     <div class="sidebar-label">Início</div>
     <a href="index.html">Home</a>
-    <a href="loja.html">Planos</a>
+    <a href="loja.html">Loja</a>
     <a href="mapa-do-site.html">Mapa do site</a>
   </div>
 
@@ -275,9 +331,9 @@
 
 <div class="hero">
   <div class="wrap">
-    <div class="hop">Recurso do app · Pago por consulta</div>
-    <h1>Consulta de operadora em lote, direto no SMSMass</h1>
-    <p class="lede">Antes de disparar uma campanha, descubra a operadora atual de cada número da sua planilha de contatos — sem sair do app. Números portados ou desatualizados são uma das principais causas de desperdício em campanhas de SMS em massa; consultando antes, você direciona melhor o envio e evita gastar créditos com contatos que não vão receber a mensagem.</p>
+    <div class="hop">Recurso do site · Pago por consulta</div>
+    <h1>Consulta de operadora em lote pelo SMSMass</h1>
+    <p class="lede">Antes de disparar uma campanha, descubra a operadora atual de cada número da sua planilha de contatos, direto pelo site. Números portados ou desatualizados são uma das principais causas de desperdício em campanhas de SMS em massa; consultando antes, você direciona melhor o envio e evita gastar créditos com contatos que não vão receber a mensagem.</p>
   </div>
 </div>
 
@@ -286,7 +342,7 @@
     <div class="hop">Por que consultar antes de disparar</div>
     <h2 style="font-size:1.25rem;">Portabilidade numérica: o prefixo já não indica a operadora</h2>
     <p>Desde a portabilidade numérica, um número pode ter trocado de operadora sem trocar de forma alguma o DDD ou o prefixo. Isso significa que uma planilha de contatos antiga ou comprada de terceiros pode ter uma taxa relevante de números com a operadora desatualizada — o que impacta diretamente a taxa de entrega em campanhas de SMS.</p>
-    <p>A consulta de operadora do SMSMass resolve isso em lote: você sobe a mesma planilha que já usa para disparo, o app consulta a operadora atual de cada número através do backend do SMSMass, e devolve o resultado organizado — sem que você precise se cadastrar em nenhum serviço externo ou lidar com credenciais de terceiros.</p>
+    <p>A consulta de operadora do SMSMass resolve isso em lote: você sobe a mesma planilha que já usa para disparo, consulta a operadora atual de cada número pelo site, e recebe o resultado organizado — sem precisar se cadastrar em nenhum serviço externo ou lidar com credenciais de terceiros.</p>
   </div>
 </section>
 
@@ -296,7 +352,7 @@
     <h2 style="font-size:1.25rem;">Simples, dentro da mesma licença que você já usa</h2>
     <ul class="plan-items" style="margin-top:12px;">
       <li>Use a mesma planilha de contatos do SMSMass, sem preparo extra</li>
-      <li>A consulta roda pelo backend do SMSMass — você nunca lida com login ou senha de provedor externo</li>
+      <li>A consulta roda pelo site do SMSMass — você nunca lida com login ou senha de provedor externo</li>
       <li>Cada consulta desconta um crédito específico, separado do seu saldo de SMS</li>
       <li>Resultado com a operadora atual de cada número, pronto para orientar sua campanha</li>
     </ul>
@@ -385,10 +441,13 @@
 // Search index: title, description, url
 const searchIndex = [
   {t:"Home",d:"Página inicial do SMSMass",u:"index.html"},
-  {t:"Planos",d:"Trial, 2000, 5000 SMS ou ilimitado",u:"loja.html"},
+  {t:"Planos",d:"Trial, 2000, 5000 SMS ou ilimitado",u:"planos.html"},
+  {t:"Loja",d:"Todos os produtos: planos de SMS, consultas e afiliados",u:"loja.html"},
+  {t:"Consultas e Afiliados",d:"Consulta de operadora e portabilidade em lote",u:"consultas.html"},
+  {t:"Programa de Afiliados",d:"Ganhe comissão indicando o SMSMass",u:"afiliados.html"},
   {t:"Contador de caracteres SMS",d:"GSM-7, UCS-2 e cálculo de segmentos",u:"contador-caracteres.html"},
   {t:"Simulador de operadora",d:"Consulta oficial ABR e portabilidade",u:"simulador-operadora.html"},
-  {t:"Consulta de operadora em lote",d:"Recurso pago do app: consulta a operadora atual de toda a planilha",u:"consulta-operadora.html"},
+  {t:"Consulta de operadora em lote",d:"Recurso pago do site: consulta a operadora atual de toda a planilha",u:"consulta-operadora.html"},
   {t:"Como o SMS trafega",d:"SMSC, SMPP e SS7",u:"como-sms-trafega.html"},
   {t:"GSM-7 vs UCS-2",d:"Por que o SMS tem limite de 160 caracteres",u:"gsm7-ucs2.html"},
   {t:"SMS vs WhatsApp vs RCS",d:"Comparação para cobrança e consignado",u:"sms-vs-whatsapp.html"},

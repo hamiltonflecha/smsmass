@@ -134,6 +134,13 @@
   text-align:center;
 }
 
+.faq{margin-top:14px;}
+.faq-item{border-bottom:1px solid var(--line);padding:16px 0;}
+.faq-item summary{font-weight:600;cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;}
+.faq-item summary::after{content:'+';font-size:1.2rem;color:var(--slate);}
+.faq-item[open] summary::after{content:'−';}
+.faq-item p{margin:12px 0 0;color:var(--slate);font-size:.92rem;}
+
 /* Search results dropdown */
 .search-results{
   position:fixed;top:54px;right:24px;
@@ -247,11 +254,11 @@
 
 <!-- Sidebar esquerda -->
 <div class="sidebar">
-  <div class="sidebar-version">v021</div>
+  <div class="sidebar-version">v026</div>
   <div class="sidebar-group">
     <div class="sidebar-label">Início</div>
     <a href="index.html">Home</a>
-    <a href="loja.html">Planos</a>
+    <a href="loja.html">Loja</a>
     <a href="mapa-do-site.html">Mapa do site</a>
   </div>
 
@@ -495,11 +502,88 @@
     </div>
   </section>
 
+  <section>
+    <div class="wrap">
+      <div class="hop">Perguntas frequentes</div>
+      <div class="faq">
+        <details class="faq-item">
+          <summary>Quanto custa enviar SMS em massa?</summary>
+          <p>O SMSMass tem plano a partir de R$79 (2.000 SMS), R$119 (5.000 SMS) e R$490 no plano Ilimitado, todos em pagamento único, sem mensalidade. Também tem um Trial Grátis com 5 SMS pra testar antes de comprar.</p>
+        </details>
+        <details class="faq-item">
+          <summary>O SMS chega mesmo sem internet no celular de quem recebe?</summary>
+          <p>Sim. O SMS trafega pela rede da operadora (a mesma usada em ligação e torpedo comum), não pela internet. Quem recebe não precisa estar com Wi-Fi ou dados móveis ligados pra ler a mensagem.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Preciso de internet no meu celular pra disparar em massa?</summary>
+          <p>O app dispara direto pelo chip inserido no seu celular Android — sem depender de servidor externo. Uma conexão de internet é usada só pra carregar a lista de contatos da planilha, não pro envio em si.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Funciona com chip de qualquer operadora, inclusive Vivo?</summary>
+          <p>Sim, funciona com o chip de qualquer operadora brasileira inserido no aparelho. Se você quiser confirmar antes a operadora atual de cada número da sua lista, use a <a href="consulta-operadora.html">consulta de operadora em lote</a>.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Existe plano de SMS em massa ilimitado?</summary>
+          <p>Sim, o plano SMSMass Ilimitado libera disparo sem limite de SMS por ciclo, em pagamento único de R$490. Veja todos os <a href="#planos">planos e preços</a>.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
   <section style="text-align:center;">
     <div class="wrap">
       <a href="#planos" class="btn">Ver planos e baixar o app</a>
     </div>
   </section>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Quanto custa enviar SMS em massa?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "O SMSMass tem plano a partir de R$79 (2.000 SMS), R$119 (5.000 SMS) e R$490 no plano Ilimitado, todos em pagamento único, sem mensalidade. Também tem um Trial Grátis com 5 SMS pra testar antes de comprar."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "O SMS chega mesmo sem internet no celular de quem recebe?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sim. O SMS trafega pela rede da operadora (a mesma usada em ligação e torpedo comum), não pela internet. Quem recebe não precisa estar com Wi-Fi ou dados móveis ligados pra ler a mensagem."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Preciso de internet no meu celular pra disparar em massa?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "O app dispara direto pelo chip inserido no seu celular Android, sem depender de servidor externo. Uma conexão de internet é usada só pra carregar a lista de contatos da planilha, não pro envio em si."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Funciona com chip de qualquer operadora, inclusive Vivo?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sim, funciona com o chip de qualquer operadora brasileira inserido no aparelho. O SMSMass também oferece uma consulta de operadora em lote para confirmar a operadora atual de cada número antes do disparo."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Existe plano de SMS em massa ilimitado?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sim, o plano SMSMass Ilimitado libera disparo sem limite de SMS por ciclo, em pagamento único de R$490."
+        }
+      }
+    ]
+  }
+  </script>
 
   <footer>
     <div class="wrap">
@@ -513,10 +597,13 @@
 // Search index: title, description, url
 const searchIndex = [
   {t:"Home",d:"Página inicial do SMSMass",u:"index.html"},
-  {t:"Planos",d:"Trial, 2000, 5000 SMS ou ilimitado",u:"loja.html"},
+  {t:"Planos",d:"Trial, 2000, 5000 SMS ou ilimitado",u:"planos.html"},
+  {t:"Loja",d:"Todos os produtos: planos de SMS, consultas e afiliados",u:"loja.html"},
+  {t:"Consultas e Afiliados",d:"Consulta de operadora e portabilidade em lote",u:"consultas.html"},
+  {t:"Programa de Afiliados",d:"Ganhe comissão indicando o SMSMass",u:"afiliados.html"},
   {t:"Contador de caracteres SMS",d:"GSM-7, UCS-2 e cálculo de segmentos",u:"contador-caracteres.html"},
   {t:"Simulador de operadora",d:"Consulta oficial ABR e portabilidade",u:"simulador-operadora.html"},
-  {t:"Consulta de operadora em lote",d:"Recurso pago do app: consulta a operadora atual de toda a planilha",u:"consulta-operadora.html"},
+  {t:"Consulta de operadora em lote",d:"Recurso pago do site: consulta a operadora atual de toda a planilha",u:"consulta-operadora.html"},
   {t:"Como o SMS trafega",d:"SMSC, SMPP e SS7",u:"como-sms-trafega.html"},
   {t:"GSM-7 vs UCS-2",d:"Por que o SMS tem limite de 160 caracteres",u:"gsm7-ucs2.html"},
   {t:"SMS vs WhatsApp vs RCS",d:"Comparação para cobrança e consignado",u:"sms-vs-whatsapp.html"},

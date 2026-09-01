@@ -8,18 +8,18 @@
 <link rel="apple-touch-icon" sizes="180x180" href="favicon-180.png">
 <link rel="shortcut icon" href="favicon.ico">
 
-<title>SMSMass</title>
-<meta name="description" content="O caminho real de uma mensagem SMS entre seu celular e o do destinatário: SMSC, protocolos SMPP e SS7, e por que algumas operadoras demoram mais para confirmar entrega.">
-<link rel="canonical" href="https://smsmass.com.br/como-sms-trafega.html">
+<title>Comissão do Afiliado — SMSMass</title>
+<meta name="description" content="Valores de comissão do Programa de Afiliados SMSMass e como funciona o cadastro.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="canonical" href="https://smsmass.com.br/afiliados-info.html">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Como o SMS trafega pelas redes">
-<meta property="og:description" content="SMSC, SMPP, SS7: o caminho real de uma mensagem entre operadoras — e por que algumas demoram mais.">
-<meta property="og:url" content="https://smsmass.com.br/como-sms-trafega.html">
+<meta property="og:title" content="Comissão do Afiliado — SMSMass">
+<meta property="og:description" content="Valores de comissão do Programa de Afiliados SMSMass.">
+<meta property="og:url" content="https://smsmass.com.br/afiliados-info.html">
 <meta property="og:locale" content="pt_BR">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Como o SMS trafega pelas redes">
-<meta name="twitter:description" content="SMSC, SMPP, SS7: o caminho real de uma mensagem entre operadoras — e por que algumas demoram mais.">
-
+<meta name="twitter:title" content="Comissão do Afiliado — SMSMass">
+<meta name="twitter:description" content="Valores de comissão do Programa de Afiliados SMSMass.">
 <link rel="stylesheet" href="style.css">
 <style>
 .topbar{
@@ -137,6 +137,69 @@
   .icon-link svg{width:16px;height:16px;}
 }
 :target{scroll-margin-top:70px;}
+.plans{display:grid;gap:20px;margin-top:32px;}
+@media(min-width:640px){.plans{grid-template-columns:repeat(2,1fr);}}
+@media(min-width:960px){.plans{grid-template-columns:repeat(4,1fr);}}
+
+.plan{
+  border:1px solid var(--line);
+  border-radius:6px;
+  padding:24px;
+  background:var(--paper);
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+}
+.plan.destaque{
+  border-color:var(--green);
+  border-width:2px;
+  position:relative;
+}
+.badge{
+  position:absolute;
+  top:-13px;
+  left:50%;
+  transform:translateX(-50%);
+  background:var(--green);
+  color:#fff;
+  font-family:'IBM Plex Mono',monospace;
+  font-size:.72rem;
+  letter-spacing:.06em;
+  text-transform:uppercase;
+  padding:3px 12px;
+  border-radius:20px;
+  white-space:nowrap;
+}
+.plan-nome{font-family:'Fraunces',serif;font-size:1.2rem;font-weight:600;line-height:1.4;}
+.plan-nome .plan-qtd{display:block;font-family:'IBM Plex Mono',monospace;font-size:.9rem;font-weight:600;color:var(--green);letter-spacing:.02em;}
+.plan-preco{font-family:'IBM Plex Mono',monospace;font-size:2rem;font-weight:600;color:var(--navy);}
+.plan-preco span{font-size:.95rem;font-weight:400;color:var(--slate);}
+.plan-desc{color:var(--slate);font-size:.92rem;line-height:1.5;}
+.plan-items{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:8px;}
+.plan-items li{font-size:.92rem;padding-left:18px;position:relative;}
+.plan-items li::before{content:'✓';position:absolute;left:0;color:var(--green);font-weight:600;}
+.plan-btn{
+  display:block;
+  text-align:center;
+  padding:12px;
+  border-radius:4px;
+  font-weight:600;
+  font-size:.95rem;
+  margin-top:auto;
+  border:2px solid var(--navy);
+  color:var(--navy);
+  transition:background .15s, color .15s;
+}
+.plan-btn:hover{background:var(--navy);color:#fff;text-decoration:none;}
+.plan.destaque .plan-btn{background:var(--navy);color:#fff;}
+.plan.destaque .plan-btn:hover{background:#0e2837;}
+
+.faq{margin-top:14px;}
+.faq-item{border-bottom:1px solid var(--line);padding:16px 0;}
+.faq-item summary{font-weight:600;cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;}
+.faq-item summary::after{content:'+';font-size:1.2rem;color:var(--slate);}
+.faq-item[open] summary::after{content:'−';}
+.faq-item p{margin:12px 0 0;color:var(--slate);font-size:.92rem;}
 </style>
 </head>
 <body>
@@ -180,7 +243,7 @@
   <div class="sidebar-group">
     <div class="sidebar-label">Início</div>
     <a href="index.html">Home</a>
-    <a href="loja.html">Loja</a>
+    <a href="loja.html" class="ativo">Loja</a>
     <a href="mapa-do-site.html">Mapa do site</a>
   </div>
 
@@ -227,7 +290,7 @@
 
   <div class="sidebar-group">
     <div class="sidebar-label">Como o SMS funciona</div>
-    <a href="como-sms-trafega.html" class="ativo">Como o SMS trafega</a>
+    <a href="como-sms-trafega.html">Como o SMS trafega</a>
     <ul class="sublist">
       <li><a href="como-sms-trafega.html#smsc">SMSC</a></li>
       <li><a href="como-sms-trafega.html#smpp-ss7">SMPP e SS7</a></li>
@@ -276,57 +339,31 @@
 
 <div class="hero">
   <div class="wrap">
-    <div class="hop">Artigo</div>
-    <h1>Como o SMS trafega pelas redes</h1>
-    <p class="lede">Um SMS não vai direto do seu celular para o do destinatário. Ele passa por vários pontos intermediários — e entender isso explica por que algumas mensagens demoram mais que outras.</p>
+    <div class="hop">Programa de Afiliados · Comissão</div>
+    <h1>Veja quanto você ganha como afiliado</h1>
+    <p class="lede">Comissão fixa de 25% sobre o valor de cada venda confirmada, em qualquer plano de SMS em massa que você indicar.</p>
   </div>
 </div>
 
 <section>
   <div class="wrap">
-    <div class="hop">Hop 1 · O remetente</div>
-    <h2 style="font-size:1.25rem;">Do app até a antena</h2>
-    <p>Quando você dispara uma mensagem — seja pelo teclado do celular ou por um app de disparo em massa — o aparelho envia o conteúdo pela rede de sinalização da operadora até a antena (torre) mais próxima. Esse trecho usa o canal de controle do celular, o mesmo que carrega chamadas de voz, e por isso o SMS funciona mesmo sem internet.</p>
-  </div>
-</section>
-
-<section>
-  <div class="wrap">
-    <div class="hop">Hop 2 · O SMSC</div>
-    <h2 style="font-size:1.25rem;" id="smsc">O centro de mensagens (SMSC)</h2>
-    <p>A antena entrega a mensagem ao <strong>SMSC (Short Message Service Center)</strong> da operadora de origem. O SMSC é o ponto que armazena, encaminha e confirma a entrega das mensagens. Se o destinatário estiver com o celular desligado, o SMSC guarda a mensagem por um período (normalmente alguns dias) e tenta reenviar quando o aparelho reconectar.</p>
-  </div>
-</section>
-
-<section>
-  <div class="wrap">
-    <div class="hop">Hop 3 · A ponte entre operadoras</div>
-    <h2 style="font-size:1.25rem;" id="smpp-ss7">SS7 e a troca entre operadoras diferentes</h2>
-    <p>Quando o remetente e o destinatário estão em operadoras diferentes — por exemplo, você dispara de um chip Claro para um número Vivo — o SMSC da Claro precisa repassar a mensagem para a rede da Vivo. Essa troca acontece por protocolos de sinalização como <strong>SS7</strong> (mais antigo, ainda dominante) ou, em integrações comerciais, via <strong>SMPP (Short Message Peer-to-Peer)</strong>, que é o protocolo que gateways de disparo em massa usam para falar diretamente com a operadora.</p>
-    <p>É justamente nesse ponto de troca entre redes que entram filtros antispam, limites de taxa e bloqueios de chip — o que explica por que um número pode ser bloqueado em uma operadora e continuar funcionando normalmente em outra.</p>
-  </div>
-</section>
-
-<section>
-  <div class="wrap">
-    <div class="hop">Hop 4 · Por que o tempo varia</div>
-    <h2 style="font-size:1.25rem;">Por que a confirmação de entrega demora mais em algumas operadoras</h2>
-    <p>O recibo de entrega (DLR — Delivery Receipt) só retorna depois que o SMSC de destino confirma que o aparelho recebeu a mensagem. Operadoras com SMSCs mais sobrecarregados, regras de antispam mais agressivas, ou prioridade menor para tráfego de SMS em relação a voz/dados tendem a confirmar mais lentamente. Isso é independente da qualidade do conteúdo da mensagem — é um efeito puramente de infraestrutura.</p>
-  </div>
-</section>
-
-<section>
-  <div class="wrap">
-    <div class="hop">Resumo</div>
+    <div class="hop">Quanto você ganha</div>
     <table>
-      <tr><th>Etapa</th><th>O que faz</th></tr>
-      <tr><td>Antena (torre)</td><td>Recebe o sinal do celular remetente</td></tr>
-      <tr><td>SMSC origem</td><td>Armazena e roteia a mensagem</td></tr>
-      <tr><td>SS7 / SMPP</td><td>Troca a mensagem entre operadoras diferentes</td></tr>
-      <tr><td>SMSC destino</td><td>Entrega ao celular e gera o recibo (DLR)</td></tr>
+      <tr><th>Plano vendido</th><th>Preço</th><th>Sua comissão (25%)</th></tr>
+      <tr><td>SMSMass 2.000 SMS</td><td>R$79</td><td>R$19,75</td></tr>
+      <tr><td>SMSMass 5.000 SMS</td><td>R$119</td><td>R$29,75</td></tr>
+      <tr><td>SMSMass Ilimitado</td><td>R$490</td><td>R$122,50</td></tr>
     </table>
+    <p style="margin-top:14px;color:var(--slate);font-size:.9rem;">O repasse é combinado por Pix ou transferência bancária, na frequência que você escolher no cadastro: por venda, semanal ou mensal.</p>
   </div>
 </section>
+
+<section style="text-align:center;">
+  <div class="wrap">
+    <a href="afiliados-cadastro.html" class="btn">Completar meu cadastro agora</a>
+  </div>
+</section>
+
 
 <footer>
   <div class="wrap"><a href="central.html">← Voltar para a Central de SMS</a></div>
