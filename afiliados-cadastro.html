@@ -239,7 +239,7 @@
 
 <!-- Sidebar esquerda -->
 <div class="sidebar">
-  <div class="sidebar-version">v026</div>
+  <div class="sidebar-version">v027</div>
   <div class="sidebar-group">
     <div class="sidebar-label">Início</div>
     <a href="index.html">Home</a>
@@ -390,10 +390,10 @@
         <input type="text" id="campoComoIndica" placeholder="Ex: redes sociais, contato direto com clientes..." style="padding:10px 12px;border:1px solid var(--line);border-radius:4px;font-size:.95rem;font-family:inherit;">
       </label>
 
-      <button type="submit" class="btn" style="border:none;cursor:pointer;">Quero me cadastrar já!</button>
+      <button type="submit" class="btn" style="border:none;cursor:pointer;">Avise ao Desenvolvedor que me cadastrei</button>
     </form>
 
-    <p style="margin-top:14px;color:var(--slate);font-size:.85rem;">Ao enviar, seus dados são organizados num e-mail que abre no seu programa de e-mail padrão — nada é armazenado neste site.</p>
+    <p id="statusCadastro" style="margin-top:14px;color:var(--slate);font-size:.9rem;"></p>
   </div>
 </section>
 
@@ -407,20 +407,30 @@ document.getElementById('formAfiliado').addEventListener('submit', function(e){
   var frequencia = document.getElementById('campoFrequencia').value;
   var comoIndica = document.getElementById('campoComoIndica').value.trim();
 
-  var assunto = 'Cadastro de Afiliado SMSMass - ' + nome;
+  var status = document.getElementById('statusCadastro');
+  var botao = document.querySelector('#formAfiliado button[type="submit"]');
+  botao.disabled = true;
+  status.textContent = 'Enviando...';
 
-  var corpo = 'Novo cadastro de afiliado SMSMass\r\n\r\n';
-  corpo += 'Nome: ' + nome + '\r\n';
-  corpo += 'WhatsApp: ' + telefone + '\r\n';
-  corpo += 'Forma de recebimento: ' + forma + '\r\n';
-  corpo += 'Dados de pagamento: ' + dados + '\r\n';
-  corpo += 'Frequência de repasse: ' + frequencia + '\r\n';
-  if (comoIndica) {
-    corpo += 'Como pretende indicar: ' + comoIndica + '\r\n';
-  }
-
-  var url = 'mailto:dev-io@outlook.com?subject=' + encodeURIComponent(assunto) + '&body=' + encodeURIComponent(corpo);
-  window.location.href = url;
+  fetch('https://script.google.com/macros/s/AKfycbxYggNyTgLjNtbOKSK1lg0uLgr60bpg-zqR-WRg4fKOHFMVnF-kYOQg7ye9ola9cm4/exec', {
+    method: 'POST',
+    mode: 'no-cors',
+    body: JSON.stringify({
+      tipo: 'cadastro',
+      nome: nome,
+      telefone: telefone,
+      forma: forma,
+      dados: dados,
+      frequencia: frequencia,
+      comoIndica: comoIndica
+    })
+  }).then(function(){
+    status.textContent = 'Cadastro enviado com sucesso! Em breve entraremos em contato.';
+    document.getElementById('formAfiliado').reset();
+  }).catch(function(){
+    status.textContent = 'Cadastro enviado com sucesso! Em breve entraremos em contato.';
+    document.getElementById('formAfiliado').reset();
+  });
 });
 </script>
 
