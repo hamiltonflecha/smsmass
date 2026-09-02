@@ -234,7 +234,7 @@
 
 <!-- Sidebar esquerda -->
 <div class="sidebar">
-  <div class="sidebar-version">v040</div>
+  <div class="sidebar-version">v041</div>
   <div class="sidebar-group compact">
     <div class="sidebar-label">Início</div>
     <a href="index.html">Home</a>
@@ -403,7 +403,7 @@ document.getElementById('formConsulta').addEventListener('submit', function(e){
     var csvTexto = evento.target.result;
     status.textContent = 'Consultando... isso pode levar alguns instantes para listas grandes.';
 
-    fetch('https://script.google.com/macros/s/AKfycbzZOrI0mDpD7g3otFJPUMyqQmPm-qZ3DVgbExN21QxUTkHTiBJA5KYXbdmy-5X_6op4/exec', {
+    fetch('https://script.google.com/macros/s/AKfycbxYggNyTgLjNtbOKSK1lg0uLgr60bpg-zqR-WRg4fKOHFMVnF-kYOQg7ye9ola9cm4/exec', {
       method: 'POST',
       headers: {'Content-Type': 'text/plain'},
       body: JSON.stringify({
