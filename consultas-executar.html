@@ -8,18 +8,18 @@
 <link rel="apple-touch-icon" sizes="180x180" href="favicon-180.png">
 <link rel="shortcut icon" href="favicon.ico">
 
-<title>SMSMass</title>
-<meta name="description" content="O que é RCS (Rich Communication Services), a cobertura das operadoras no Brasil em 2026, e por que enviar em massa por RCS exige uma infraestrutura diferente do SMS direto pelo chip.">
-<link rel="canonical" href="https://smsmass.com.br/rcs.html">
+<title>Consultar Operadora dos Números — SMSMass</title>
+<meta name="description" content="Suba o arquivo CSV com os números e receba o resultado da consulta de operadora por e-mail.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="canonical" href="https://smsmass.com.br/consultas-executar.html">
 <meta property="og:type" content="website">
-<meta property="og:title" content="RCS: o sucessor do SMS, explicado">
-<meta property="og:description" content="O que é RCS, cobertura das operadoras no Brasil e por que ele não funciona do mesmo jeito que o SMS pelo chip.">
-<meta property="og:url" content="https://smsmass.com.br/rcs.html">
+<meta property="og:title" content="Consultar Operadora dos Números — SMSMass">
+<meta property="og:description" content="Suba o arquivo CSV com os números e receba o resultado por e-mail.">
+<meta property="og:url" content="https://smsmass.com.br/consultas-executar.html">
 <meta property="og:locale" content="pt_BR">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="RCS: o sucessor do SMS, explicado">
-<meta name="twitter:description" content="O que é RCS, cobertura das operadoras no Brasil e por que ele não funciona do mesmo jeito que o SMS pelo chip.">
-
+<meta name="twitter:title" content="Consultar Operadora dos Números — SMSMass">
+<meta name="twitter:description" content="Suba o arquivo CSV com os números e receba o resultado por e-mail.">
 <link rel="stylesheet" href="style.css">
 <style>
 .topbar{
@@ -137,6 +137,63 @@
   .icon-link{width:30px;height:30px;border-radius:8px;flex-shrink:0;}
   .icon-link svg{width:16px;height:16px;}
 }
+:target{scroll-margin-top:70px;}
+.plans{display:grid;gap:20px;margin-top:32px;}
+@media(min-width:640px){.plans{grid-template-columns:repeat(2,1fr);}}
+@media(min-width:960px){.plans{grid-template-columns:repeat(4,1fr);}}
+
+.plan{
+  border:1px solid var(--line);
+  border-radius:6px;
+  padding:24px;
+  background:var(--paper);
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+}
+.plan.destaque{
+  border-color:var(--green);
+  border-width:2px;
+  position:relative;
+}
+.badge{
+  position:absolute;
+  top:-13px;
+  left:50%;
+  transform:translateX(-50%);
+  background:var(--green);
+  color:#fff;
+  font-family:'IBM Plex Mono',monospace;
+  font-size:.72rem;
+  letter-spacing:.06em;
+  text-transform:uppercase;
+  padding:3px 12px;
+  border-radius:20px;
+  white-space:nowrap;
+}
+.plan-nome{font-family:'Fraunces',serif;font-size:1.2rem;font-weight:600;line-height:1.4;}
+.plan-nome .plan-qtd{display:block;font-family:'IBM Plex Mono',monospace;font-size:.9rem;font-weight:600;color:var(--green);letter-spacing:.02em;}
+.plan-preco{font-family:'IBM Plex Mono',monospace;font-size:2rem;font-weight:600;color:var(--navy);}
+.plan-preco span{font-size:.95rem;font-weight:400;color:var(--slate);}
+.plan-desc{color:var(--slate);font-size:.92rem;line-height:1.5;}
+.plan-items{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:8px;}
+.plan-items li{font-size:.92rem;padding-left:18px;position:relative;}
+.plan-items li::before{content:'✓';position:absolute;left:0;color:var(--green);font-weight:600;}
+.plan-btn{
+  display:block;
+  text-align:center;
+  padding:12px;
+  border-radius:4px;
+  font-weight:600;
+  font-size:.95rem;
+  margin-top:auto;
+  border:2px solid var(--navy);
+  color:var(--navy);
+  transition:background .15s, color .15s;
+}
+.plan-btn:hover{background:var(--navy);color:#fff;text-decoration:none;}
+.plan.destaque .plan-btn{background:var(--navy);color:#fff;}
+.plan.destaque .plan-btn:hover{background:#0e2837;}
 </style>
 </head>
 <body>
@@ -181,7 +238,7 @@
   <div class="sidebar-group compact">
     <div class="sidebar-label">Início</div>
     <a href="index.html">Home</a>
-    <a href="loja.html">Loja</a>
+    <a href="loja.html" class="ativo">Loja</a>
     <a href="afiliados.html">Programa de Afiliados</a>
     <a href="mapa-do-site.html">Mapa do site</a>
   </div>
@@ -246,7 +303,7 @@
   <div class="sidebar-group">
     <div class="sidebar-label">Comparação e uso</div>
     <a href="sms-vs-whatsapp.html">SMS vs WhatsApp vs RCS</a>
-    <a href="rcs.html" class="ativo">RCS</a>
+    <a href="rcs.html">RCS</a>
     <a href="legislacao-sms.html">SMS marketing e LGPD</a>
     <ul class="sublist">
       <li><a href="legislacao-sms.html#opt-out">Opt-out</a></li>
@@ -281,49 +338,113 @@
 
 <div class="hero">
   <div class="wrap">
-    <div class="hop">Artigo</div>
-    <h1>RCS: o sucessor do SMS, e por que o SMSMass ainda não envia por ele</h1>
-    <p class="lede">RCS (Rich Communication Services) é o padrão que o Google e a GSMA criaram para substituir o SMS. Ele já roda no Brasil, ainda não sofre o mesmo bloqueio agressivo que o SMS em massa, mas funciona de um jeito tecnicamente diferente do disparo pelo chip.</p>
+    <div class="hop">Consultar Operadora</div>
+    <h1>Rode sua consulta de operadora</h1>
+    <p class="lede">Já comprou um dos pacotes? Suba aqui o arquivo com os números — o resultado chega no seu e-mail em poucos minutos.</p>
   </div>
 </div>
 
 <section>
   <div class="wrap">
-    <div class="hop">O que é</div>
-    <h2 style="font-size:1.25rem;">RCS em poucas palavras</h2>
-    <p>RCS troca a rede de sinalização do SMS (SS7) por internet — dados móveis ou Wi-Fi. Isso permite recursos que o SMS nunca teve: imagens, botões clicáveis, carrosséis de produto, confirmação de leitura e um selo de remetente verificado com nome e logo da empresa. No Android, ele já vem ativado de fábrica no app Mensagens do Google na maioria dos aparelhos vendidos no Brasil; desde o iOS 18, a Apple também passou a suportar o protocolo.</p>
+    <div class="hop">Enviar números</div>
+
+    <form id="formConsulta" style="max-width:480px;margin-top:20px;display:flex;flex-direction:column;gap:16px;">
+
+      <label style="display:flex;flex-direction:column;gap:6px;font-size:.9rem;font-weight:600;">
+        E-mail usado na compra
+        <input type="email" id="campoEmailConsulta" required style="padding:10px 12px;border:1px solid var(--line);border-radius:4px;font-size:.95rem;font-family:inherit;">
+      </label>
+
+      <label style="display:flex;flex-direction:column;gap:6px;font-size:.9rem;font-weight:600;">
+        Arquivo CSV com os números
+        <input type="file" id="campoArquivoCsv" accept=".csv,text/csv" required style="padding:10px 0;font-size:.9rem;font-family:inherit;">
+      </label>
+
+      <p style="color:var(--slate);font-size:.85rem;margin:0;">O arquivo deve ter <strong>uma única coluna</strong>, com um número por linha, no formato DDI+DDD+número (ex: 5531999999999). Cabeçalho é opcional — linhas que não parecerem número são ignoradas.</p>
+
+      <button type="submit" class="btn" style="border:none;cursor:pointer;">Enviar e consultar</button>
+    </form>
+
+    <p id="statusConsulta" style="margin-top:14px;color:var(--slate);font-size:.9rem;"></p>
+
+    <div id="resultadoConsulta" style="margin-top:20px;display:none;">
+      <div class="hop">Resultado</div>
+      <div class="table-scroll">
+        <table id="tabelaResultado">
+          <tr><th>Número</th><th>Operadora</th></tr>
+        </table>
+      </div>
+    </div>
   </div>
 </section>
 
-<section>
-  <div class="wrap">
-    <div class="hop">Panorama 2026</div>
-    <h2 style="font-size:1.25rem;">Cobertura das operadoras no Brasil</h2>
-    <div class="table-scroll"><table>
-      <tr><th>Operadora</th><th>Situação do RCS empresarial (P2A)</th></tr>
-      <tr><td>Vivo</td><td>Entrega em escala nas regiões metropolitanas, cobertura acima de 80% dos Android habilitados</td></tr>
-      <tr><td>Claro</td><td>Mesmo nível de cobertura da Vivo nas capitais</td></tr>
-      <tr><td>TIM</td><td>Avançando, mas com lacunas relevantes no Norte e Nordeste — cai para SMS como reserva</td></tr>
-      <tr><td>Oi e MVNOs</td><td>Sem entrega RCS estável para uso comercial — praticamente sempre cai para SMS</td></tr>
-    </table></div>
-    <p style="color:var(--slate);font-size:.9rem;">Diferente do SMS em massa — hoje bloqueado com frequência pela TIM e pela Claro — o RCS empresarial ainda não tem esse tipo de filtro agressivo no Brasil. Isso pode mudar conforme o volume de spam por esse canal crescer, como já aconteceu com o SMS.</p>
-  </div>
-</section>
+<script>
+document.getElementById('campoArquivoCsv').addEventListener('change', function(){
+  // nada de especial no momento da seleção, só confirma que trocou
+});
 
-<section>
-  <div class="wrap">
-    <div class="hop">A pergunta que importa</div>
-    <h2 style="font-size:1.25rem;">O SMSMass pode enviar por RCS?</h2>
-    <p>Não do jeito que ele funciona hoje — e essa é uma diferença de arquitetura, não um recurso que falta ligar. O SMSMass dispara SMS usando uma função do próprio Android (SmsManager) que manda a mensagem direto pelo chip da operadora inserido no celular. É por isso que o app não depende de servidor, gateway ou aprovação prévia de conteúdo.</p>
-    <p>O RCS empresarial não funciona assim. Ele é do tipo <strong>aplicação para pessoa (P2A)</strong>, não pessoa para pessoa como o SMS do seu chip. Não existe uma função pública do Android que um app comum possa chamar para disparar RCS para números arbitrários. Para enviar RCS de verdade em escala, é preciso:</p>
-    <ul>
-      <li>Se tornar (ou contratar) um Agente RBM (RCS Business Messaging) verificado pelo Google;</li>
-      <li>Passar por aprovação de marca e conteúdo, normalmente por meio de uma plataforma intermediária (CPaaS) como Zenvia, Comtele, 360dialog ou similares;</li>
-      <li>Migrar de "SMS disparado pelo chip do celular" para "mensagens disparadas por servidor via API", cobradas por mensagem/mês.</li>
-    </ul>
-    <p>Ou seja: oferecer RCS não é um ajuste no app, seria essencialmente um produto novo, com um modelo de custo e de infraestrutura diferente do que torna o SMSMass barato hoje. Vale ficar de olho conforme a adoção crescer no Brasil, mas por enquanto o SMS pelo chip continua sendo a rota mais direta e sem intermediários para disparo em massa.</p>
-  </div>
-</section>
+document.getElementById('formConsulta').addEventListener('submit', function(e){
+  e.preventDefault();
+  var email = document.getElementById('campoEmailConsulta').value.trim();
+  var arquivo = document.getElementById('campoArquivoCsv').files[0];
+  var status = document.getElementById('statusConsulta');
+  var botao = document.querySelector('#formConsulta button[type="submit"]');
+
+  if (!arquivo) {
+    status.textContent = 'Selecione um arquivo CSV.';
+    return;
+  }
+
+  botao.disabled = true;
+  status.textContent = 'Lendo arquivo...';
+
+  var leitor = new FileReader();
+  leitor.onload = function(evento){
+    var csvTexto = evento.target.result;
+    status.textContent = 'Consultando... isso pode levar alguns instantes para listas grandes.';
+
+    fetch('https://script.google.com/macros/s/AKfycbzZOrI0mDpD7g3otFJPUMyqQmPm-qZ3DVgbExN21QxUTkHTiBJA5KYXbdmy-5X_6op4/exec', {
+      method: 'POST',
+      headers: {'Content-Type': 'text/plain'},
+      body: JSON.stringify({
+        tipo: 'consulta_lote',
+        email: email,
+        csv: csvTexto
+      })
+    })
+    .then(function(resp){ return resp.json(); })
+    .then(function(json){
+      botao.disabled = false;
+      if (json.ok) {
+        status.textContent = 'Consulta concluída! ' + json.total + ' números processados. O resultado também foi enviado para o seu e-mail.';
+        mostrarResultado(json.resultados);
+      } else {
+        status.textContent = 'Erro: ' + (json.erro || 'não foi possível processar a consulta.');
+      }
+    })
+    .catch(function(){
+      botao.disabled = false;
+      status.textContent = 'Enviado! Se o resultado não aparecer aqui, confira seu e-mail em alguns instantes — a consulta continua sendo processada.';
+    });
+  };
+  leitor.readAsText(arquivo);
+});
+
+function mostrarResultado(resultados){
+  var div = document.getElementById('resultadoConsulta');
+  var tabela = document.getElementById('tabelaResultado');
+  tabela.innerHTML = '<tr><th>Número</th><th>Operadora</th></tr>';
+  resultados.forEach(function(r){
+    var numero = r.numero || r.number || r.telefone || '?';
+    var operadora = r.operadora || r.carrier || r.operator || '?';
+    var linha = document.createElement('tr');
+    linha.innerHTML = '<td>' + numero + '</td><td>' + operadora + '</td>';
+    tabela.appendChild(linha);
+  });
+  div.style.display = 'block';
+}
+</script>
+
 
 <footer>
   <div class="wrap"><a href="central.html">← Voltar para a Central de SMS</a></div>
