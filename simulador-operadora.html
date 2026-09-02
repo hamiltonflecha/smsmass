@@ -8,7 +8,7 @@
 <link rel="apple-touch-icon" sizes="180x180" href="favicon-180.png">
 <link rel="shortcut icon" href="favicon.ico">
 
-<title>SMSMass</title>
+<title>Como Saber a Operadora de um Número de Celular</title>
 <meta name="description" content="Como descobrir a operadora de um número de celular no Brasil. Consulta oficial gratuita na ABR Telecom, portabilidade numérica e simulador educativo por prefixo.">
 <link rel="canonical" href="https://smsmass.com.br/simulador-operadora.html">
 <meta property="og:type" content="website">
@@ -137,6 +137,12 @@
   .icon-link svg{width:16px;height:16px;}
 }
 :target{scroll-margin-top:70px;}
+.faq{margin-top:14px;}
+.faq-item{border-bottom:1px solid var(--line);padding:16px 0;}
+.faq-item summary{font-weight:600;cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;}
+.faq-item summary::after{content:'+';font-size:1.2rem;color:var(--slate);}
+.faq-item[open] summary::after{content:'−';}
+.faq-item p{margin:12px 0 0;color:var(--slate);font-size:.92rem;}
 </style>
 </head>
 <body>
@@ -147,7 +153,7 @@
       <button class="menu-toggle" onclick="document.querySelector('.sidebar').classList.toggle('open'); document.getElementById('menuHint').classList.remove('show'); localStorage.setItem('menuHintVisto','1');" aria-label="Menu">
         <span></span><span></span><span></span>
       </button>
-      <div class="menu-hint" id="menuHint">Abra o Menu para mais opções!</div>
+      <div class="menu-hint" id="menuHint">↖ Abra o menu</div>
       <div class="brand"><a href="index.html" style="text-decoration:none;color:inherit;display:flex;align-items:center;gap:7px;"><img src="favicon-32.png" alt="" style="width:24px;height:24px;border-radius:6px;">SMS<span>Mass</span></a></div>
     </div>
     <nav>
@@ -177,7 +183,7 @@
 
 <!-- Sidebar esquerda -->
 <div class="sidebar">
-  <div class="sidebar-version">v034</div>
+  <div class="sidebar-version">v036</div>
   <div class="sidebar-group compact">
     <div class="sidebar-label">Início</div>
     <a href="index.html">Home</a>
@@ -188,7 +194,7 @@
 
   <div class="sidebar-group">
     <div class="sidebar-label">Manual do App</div>
-    <a href="manual.html">Índice</a>
+    <a href="manual.html">Manual</a>
     <ul class="sublist">
       <li><a href="manual.html#conhecendo-o-app">Conhecendo o app</a></li>
       <li><a href="manual.html#como-usar">Como usar</a></li>
@@ -271,6 +277,7 @@
     </ul>
   </div>
 
+  <div class="sidebar-scroll-hint"><span>↓</span></div>
 </div>
 
 <div class="main">
@@ -339,9 +346,88 @@
   </div>
 </section>
 
+<section id="faq-ddd">
+  <div class="wrap">
+    <div class="hop">Perguntas frequentes</div>
+    <h2 style="font-size:1.25rem;">DDD 81, 96, 99... é de qual operadora?</h2>
+    <p style="color:var(--slate);font-size:.92rem;margin-bottom:4px;">Essa é uma das dúvidas mais buscadas, então vamos direto ao ponto:</p>
+    <div class="faq">
+      <details class="faq-item">
+        <summary>81 é qual operadora?</summary>
+        <p>81 não é uma operadora — é o DDD de Pernambuco (Recife e região). Todas as operadoras (Vivo, Claro, TIM, Oi) atendem no DDD 81. Pra saber a operadora de um número específico com DDD 81, é preciso consultar o número completo, não só o DDD.</p>
+      </details>
+      <details class="faq-item">
+        <summary>96 é qual operadora?</summary>
+        <p>96 é o DDD do Amapá, não uma operadora. Assim como nos outros estados, todas as operadoras oferecem números com esse DDD — a operadora depende do número completo.</p>
+      </details>
+      <details class="faq-item">
+        <summary>99 é qual operadora?</summary>
+        <p>99 é o DDD de parte do Maranhão, não uma operadora. O mesmo vale aqui: qualquer operadora pode ter números nesse DDD.</p>
+      </details>
+      <details class="faq-item">
+        <summary>92, 93 e 94 são de qual operadora?</summary>
+        <p>São DDDs do Amazonas (92) e do Pará (93 e 94) — nenhum dos três identifica uma operadora específica. Desde a portabilidade numérica, nem o DDD nem o prefixo garantem qual operadora atende o número.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Então como eu descubro a operadora de um número específico?</summary>
+        <p>A única forma confiável é consultar a base oficial de portabilidade da <a href="#abr">ABR Telecom</a>, informando o número completo com DDD. Se você precisa verificar vários números de uma vez, o SMSMass tem uma <a href="consulta-operadora.html">consulta de operadora em lote</a>.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
 <footer>
   <div class="wrap"><a href="central.html">← Voltar para a Central de SMS</a></div>
 </footer>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "81 é qual operadora?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "81 não é uma operadora — é o DDD de Pernambuco (Recife e região). Todas as operadoras (Vivo, Claro, TIM, Oi) atendem no DDD 81. Pra saber a operadora de um número específico com DDD 81, é preciso consultar o número completo, não só o DDD."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "96 é qual operadora?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "96 é o DDD do Amapá, não uma operadora. Assim como nos outros estados, todas as operadoras oferecem números com esse DDD — a operadora depende do número completo."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "99 é qual operadora?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "99 é o DDD de parte do Maranhão, não uma operadora. O mesmo vale aqui: qualquer operadora pode ter números nesse DDD."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "92, 93 e 94 são de qual operadora?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "São DDDs do Amazonas (92) e do Pará (93 e 94) — nenhum dos três identifica uma operadora específica. Desde a portabilidade numérica, nem o DDD nem o prefixo garantem qual operadora atende o número."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Como eu descubro a operadora de um número específico?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A única forma confiável é consultar a base oficial de portabilidade da ABR Telecom, informando o número completo com DDD. Para verificar vários números de uma vez, existem serviços de consulta de operadora em lote."
+      }
+    }
+  ]
+}
+</script>
 
 <script>
 // Simplified illustrative prefix table (3rd digit of the 8-digit local number, post-9th-digit era)
