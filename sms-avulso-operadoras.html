@@ -20,7 +20,7 @@
 <meta name="twitter:title" content="SMS avulso via operadoras — preços e como enviar | SMSMass">
 <meta name="twitter:description" content="Como enviar SMS avulso pelas operadoras Vivo, Claro, TIM e Oi. Tarifas por mensagem, plataformas web para envio pontual e comparação com SMS em massa.">
 
-<link rel="stylesheet" href="style.css?v=54">
+<link rel="stylesheet" href="style.css?v=55">
 <style>
 .topbar{
   position:fixed;top:0;left:0;right:0;z-index:100;
@@ -132,6 +132,12 @@
 .sidebar summary a{display:inline;padding:0;border-left:none;}
 .sidebar summary:hover{background:var(--paper);}
 .sidebar details .sublist{margin-top:0;}
+.sidebar .sublist + details summary{padding-top:2px;}
+
+.sidebar-group:not(.compact) > a::before{
+  content:'';display:inline-block;width:5px;height:5px;border-radius:50%;
+  background:var(--green);margin-right:9px;vertical-align:middle;
+}
 
 /* Main content */
 .main{margin-left:230px;margin-top:54px;min-height:calc(100vh - 54px);}
@@ -195,7 +201,7 @@
 
 <!-- Sidebar esquerda -->
 <div class="sidebar">
-  <div class="sidebar-version">v054</div>
+  <div class="sidebar-version">v055</div>
   <div class="sidebar-group compact">
     <div class="sidebar-label">Início</div>
     <a href="index.html">Home</a>
@@ -270,8 +276,8 @@
 
   <div class="sidebar-group">
     <div class="sidebar-label">Comparação e uso</div>
-    <a href="sms-vs-whatsapp.html">SMS vs WhatsApp vs RCS</a>
     <a href="rcs.html">RCS</a>
+    <a href="sms-vs-whatsapp.html">SMS vs WhatsApp vs RCS</a>
     <details>
       <summary><a href="legislacao-sms.html">SMS marketing e LGPD</a></summary>
       <ul class="sublist">
