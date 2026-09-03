@@ -20,7 +20,7 @@
 <meta name="twitter:title" content="GSM-7 vs UCS-2: o motivo do limite de 160 caracteres">
 <meta name="twitter:description" content="Por que ã custa mais caro que a no SMS — e como escrever para nunca pagar SMS em dobro.">
 
-<link rel="stylesheet" href="style.css?v=53">
+<link rel="stylesheet" href="style.css?v=54">
 <style>
 .topbar{
   position:fixed;top:0;left:0;right:0;z-index:100;
@@ -123,9 +123,12 @@
   padding:7px 18px;font-size:.88rem;
 }
 .sidebar summary::-webkit-details-marker{display:none;}
-.sidebar summary::before{content:'● ';font-size:.6rem;color:var(--green);vertical-align:1px;}
-.sidebar summary::after{content:' +';color:var(--slate);font-family:monospace;}
-.sidebar details[open] summary::after{content:' −';}
+.sidebar summary::before{
+  content:'';display:inline-block;width:5px;height:5px;border-radius:50%;
+  background:var(--green);margin-right:9px;vertical-align:middle;
+}
+.sidebar summary::after{content:'+';color:var(--slate);font-family:monospace;}
+.sidebar details[open] summary::after{content:'−';}
 .sidebar summary a{display:inline;padding:0;border-left:none;}
 .sidebar summary:hover{background:var(--paper);}
 .sidebar details .sublist{margin-top:0;}
@@ -192,7 +195,7 @@
 
 <!-- Sidebar esquerda -->
 <div class="sidebar">
-  <div class="sidebar-version">v053</div>
+  <div class="sidebar-version">v054</div>
   <div class="sidebar-group compact">
     <div class="sidebar-label">Início</div>
     <a href="index.html">Home</a>
