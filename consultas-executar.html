@@ -20,7 +20,7 @@
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Consultar Operadora dos Números — SMSMass">
 <meta name="twitter:description" content="Suba o arquivo CSV com os números e receba o resultado por e-mail.">
-<link rel="stylesheet" href="style.css?v=56">
+<link rel="stylesheet" href="style.css?v=57">
 <style>
 .topbar{
   position:fixed;top:0;left:0;right:0;z-index:100;
@@ -248,7 +248,7 @@
 
 <!-- Sidebar esquerda -->
 <div class="sidebar">
-  <div class="sidebar-version">v056</div>
+  <div class="sidebar-version">v059</div>
   <div class="sidebar-group compact">
     <div class="sidebar-label">Início</div>
     <a href="index.html">Home</a>
@@ -264,27 +264,8 @@
       <li><a href="index.html#o-que-faz">O que faz</a></li>
       <li><a href="planos.html">Planos</a></li>
       <li><a href="index.html#planos">Invista já</a></li>
+      <li><a href="manual.html">Manual</a></li>
     </ul>
-    <details>
-      <summary><a href="manual.html">Manual</a></summary>
-      <ul class="sublist">
-      <li><a href="manual.html#conhecendo-o-app">Conhecendo o app</a></li>
-      <li><a href="manual.html#como-usar">Como usar</a></li>
-      <li><a href="manual.html#requisitos">Requisitos</a></li>
-      <li><a href="manual.html#instalacao">Instalação</a></li>
-      <li><a href="manual.html#reinstalacao">Reinstalação</a></li>
-      <li><a href="manual.html#legislacao">Legislação</a></li>
-      <li><a href="manual.html#criando-mensagem">Criando sua mensagem</a></li>
-      <li><a href="manual.html#obter-contatos">Link dos contatos</a></li>
-      <li><a href="manual.html#ativar-licenca">Como ativar a licença</a></li>
-      <li><a href="manual.html#intervalo-disparos">Intervalo entre disparos<br><span class="aviso-especial">⚠ Cuidado especial!</span></a></li>
-      <li><a href="manual.html#intervalo-de-ate">Usar intervalo De/Até</a></li>
-      <li><a href="manual.html#enviando">Enviando</a></li>
-      <li><a href="manual.html#relatorio">Ler o relatório</a></li>
-      <li><a href="manual.html#envio-avulso">Envio avulso</a></li>
-      <li><a href="manual.html#faq">Perguntas frequentes</a></li>
-    </ul>
-    </details>
     <a href="consulta-operadora.html">Consulta de operadora em lote</a>
     <ul class="sublist">
       <li><a href="simulador-operadora.html#portabilidade">Portabilidade numérica</a></li>
@@ -367,6 +348,8 @@
   <div class="wrap">
     <div class="hop">Enviar números</div>
 
+    <p style="margin:0 0 16px;"><a href="sua-consulta.html#recuperar" style="font-size:.85rem;">Já comprou antes e esqueceu o e-mail? Recupere aqui →</a></p>
+
     <form id="formConsulta" style="max-width:480px;margin-top:20px;display:flex;flex-direction:column;gap:16px;">
 
       <label style="display:flex;flex-direction:column;gap:6px;font-size:.9rem;font-weight:600;">
@@ -435,10 +418,11 @@ document.getElementById('formConsulta').addEventListener('submit', function(e){
       botao.disabled = false;
       if (json.ok) {
         var limite = json.limiteWhatsapp || 100;
+        var saldoTxt = (typeof json.saldoRestante === 'number') ? ' Créditos restantes: ' + json.saldoRestante + '.' : '';
         if (json.total <= limite) {
-          status.textContent = 'Consulta concluída! ' + json.total + ' números processados. A lista completa foi enviada para o seu e-mail e pelo WhatsApp.';
+          status.textContent = 'Consulta concluída! ' + json.total + ' números processados. A lista completa foi enviada para o seu e-mail e pelo WhatsApp.' + saldoTxt;
         } else {
-          status.textContent = 'Consulta concluída! ' + json.total + ' números processados. A lista completa foi enviada para o seu e-mail; o WhatsApp recebeu uma amostra dos primeiros 50.';
+          status.textContent = 'Consulta concluída! ' + json.total + ' números processados. A lista completa foi enviada para o seu e-mail; o WhatsApp recebeu uma amostra dos primeiros 50.' + saldoTxt;
         }
         prepararDownload(json.resultados);
       } else {

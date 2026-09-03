@@ -20,7 +20,7 @@
 <meta name="twitter:title" content="Manual do App SMSMass — Índice">
 <meta name="twitter:description" content="Guia completo passo a passo do aplicativo SMSMass: preparar contatos, instalar, ativar, mensagem, intervalo e relatório.">
 
-<link rel="stylesheet" href="style.css?v=56">
+<link rel="stylesheet" href="style.css?v=57">
 <style>
 .topbar{
   position:fixed;top:0;left:0;right:0;z-index:100;
@@ -221,7 +221,7 @@
 
 <!-- Sidebar esquerda -->
 <div class="sidebar">
-  <div class="sidebar-version">v056</div>
+  <div class="sidebar-version">v059</div>
   <div class="sidebar-group compact">
     <div class="sidebar-label">Início</div>
     <a href="index.html">Home</a>
@@ -237,25 +237,8 @@
       <li><a href="index.html#o-que-faz">O que faz</a></li>
       <li><a href="planos.html">Planos</a></li>
       <li><a href="index.html#planos">Invista já</a></li>
+      <li><a href="manual.html" class="ativo">Manual</a></li>
     </ul>
-    <details>
-      <summary><a href="manual.html" class="ativo">Manual</a></summary>
-      <ul class="sublist">
-      <li><a href="manual.html#requisitos">Requisitos</a></li>
-      <li><a href="manual.html#instalacao">Instalação</a></li>
-      <li><a href="manual.html#reinstalacao">Reinstalação</a></li>
-      <li><a href="manual.html#legislacao">Legislação</a></li>
-      <li><a href="manual.html#criando-mensagem">Criando sua mensagem</a></li>
-      <li><a href="manual.html#obter-contatos">Link dos contatos</a></li>
-      <li><a href="manual.html#ativar-licenca">Como ativar a licença</a></li>
-      <li><a href="manual.html#intervalo-disparos">Intervalo entre disparos<br><span class="aviso-especial">⚠ Cuidado especial!</span></a></li>
-      <li><a href="manual.html#intervalo-de-ate">Usar intervalo De/Até</a></li>
-      <li><a href="manual.html#enviando">Enviando</a></li>
-      <li><a href="manual.html#relatorio">Ler o relatório</a></li>
-      <li><a href="manual.html#envio-avulso">Envio avulso</a></li>
-      <li><a href="manual.html#faq">Perguntas frequentes</a></li>
-    </ul>
-    </details>
     <a href="consulta-operadora.html">Consulta de operadora em lote</a>
     <ul class="sublist">
       <li><a href="simulador-operadora.html#portabilidade">Portabilidade numérica</a></li>
@@ -591,8 +574,63 @@
     <div class="hop">7</div>
     <h2 style="font-size:1.25rem;">Como ativar a licença</h2>
     <p style="color:var(--slate);">Usar a chave TRIAL para os 5 SMS gratuitos, ou a chave recebida por e-mail após a compra no Kiwify. Passo a passo em preparação.</p>
+
+    <div style="margin-top:24px;padding-top:20px;border-top:1px solid var(--line);max-width:480px;">
+      <div class="hop">Perdeu a chave?</div>
+      <h3 style="font-size:1.05rem;">Recuperar minha chave de ativação</h3>
+      <p style="color:var(--slate);font-size:.9rem;">Informe o nome completo e o CPF ou CNPJ usados na compra. Por segurança, os dois precisam bater com o que consta no seu cadastro.</p>
+
+      <form id="formRecuperarLicenca" style="margin-top:16px;display:flex;flex-direction:column;gap:16px;">
+        <label style="display:flex;flex-direction:column;gap:6px;font-size:.9rem;font-weight:600;">
+          Nome completo usado na compra
+          <input type="text" id="campoNomeLicenca" required style="padding:10px 12px;border:1px solid var(--line);border-radius:4px;font-size:.95rem;font-family:inherit;">
+        </label>
+
+        <label style="display:flex;flex-direction:column;gap:6px;font-size:.9rem;font-weight:600;">
+          CPF ou CNPJ usado na compra
+          <input type="text" id="campoCpfLicenca" required style="padding:10px 12px;border:1px solid var(--line);border-radius:4px;font-size:.95rem;font-family:inherit;">
+        </label>
+
+        <button type="submit" class="btn" style="border:none;cursor:pointer;">Buscar minha chave</button>
+      </form>
+
+      <p id="statusRecuperarLicenca" style="margin-top:14px;color:var(--slate);font-size:.9rem;"></p>
+    </div>
   </div>
 </section>
+
+<script>
+document.getElementById('formRecuperarLicenca').addEventListener('submit', function(e){
+  e.preventDefault();
+  var nome = document.getElementById('campoNomeLicenca').value.trim();
+  var cpf = document.getElementById('campoCpfLicenca').value.trim();
+  var status = document.getElementById('statusRecuperarLicenca');
+  var botao = document.querySelector('#formRecuperarLicenca button[type="submit"]');
+
+  botao.disabled = true;
+  status.textContent = 'Buscando...';
+
+  fetch('https://script.google.com/macros/s/AKfycbytv1JNCpDJhwXS4nEisHFTt9yirSjZvsafXbZyc2fBztNrbDFuu7DsZe8w4NUKe5D3/exec', {
+    method: 'POST',
+    headers: {'Content-Type': 'text/plain'},
+    body: JSON.stringify({tipo: 'recuperar_licenca', nome: nome, cpf: cpf})
+  })
+  .then(function(resp){ return resp.json(); })
+  .then(function(json){
+    botao.disabled = false;
+    if (json.status === 'sucesso') {
+      var sms = (json.sms_disponivel === -1) ? 'ilimitado' : json.sms_disponivel;
+      status.textContent = 'Encontramos! Sua chave: ' + json.chave + ' — Plano: ' + json.plano + ' — Situação: ' + json.situacao + ' — SMS disponíveis: ' + sms + '. Cole essa chave no app, na tela de ativação de licença.';
+    } else {
+      status.textContent = 'Erro: ' + (json.mensagem || 'não foi possível localizar sua licença.');
+    }
+  })
+  .catch(function(){
+    botao.disabled = false;
+    status.textContent = 'Não foi possível buscar agora. Tente novamente em instantes.';
+  });
+});
+</script>
 
 <section id="intervalo-disparos">
   <div class="wrap">

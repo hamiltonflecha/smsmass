@@ -20,7 +20,7 @@
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Sua Consulta de Operadora — SMSMass">
 <meta name="twitter:description" content="Já é cliente? Rode sua consulta de operadora com os créditos que restarem na sua conta.">
-<link rel="stylesheet" href="style.css?v=56">
+<link rel="stylesheet" href="style.css?v=57">
 <style>
 .topbar{
   position:fixed;top:0;left:0;right:0;z-index:100;
@@ -248,7 +248,7 @@
 
 <!-- Sidebar esquerda -->
 <div class="sidebar">
-  <div class="sidebar-version">v056</div>
+  <div class="sidebar-version">v059</div>
   <div class="sidebar-group compact">
     <div class="sidebar-label">Início</div>
     <a href="index.html">Home</a>
@@ -264,27 +264,8 @@
       <li><a href="index.html#o-que-faz">O que faz</a></li>
       <li><a href="planos.html">Planos</a></li>
       <li><a href="index.html#planos">Invista já</a></li>
+      <li><a href="manual.html">Manual</a></li>
     </ul>
-    <details>
-      <summary><a href="manual.html">Manual</a></summary>
-      <ul class="sublist">
-      <li><a href="manual.html#conhecendo-o-app">Conhecendo o app</a></li>
-      <li><a href="manual.html#como-usar">Como usar</a></li>
-      <li><a href="manual.html#requisitos">Requisitos</a></li>
-      <li><a href="manual.html#instalacao">Instalação</a></li>
-      <li><a href="manual.html#reinstalacao">Reinstalação</a></li>
-      <li><a href="manual.html#legislacao">Legislação</a></li>
-      <li><a href="manual.html#criando-mensagem">Criando sua mensagem</a></li>
-      <li><a href="manual.html#obter-contatos">Link dos contatos</a></li>
-      <li><a href="manual.html#ativar-licenca">Como ativar a licença</a></li>
-      <li><a href="manual.html#intervalo-disparos">Intervalo entre disparos<br><span class="aviso-especial">⚠ Cuidado especial!</span></a></li>
-      <li><a href="manual.html#intervalo-de-ate">Usar intervalo De/Até</a></li>
-      <li><a href="manual.html#enviando">Enviando</a></li>
-      <li><a href="manual.html#relatorio">Ler o relatório</a></li>
-      <li><a href="manual.html#envio-avulso">Envio avulso</a></li>
-      <li><a href="manual.html#faq">Perguntas frequentes</a></li>
-    </ul>
-    </details>
     <a href="consulta-operadora.html">Consulta de operadora em lote</a>
     <ul class="sublist">
       <li><a href="simulador-operadora.html#portabilidade">Portabilidade numérica</a></li>
@@ -375,6 +356,8 @@
   <div class="wrap">
     <div class="hop">Enviar números</div>
 
+    <p style="margin:0 0 16px;"><a href="#recuperar" id="linkEsqueciEmail" style="font-size:.85rem;">Esqueci o e-mail que usei na compra →</a></p>
+
     <form id="formConsulta" style="max-width:480px;margin-top:20px;display:flex;flex-direction:column;gap:16px;">
 
       <label style="display:flex;flex-direction:column;gap:6px;font-size:.9rem;font-weight:600;">
@@ -401,6 +384,30 @@
       <p style="color:var(--slate);font-size:.85rem;line-height:1.5;">Seus dados trafegam só nesta sessão do seu navegador e chegam só por e-mail e pelo WhatsApp — não ficam salvos em nossos servidores.</p>
       <button type="button" id="btnBaixarResultado" class="btn" style="border:none;cursor:pointer;">Baixar arquivo com o resultado</button>
     </div>
+  </div>
+</section>
+
+<section id="recuperar" style="border-top:1px solid var(--line);">
+  <div class="wrap">
+    <div class="hop">Esqueci o e-mail</div>
+    <h2 style="font-size:1.15rem;">Recuperar e-mail e saldo pelo CPF/CNPJ</h2>
+    <p style="color:var(--slate);font-size:.9rem;max-width:480px;">Informe o nome completo e o CPF ou CNPJ usados na compra. Por segurança, mostramos o e-mail parcialmente oculto (não o e-mail completo).</p>
+
+    <form id="formRecuperar" style="max-width:480px;margin-top:16px;display:flex;flex-direction:column;gap:16px;">
+      <label style="display:flex;flex-direction:column;gap:6px;font-size:.9rem;font-weight:600;">
+        Nome completo usado na compra
+        <input type="text" id="campoNomeRecuperar" required style="padding:10px 12px;border:1px solid var(--line);border-radius:4px;font-size:.95rem;font-family:inherit;">
+      </label>
+
+      <label style="display:flex;flex-direction:column;gap:6px;font-size:.9rem;font-weight:600;">
+        CPF ou CNPJ usado na compra
+        <input type="text" id="campoCpfRecuperar" required style="padding:10px 12px;border:1px solid var(--line);border-radius:4px;font-size:.95rem;font-family:inherit;">
+      </label>
+
+      <button type="submit" class="btn" style="border:none;cursor:pointer;">Buscar</button>
+    </form>
+
+    <p id="statusRecuperar" style="margin-top:14px;color:var(--slate);font-size:.9rem;"></p>
   </div>
 </section>
 
@@ -443,10 +450,11 @@ document.getElementById('formConsulta').addEventListener('submit', function(e){
       botao.disabled = false;
       if (json.ok) {
         var limite = json.limiteWhatsapp || 100;
+        var saldoTxt = (typeof json.saldoRestante === 'number') ? ' Créditos restantes: ' + json.saldoRestante + '.' : '';
         if (json.total <= limite) {
-          status.textContent = 'Consulta concluída! ' + json.total + ' números processados. A lista completa foi enviada para o seu e-mail e pelo WhatsApp.';
+          status.textContent = 'Consulta concluída! ' + json.total + ' números processados. A lista completa foi enviada para o seu e-mail e pelo WhatsApp.' + saldoTxt;
         } else {
-          status.textContent = 'Consulta concluída! ' + json.total + ' números processados. A lista completa foi enviada para o seu e-mail; o WhatsApp recebeu uma amostra dos primeiros 50.';
+          status.textContent = 'Consulta concluída! ' + json.total + ' números processados. A lista completa foi enviada para o seu e-mail; o WhatsApp recebeu uma amostra dos primeiros 50.' + saldoTxt;
         }
         prepararDownload(json.resultados);
       } else {
@@ -485,6 +493,36 @@ function prepararDownload(resultados){
   };
   div.style.display = 'block';
 }
+
+document.getElementById('formRecuperar').addEventListener('submit', function(e){
+  e.preventDefault();
+  var nome = document.getElementById('campoNomeRecuperar').value.trim();
+  var cpf = document.getElementById('campoCpfRecuperar').value.trim();
+  var status = document.getElementById('statusRecuperar');
+  var botao = document.querySelector('#formRecuperar button[type="submit"]');
+
+  botao.disabled = true;
+  status.textContent = 'Buscando...';
+
+  fetch('https://script.google.com/macros/s/AKfycbzZOrI0mDpD7g3otFJPUMyqQmPm-qZ3DVgbExN21QxUTkHTiBJA5KYXbdmy-5X_6op4/exec', {
+    method: 'POST',
+    headers: {'Content-Type': 'text/plain'},
+    body: JSON.stringify({tipo: 'recuperar_consulta', nome: nome, cpf: cpf})
+  })
+  .then(function(resp){ return resp.json(); })
+  .then(function(json){
+    botao.disabled = false;
+    if (json.ok) {
+      status.textContent = 'Encontramos! E-mail: ' + json.emailMascarado + ' — créditos disponíveis: ' + json.saldo + '. Use esse e-mail (o completo, não o mascarado) no formulário acima.';
+    } else {
+      status.textContent = 'Erro: ' + (json.erro || 'não foi possível localizar sua compra.');
+    }
+  })
+  .catch(function(){
+    botao.disabled = false;
+    status.textContent = 'Não foi possível buscar agora. Tente novamente em instantes.';
+  });
+});
 </script>
 
 
