@@ -234,7 +234,7 @@
 
 <!-- Sidebar esquerda -->
 <div class="sidebar">
-  <div class="sidebar-version">v042</div>
+  <div class="sidebar-version">v043</div>
   <div class="sidebar-group compact">
     <div class="sidebar-label">Início</div>
     <a href="index.html">Home</a>
@@ -369,11 +369,8 @@
 
     <div id="resultadoConsulta" style="margin-top:20px;display:none;">
       <div class="hop">Resultado</div>
-      <div class="table-scroll">
-        <table id="tabelaResultado">
-          <tr><th>Número</th><th>Operadora</th></tr>
-        </table>
-      </div>
+      <p style="color:var(--slate);font-size:.85rem;line-height:1.5;">Seus dados trafegam só nesta sessão do seu navegador e chegam só por e-mail e pelo WhatsApp — não ficam salvos em nossos servidores.</p>
+      <button type="button" id="btnBaixarResultado" class="btn" style="border:none;cursor:pointer;">Baixar arquivo com o resultado</button>
     </div>
   </div>
 </section>
@@ -416,8 +413,8 @@ document.getElementById('formConsulta').addEventListener('submit', function(e){
     .then(function(json){
       botao.disabled = false;
       if (json.ok) {
-        status.textContent = 'Consulta concluída! ' + json.total + ' números processados. O resultado também foi enviado para o seu e-mail.';
-        mostrarResultado(json.resultados);
+        status.textContent = 'Consulta concluída! ' + json.total + ' números processados. O resultado também foi enviado para o seu e-mail e pelo WhatsApp.';
+        prepararDownload(json.resultados);
       } else {
         status.textContent = 'Erro: ' + (json.erro || 'não foi possível processar a consulta.');
       }
@@ -430,17 +427,28 @@ document.getElementById('formConsulta').addEventListener('submit', function(e){
   leitor.readAsText(arquivo);
 });
 
-function mostrarResultado(resultados){
-  var div = document.getElementById('resultadoConsulta');
-  var tabela = document.getElementById('tabelaResultado');
-  tabela.innerHTML = '<tr><th>Número</th><th>Operadora</th></tr>';
+function prepararDownload(resultados){
+  var linhas = ['Numero,Operadora'];
   resultados.forEach(function(r){
     var numero = r.numero || r.number || r.telefone || '?';
     var operadora = r.operadora || r.carrier || r.operator || '?';
-    var linha = document.createElement('tr');
-    linha.innerHTML = '<td>' + numero + '</td><td>' + operadora + '</td>';
-    tabela.appendChild(linha);
+    linhas.push(numero + ',' + operadora);
   });
+  var csvTexto = linhas.join('\n');
+
+  var div = document.getElementById('resultadoConsulta');
+  var botaoBaixar = document.getElementById('btnBaixarResultado');
+  botaoBaixar.onclick = function(){
+    var blob = new Blob([csvTexto], {type: 'text/csv;charset=utf-8;'});
+    var url = URL.createObjectURL(blob);
+    var a = document.createElement('a');
+    a.href = url;
+    a.download = 'resultado-consulta-operadora.csv';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+  };
   div.style.display = 'block';
 }
 </script>
