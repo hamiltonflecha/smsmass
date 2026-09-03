@@ -234,7 +234,7 @@
 
 <!-- Sidebar esquerda -->
 <div class="sidebar">
-  <div class="sidebar-version">v043</div>
+  <div class="sidebar-version">v044</div>
   <div class="sidebar-group compact">
     <div class="sidebar-label">Início</div>
     <a href="index.html">Home</a>
@@ -362,6 +362,8 @@
 
       <p style="color:var(--slate);font-size:.85rem;margin:0;">O arquivo deve ter <strong>uma única coluna</strong>, com um número por linha, no formato DDI+DDD+número (ex: 5531999999999). Cabeçalho é opcional — linhas que não parecerem número são ignoradas.</p>
 
+      <p style="color:var(--slate);font-size:.85rem;margin:0;">Consultas com até <strong>100 contatos</strong>: a lista completa vai para o seu WhatsApp e e-mail. Consultas maiores: os primeiros <strong>50 contatos</strong> vão para o WhatsApp, e a lista completa vai para o seu e-mail e fica disponível para baixar aqui na página.</p>
+
       <button type="submit" class="btn" style="border:none;cursor:pointer;">Enviar e consultar</button>
     </form>
 
@@ -413,7 +415,12 @@ document.getElementById('formConsulta').addEventListener('submit', function(e){
     .then(function(json){
       botao.disabled = false;
       if (json.ok) {
-        status.textContent = 'Consulta concluída! ' + json.total + ' números processados. O resultado também foi enviado para o seu e-mail e pelo WhatsApp.';
+        var limite = json.limiteWhatsapp || 100;
+        if (json.total <= limite) {
+          status.textContent = 'Consulta concluída! ' + json.total + ' números processados. A lista completa foi enviada para o seu e-mail e pelo WhatsApp.';
+        } else {
+          status.textContent = 'Consulta concluída! ' + json.total + ' números processados. A lista completa foi enviada para o seu e-mail; o WhatsApp recebeu uma amostra dos primeiros 50.';
+        }
         prepararDownload(json.resultados);
       } else {
         status.textContent = 'Erro: ' + (json.erro || 'não foi possível processar a consulta.');
