@@ -115,6 +115,19 @@
 }
 .sidebar .sublist a:hover{color:var(--navy);background:transparent;text-decoration:underline;}
 
+/* Sidebar: grupos colapsáveis (details/summary) */
+.sidebar details{margin:0;}
+.sidebar summary{
+  list-style:none;cursor:pointer;display:block;
+  padding:7px 18px;font-size:.88rem;
+}
+.sidebar summary::-webkit-details-marker{display:none;}
+.sidebar summary::before{content:'+ ';color:var(--slate);font-family:monospace;}
+.sidebar details[open] summary::before{content:'− ';}
+.sidebar summary a{display:inline;padding:0;border-left:none;}
+.sidebar summary:hover{background:var(--paper);}
+.sidebar details .sublist{margin-top:0;}
+
 /* Main content */
 .main{margin-left:230px;margin-top:54px;min-height:calc(100vh - 54px);}
 
@@ -183,7 +196,7 @@
 
 <!-- Sidebar esquerda -->
 <div class="sidebar">
-  <div class="sidebar-version">v050</div>
+  <div class="sidebar-version">v051</div>
   <div class="sidebar-group compact">
     <div class="sidebar-label">Início</div>
     <a href="index.html">Home</a>
@@ -193,9 +206,16 @@
   </div>
 
   <div class="sidebar-group">
-    <div class="sidebar-label">Manual do App</div>
-    <a href="manual.html">Manual</a>
+    <div class="sidebar-label">Ferramentas</div>
+    <a href="index.html">O app SMSMass</a>
     <ul class="sublist">
+      <li><a href="index.html#o-que-faz">O que faz</a></li>
+      <li><a href="planos.html">Planos</a></li>
+      <li><a href="index.html#planos">Invista já</a></li>
+    </ul>
+    <details>
+      <summary><a href="manual.html">Manual</a></summary>
+      <ul class="sublist">
       <li><a href="manual.html#conhecendo-o-app">Conhecendo o app</a></li>
       <li><a href="manual.html#como-usar">Como usar</a></li>
       <li><a href="manual.html#requisitos">Requisitos</a></li>
@@ -212,16 +232,7 @@
       <li><a href="manual.html#envio-avulso">Envio avulso</a></li>
       <li><a href="manual.html#faq">Perguntas frequentes</a></li>
     </ul>
-  </div>
-
-  <div class="sidebar-group">
-    <div class="sidebar-label">Ferramentas</div>
-    <a href="index.html">O app SMSMass</a>
-    <ul class="sublist">
-      <li><a href="index.html#o-que-faz">O que faz</a></li>
-      <li><a href="planos.html">Planos</a></li>
-      <li><a href="index.html#planos">Invista já</a></li>
-    </ul>
+    </details>
     <a href="consulta-operadora.html">Consulta de operadora em lote</a>
     <ul class="sublist">
       <li><a href="simulador-operadora.html#portabilidade">Portabilidade numérica</a></li>
@@ -242,44 +253,54 @@
 
   <div class="sidebar-group">
     <div class="sidebar-label">Como o SMS funciona</div>
-    <a href="como-sms-trafega.html">Como o SMS trafega</a>
-    <ul class="sublist">
+    <details>
+      <summary><a href="como-sms-trafega.html">Como o SMS trafega</a></summary>
+      <ul class="sublist">
       <li><a href="como-sms-trafega.html#smsc">SMSC</a></li>
       <li><a href="como-sms-trafega.html#smpp-ss7">SMPP e SS7</a></li>
     </ul>
-    <a href="gsm7-ucs2.html">GSM-7 vs UCS-2</a>
-    <ul class="sublist">
+    </details>
+    <details>
+      <summary><a href="gsm7-ucs2.html">GSM-7 vs UCS-2</a></summary>
+      <ul class="sublist">
       <li><a href="gsm7-ucs2.html#padrao-gsm7">O padrão GSM-7</a></li>
       <li><a href="gsm7-ucs2.html#quando-ucs2">Quando UCS-2 ativa</a></li>
     </ul>
+    </details>
   </div>
 
   <div class="sidebar-group">
     <div class="sidebar-label">Comparação e uso</div>
     <a href="sms-vs-whatsapp.html">SMS vs WhatsApp vs RCS</a>
     <a href="rcs.html">RCS</a>
-    <a href="legislacao-sms.html">SMS marketing e LGPD</a>
-    <ul class="sublist">
+    <details>
+      <summary><a href="legislacao-sms.html">SMS marketing e LGPD</a></summary>
+      <ul class="sublist">
       <li><a href="legislacao-sms.html#opt-out">Opt-out</a></li>
       <li><a href="legislacao-sms.html#bloqueio">Bloqueio na operadora</a></li>
     </ul>
+    </details>
   </div>
 
   <div class="sidebar-group">
     <div class="sidebar-label">Recursos externos</div>
-    <a href="sms-avulso-operadoras.html">SMS avulso via operadoras</a>
-    <ul class="sublist">
+    <details>
+      <summary><a href="sms-avulso-operadoras.html">SMS avulso via operadoras</a></summary>
+      <ul class="sublist">
       <li><a href="sms-avulso-operadoras.html#tarifas">Tarifas das operadoras</a></li>
       <li><a href="sms-avulso-operadoras.html#plataformas">Plataformas web</a></li>
       <li><a href="sms-avulso-operadoras.html#avulso-faq">Perguntas frequentes</a></li>
     </ul>
-    <a href="sms-massa-chipeiras.html">SMS em massa por chipeiras</a>
-    <ul class="sublist">
+    </details>
+    <details>
+      <summary><a href="sms-massa-chipeiras.html">SMS em massa por chipeiras</a></summary>
+      <ul class="sublist">
       <li><a href="sms-massa-chipeiras.html#o-que-e">O que é uma chipeira</a></li>
       <li><a href="sms-massa-chipeiras.html#custo">Componentes do custo</a></li>
       <li><a href="sms-massa-chipeiras.html#comprar">Onde comprar</a></li>
       <li><a href="sms-massa-chipeiras.html#chipeira-faq">Perguntas frequentes</a></li>
     </ul>
+    </details>
   </div>
 
   <div class="sidebar-scroll-hint"><span>↓</span></div>
