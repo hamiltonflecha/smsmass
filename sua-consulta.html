@@ -8,17 +8,18 @@
 <link rel="apple-touch-icon" sizes="180x180" href="favicon-180.png">
 <link rel="shortcut icon" href="favicon.ico">
 
-<title>SMSMass — Loja: Planos, Consultas e Afiliados</title>
-<meta name="description" content="Tudo do SMSMass em um lugar: planos de disparo de SMS em massa, consulta de operadora e portabilidade em lote, e programa de afiliados.">
-<link rel="canonical" href="https://smsmass.com.br/loja.html">
+<title>Sua Consulta de Operadora — SMSMass</title>
+<meta name="description" content="Já é cliente? Rode sua consulta de operadora com os créditos que restarem na sua conta.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="canonical" href="https://smsmass.com.br/sua-consulta.html">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Loja SMSMass — Planos, Consultas e Afiliados">
-<meta property="og:description" content="Tudo do SMSMass em um lugar: planos de SMS em massa, consultas em lote e programa de afiliados.">
-<meta property="og:url" content="https://smsmass.com.br/loja.html">
+<meta property="og:title" content="Sua Consulta de Operadora — SMSMass">
+<meta property="og:description" content="Já é cliente? Rode sua consulta de operadora com os créditos que restarem na sua conta.">
+<meta property="og:url" content="https://smsmass.com.br/sua-consulta.html">
 <meta property="og:locale" content="pt_BR">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Loja SMSMass — Planos, Consultas e Afiliados">
-<meta name="twitter:description" content="Tudo do SMSMass em um lugar: planos de SMS em massa, consultas em lote e programa de afiliados.">
+<meta name="twitter:title" content="Sua Consulta de Operadora — SMSMass">
+<meta name="twitter:description" content="Já é cliente? Rode sua consulta de operadora com os créditos que restarem na sua conta.">
 <link rel="stylesheet" href="style.css">
 <style>
 .topbar{
@@ -335,60 +336,128 @@
 
 <div class="hero">
   <div class="wrap">
-    <div class="hop">Loja SMSMass</div>
-    <h1>Tudo do SMSMass em um só lugar</h1>
-    <p class="lede">Planos de disparo de SMS em massa, consultas em lote de operadora e portabilidade, e o programa de afiliados. Escolha o que você precisa.</p>
+    <div class="hop">Sua Consulta</div>
+    <h1>Continue sua consulta</h1>
+    <p class="lede">Já é cliente? Informe o e-mail usado na compra e suba o arquivo com os números — o resultado usa os créditos que restarem na sua conta.</p>
   </div>
 </div>
 
 <section>
   <div class="wrap">
-    <div class="hop">Produtos</div>
+    <div class="hop">Enviar números</div>
 
-    <div class="plans" style="margin-top:20px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));">
+    <form id="formConsulta" style="max-width:480px;margin-top:20px;display:flex;flex-direction:column;gap:16px;">
 
-      <div class="plan destaque">
-        <div class="badge">Produto principal</div>
-        <div class="plan-nome">Planos<br><span class="plan-qtd">de SMS em Massa</span></div>
-        <div class="plan-preco">A partir de<br><span style="font-size:1.4rem;">Grátis</span> <span>trial com 5 SMS</span></div>
-        <p class="plan-desc">Envie SMS em massa direto do seu celular Android — sem depender de internet de quem recebe. Trial grátis, ou planos de 2.000, 5.000 SMS e Ilimitado.</p>
-        <ul class="plan-items">
-          <li>Trial grátis com 5 SMS</li>
-          <li>2.000, 5.000 ou Ilimitado</li>
-          <li>Pagamento único, sem mensalidade</li>
-        </ul>
-        <a class="plan-btn" href="planos.html">Ver planos e baixar o app</a>
-      </div>
+      <label style="display:flex;flex-direction:column;gap:6px;font-size:.9rem;font-weight:600;">
+        E-mail usado na compra
+        <input type="email" id="campoEmailConsulta" required style="padding:10px 12px;border:1px solid var(--line);border-radius:4px;font-size:.95rem;font-family:inherit;">
+      </label>
 
-      <div class="plan">
-        <div class="plan-nome">Consulta de Operadora<br><span class="plan-qtd">e Portabilidade</span></div>
-        <div class="plan-preco">A partir de<br><span style="font-size:1.4rem;">R$9,00</span> <span>1.000 consultas</span></div>
-        <p class="plan-desc">Descubra a operadora atual de cada número da sua planilha antes de disparar — incluindo números que sofreram portabilidade numérica.</p>
-        <ul class="plan-items">
-          <li>Consulta em lote pela planilha</li>
-          <li>Créditos sem vencimento</li>
-          <li>Saldo separado dos créditos de SMS</li>
-        </ul>
-        <a class="plan-btn" href="consulta-operadora.html#precos">Ver preços e comprar</a>
-      </div>
+      <label style="display:flex;flex-direction:column;gap:6px;font-size:.9rem;font-weight:600;">
+        Arquivo CSV com os números
+        <input type="file" id="campoArquivoCsv" accept=".csv,text/csv" required style="padding:10px 0;font-size:.9rem;font-family:inherit;">
+      </label>
 
-      <div class="plan">
-        <div class="plan-nome">Programa<br><span class="plan-qtd">de Afiliados</span></div>
-        <div class="plan-preco">Comissão <span>por venda confirmada</span></div>
-        <p class="plan-desc">Indique o SMSMass e ganhe comissão sobre o valor de cada venda confirmada, em qualquer plano.</p>
-        <ul class="plan-items">
-          <li>Comissão em todos os planos</li>
-          <li>Sem custo pra se afiliar</li>
-          <li>Pagamento por venda confirmada</li>
-        </ul>
-        <a class="plan-btn" href="afiliados.html">Ver como funciona</a>
-      </div>
+      <p style="color:var(--slate);font-size:.85rem;margin:0;">O arquivo deve ter <strong>uma única coluna</strong>, com um número por linha, no formato DDI+DDD+número (ex: 5531999999999). Cabeçalho é opcional — linhas que não parecerem número são ignoradas.</p>
 
+      <p style="color:var(--slate);font-size:.85rem;margin:0;">Consultas com até <strong>100 contatos</strong>: a lista completa vai para o seu WhatsApp e e-mail. Consultas maiores: os primeiros <strong>50 contatos</strong> vão para o WhatsApp, e a lista completa vai para o seu e-mail e fica disponível para baixar aqui na página.</p>
+
+      <button type="submit" class="btn" style="border:none;cursor:pointer;">Enviar e consultar</button>
+    </form>
+
+    <p id="statusConsulta" style="margin-top:14px;color:var(--slate);font-size:.9rem;"></p>
+
+    <div id="resultadoConsulta" style="margin-top:20px;display:none;">
+      <div class="hop">Resultado</div>
+      <p style="color:var(--slate);font-size:.85rem;line-height:1.5;">Seus dados trafegam só nesta sessão do seu navegador e chegam só por e-mail e pelo WhatsApp — não ficam salvos em nossos servidores.</p>
+      <button type="button" id="btnBaixarResultado" class="btn" style="border:none;cursor:pointer;">Baixar arquivo com o resultado</button>
     </div>
-
-    <p style="margin-top:20px;color:var(--slate);font-size:.9rem;">Precisa de um volume diferente de consultas ou de um plano sob medida? Fale com a gente pelo WhatsApp.</p>
   </div>
 </section>
+
+<script>
+document.getElementById('campoArquivoCsv').addEventListener('change', function(){
+  // nada de especial no momento da seleção, só confirma que trocou
+});
+
+document.getElementById('formConsulta').addEventListener('submit', function(e){
+  e.preventDefault();
+  var email = document.getElementById('campoEmailConsulta').value.trim();
+  var arquivo = document.getElementById('campoArquivoCsv').files[0];
+  var status = document.getElementById('statusConsulta');
+  var botao = document.querySelector('#formConsulta button[type="submit"]');
+
+  if (!arquivo) {
+    status.textContent = 'Selecione um arquivo CSV.';
+    return;
+  }
+
+  botao.disabled = true;
+  status.textContent = 'Lendo arquivo...';
+
+  var leitor = new FileReader();
+  leitor.onload = function(evento){
+    var csvTexto = evento.target.result;
+    status.textContent = 'Consultando... isso pode levar alguns instantes para listas grandes.';
+
+    fetch('https://script.google.com/macros/s/AKfycbzZOrI0mDpD7g3otFJPUMyqQmPm-qZ3DVgbExN21QxUTkHTiBJA5KYXbdmy-5X_6op4/exec', {
+      method: 'POST',
+      headers: {'Content-Type': 'text/plain'},
+      body: JSON.stringify({
+        tipo: 'consulta_lote',
+        email: email,
+        csv: csvTexto
+      })
+    })
+    .then(function(resp){ return resp.json(); })
+    .then(function(json){
+      botao.disabled = false;
+      if (json.ok) {
+        var limite = json.limiteWhatsapp || 100;
+        if (json.total <= limite) {
+          status.textContent = 'Consulta concluída! ' + json.total + ' números processados. A lista completa foi enviada para o seu e-mail e pelo WhatsApp.';
+        } else {
+          status.textContent = 'Consulta concluída! ' + json.total + ' números processados. A lista completa foi enviada para o seu e-mail; o WhatsApp recebeu uma amostra dos primeiros 50.';
+        }
+        prepararDownload(json.resultados);
+      } else {
+        status.textContent = 'Erro: ' + (json.erro || 'não foi possível processar a consulta.');
+      }
+    })
+    .catch(function(){
+      botao.disabled = false;
+      status.textContent = 'Enviado! Se o resultado não aparecer aqui, confira seu e-mail em alguns instantes — a consulta continua sendo processada.';
+    });
+  };
+  leitor.readAsText(arquivo);
+});
+
+function prepararDownload(resultados){
+  var linhas = ['Numero,Operadora'];
+  resultados.forEach(function(r){
+    var numero = r.numero || r.number || r.telefone || '?';
+    var operadora = r.operadora || r.carrier || r.operator || '?';
+    linhas.push(numero + ',' + operadora);
+  });
+  var csvTexto = linhas.join('\n');
+
+  var div = document.getElementById('resultadoConsulta');
+  var botaoBaixar = document.getElementById('btnBaixarResultado');
+  botaoBaixar.onclick = function(){
+    var blob = new Blob([csvTexto], {type: 'text/csv;charset=utf-8;'});
+    var url = URL.createObjectURL(blob);
+    var a = document.createElement('a');
+    a.href = url;
+    a.download = 'resultado-consulta-operadora.csv';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+  };
+  div.style.display = 'block';
+}
+</script>
+
 
 <footer>
 </footer>
