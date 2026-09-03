@@ -123,8 +123,9 @@
   padding:7px 18px;font-size:.88rem;
 }
 .sidebar summary::-webkit-details-marker{display:none;}
-.sidebar summary::before{content:'+ ';color:var(--slate);font-family:monospace;}
-.sidebar details[open] summary::before{content:'− ';}
+.sidebar summary::before{content:'● ';font-size:.6rem;color:var(--green);vertical-align:1px;}
+.sidebar summary::after{content:' +';color:var(--slate);font-family:monospace;}
+.sidebar details[open] summary::after{content:' −';}
 .sidebar summary a{display:inline;padding:0;border-left:none;}
 .sidebar summary:hover{background:var(--paper);}
 .sidebar details .sublist{margin-top:0;}
@@ -204,9 +205,9 @@
   color:var(--navy);
   transition:background .15s, color .15s;
 }
-.plan-btn:hover{background:var(--navy);color:#fff;text-decoration:none;}
-.plan.destaque .plan-btn{background:var(--navy);color:#fff;}
-.plan.destaque .plan-btn:hover{background:#0e2837;}
+.plan-btn:hover{background:var(--dark-green);color:#fff;text-decoration:none;}
+.plan.destaque .plan-btn{background:var(--dark-green);color:#fff;}
+.plan.destaque .plan-btn:hover{background:var(--dark-green-hover);}
 
 .faq{margin-top:14px;}
 .faq-item{border-bottom:1px solid var(--line);padding:16px 0;}
@@ -254,7 +255,7 @@
 
 <!-- Sidebar esquerda -->
 <div class="sidebar">
-  <div class="sidebar-version">v051</div>
+  <div class="sidebar-version">v052</div>
   <div class="sidebar-group compact">
     <div class="sidebar-label">Início</div>
     <a href="index.html">Home</a>
