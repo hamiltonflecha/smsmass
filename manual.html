@@ -221,7 +221,7 @@
 
 <!-- Sidebar esquerda -->
 <div class="sidebar">
-  <div class="sidebar-version">v061</div>
+  <div class="sidebar-version">v063</div>
   <div class="sidebar-group compact">
     <div class="sidebar-label">Início</div>
     <a href="index.html">Home</a>
@@ -393,11 +393,12 @@
       </div>
       <div class="app-screen-col">
         <h3 style="font-family:'Fraunces',serif;font-size:1.05rem;">Tela principal</h3>
+        <p style="color:var(--slate);font-size:.88rem;">No topo da tela aparece a versão instalada do app (ex: SMSMass V242). No menu de três pontos (⋮) tem duas opções: <strong>Stop this application</strong>, que fecha o app, e <strong>About this application</strong>, que informa que o app foi desenvolvido com o MIT App Inventor.</p>
         <ul class="app-legend">
           <li><span class="app-legend-num">1</span><span><strong>Ativar licença</strong> — clique aqui e cole a chave de ativação que você recebeu na compra.</span></li>
-          <li><span class="app-legend-num">2</span><span><strong>Confira / Progresso / 00:00</strong> — acompanhe em tempo real o andamento do disparo.</span></li>
-          <li><span class="app-legend-num">3</span><span><strong>Enviar SMS / Enviado X de Y / Parar</strong> — inicia o disparo, mostra quantos já foram enviados, e permite parar a qualquer momento.</span></li>
-          <li><span class="app-legend-num">4</span><span><strong>Caixa de mensagem</strong> — digite aqui o texto do SMS, até 160 caracteres no padrão GSM-7.</span></li>
+          <li><span class="app-legend-num">2</span><span><strong>Confira / Progresso / 00:00</strong> — se faltar alguma informação ao clicar em Enviar, os erros e o que precisa corrigir aparecem aqui. Ao lado, o cronômetro mostra o tempo decorrido desde o início do disparo e, ao final, o tempo total gasto para enviar as mensagens a todos os contatos marcados.</span></li>
+          <li><span class="app-legend-num">3</span><span><strong>Enviar SMS / Enviado X de Y / Parar</strong> — Enviar SMS dispara o envio em massa; Enviado X de Y mostra quantos já foram enviados do total; Parar suspende o envio a qualquer momento.</span></li>
+          <li><span class="app-legend-num">4</span><span><strong>Caixa de mensagem</strong> — digite aqui o texto do SMS, até 160 caracteres no padrão GSM-7. O app avisa se você passar de 160 caracteres. Use o <a href="contador-caracteres.html">contador de caracteres</a> pra testar a mensagem e adaptá-la ao GSM-7 antes de disparar.</span></li>
           <li><span class="app-legend-num">5</span><span><strong>Contador de caracteres</strong> — mostra quantos caracteres da mensagem já foram usados.</span></li>
           <li><span class="app-legend-num">6</span><span><strong>De: Primeiro / Até: Último / Ver</strong> — define qual intervalo de contatos da planilha entra no disparo.</span></li>
           <li><span class="app-legend-num">7</span><span><strong>Primeiro e último contato carregado</strong> — confirma que a planilha foi lida certo, mostrando o primeiro e o último nome.</span></li>
@@ -415,19 +416,17 @@
           <div class="app-pin" style="top:57.4%;left:50%;">4</div>
           <div class="app-pin" style="top:69.7%;left:50%;">5</div>
           <div class="app-pin" style="top:82.7%;left:50%;">6</div>
-          <div class="app-pin" style="top:95.6%;left:50%;">7</div>
         </div>
       </div>
       <div class="app-screen-col">
         <h3 style="font-family:'Fraunces',serif;font-size:1.05rem;">Carregar contatos e envio avulso</h3>
         <ul class="app-legend">
-          <li><span class="app-legend-num">1</span><span><strong>Primeiro e último contato carregado</strong> — mesma confirmação da tela anterior, sempre visível pra você conferir.</span></li>
-          <li><span class="app-legend-num">2</span><span><strong>Tempo (s) / Mínimo / Máximo</strong> — define o intervalo de tempo entre cada SMS enviado, pra não sobrecarregar a operadora.</span></li>
-          <li><span class="app-legend-num">3</span><span><strong>Carregar contatos da web / Total de contatos carregados</strong> — clique aqui pra carregar os contatos direto da planilha.</span></li>
-          <li><span class="app-legend-num">4</span><span><strong>Cole o link da Web aqui</strong> — cole aqui a URL da sua planilha do Google Sheets, depois clique em Carregar.</span></li>
-          <li><span class="app-legend-num">5</span><span><strong>Limpa tudo / Limpa mensagem / Limpa contatos e link</strong> — botões pra reiniciar cada parte do formulário, separadamente.</span></li>
-          <li><span class="app-legend-num">6</span><span><strong>Envio Avulso / Enviar Agora</strong> — envia um SMS pra um único número digitado na hora, sem precisar de planilha.</span></li>
-          <li><span class="app-legend-num">7</span><span><strong>Relatório do envio / Sair</strong> — abre o relatório da última campanha, ou fecha o app.</span></li>
+          <li><span class="app-legend-num">1</span><span><strong>Tempo (s) / Mínimo / Máximo</strong> — define o intervalo de tempo entre cada SMS enviado. Sugere-se tempo mínimo de 30s, para não sobrecarregar a operadora.</span></li>
+          <li><span class="app-legend-num">2</span><span><strong>Cole o link aqui</strong> — cole aqui a URL da planilha com seus contatos.</span></li>
+          <li><span class="app-legend-num">3</span><span><strong>Carregar contatos da web / Total de contatos carregados</strong> — clique aqui pra carregar os contatos a partir do link colado acima.</span></li>
+          <li><span class="app-legend-num">4</span><span><strong>Limpa tudo / Limpa mensagem / Limpa contatos e link</strong> — botões pra reiniciar cada parte do formulário, separadamente.</span></li>
+          <li><span class="app-legend-num">5</span><span><strong>Envio Avulso / Enviar Agora</strong> — envia um SMS pra um único número digitado na hora, sem precisar de planilha.</span></li>
+          <li><span class="app-legend-num">6</span><span><strong>Relatório do envio / Sair</strong> — abre o relatório da última campanha, ou fecha o app.</span></li>
         </ul>
       </div>
     </div>
@@ -562,7 +561,7 @@
   <div class="wrap">
     <div class="hop">6</div>
     <h2 style="font-size:1.25rem;">Link dos contatos</h2>
-    <p>O SMSMass carrega os contatos direto de uma planilha do Google Sheets.</p>
+    <p>O SMSMass carrega os contatos a partir de um link. O mais comum, e o único que garantimos que funciona em qualquer aparelho Android, é o Google Sheets. A partir da versão V254, o app também aceita links diretos de outros serviços — mas cada um tem uma particularidade que vale a pena conhecer antes de usar.</p>
 
     <h3 style="font-size:1.05rem;margin-top:20px;">Comece pelo modelo pronto</h3>
     <ol>
@@ -581,7 +580,7 @@
       <tr><td class="mono">31987654321</td><td>Maria</td><td class="mono">1250,00</td></tr>
       <tr><td class="mono">31912345678</td><td>João</td><td class="mono">890,50</td></tr>
     </table></div>
-    <p style="color:var(--slate);font-size:.9rem;">O telefone deve incluir DDD, sem espaços, traços ou parênteses. Nas colunas Texto 1 e Texto 2, o valor pode ficar com vírgula ou ponto como separador decimal — o app aceita os dois.</p>
+    <p style="color:var(--slate);font-size:.9rem;">O telefone deve incluir DDD, sem espaços, traços ou parênteses. Nas colunas Texto 1 e Texto 2, o valor pode ficar com vírgula ou ponto como separador decimal — o app aceita os dois. Se você estiver usando outro serviço em vez do Google Sheets, não precisa se preocupar com o separador de colunas do arquivo (tabulação, ponto e vírgula ou vírgula) — o app detecta automaticamente qual foi usado.</p>
 
     <h3 style="font-size:1.05rem;margin-top:20px;">Compartilhe a planilha</h3>
     <p>No canto superior direito do Google Sheets, clique em Compartilhar, depois em Alterar para qualquer pessoa com o link. Deixe a permissão como Leitor (o app não precisa editar, só ler). Feche essa janela — não precisa copiar o link que aparece ali, o link que o SMSMass usa é diferente.</p>
@@ -591,8 +590,30 @@
     <p class="mono" style="background:var(--paper-dim);padding:12px;border-radius:4px;font-size:.85rem;">https://docs.google.com/spreadsheets/d/1AbCdEfGhIjKlMnOpQrStUvWxYz1234567890/edit#gid=0</p>
     <p>Cole esse endereço direto no campo do app. A partir da versão V168, o SMSMass corrige esse link sozinho: não importa se o que foi colado é o link de edição (com <span class="mono">/edit?gid=...</span>) ou o link de compartilhamento gerado pelo botão Compartilhar — o app identifica o ID da planilha e o gid da aba automaticamente e monta por conta própria a URL de exportação no formato correto (<span class="mono">/export?format=tsv&amp;gid=...</span>). Você não precisa editar o link manualmente antes de colar.</p>
 
+    <h3 style="font-size:1.05rem;margin-top:20px;">Usando outro serviço em vez do Google Sheets</h3>
+    <p style="color:var(--slate);">Isso é opcional — se o Google Sheets já resolve pra você, pode pular esta parte. Serve pra quem prefere manter os contatos em outro lugar, ou tem seu próprio servidor.</p>
+
+    <p><strong>Dropbox</strong> — funciona, mas exige um ajuste manual no link:</p>
+    <ol>
+      <li>Sobe o arquivo .csv no Dropbox.</li>
+      <li>Clica em Compartilhar → Copiar link. Vai vir algo assim, terminando em <span class="mono">dl=0</span>:<br>
+        <span class="mono" style="background:var(--paper-dim);padding:8px 10px;border-radius:4px;font-size:.82rem;display:inline-block;margin-top:6px;">https://www.dropbox.com/scl/fi/abc123/contatos.csv?rlkey=xyz&amp;dl=0</span>
+      </li>
+      <li>Troca o final do link de <span class="mono">dl=0</span> para <span class="mono">dl=1</span>. Sem essa troca, o link abre a tela de visualização do Dropbox em vez do arquivo, e o app não consegue ler.</li>
+      <li>Cola esse link (já com <span class="mono">dl=1</span>) no app.</li>
+    </ol>
+
+    <p><strong>GitHub</strong> — funciona bem, e não precisa editar nada:</p>
+    <ol>
+      <li>Sobe o .csv num repositório (pode ser privado ou público).</li>
+      <li>Abre o arquivo no GitHub e clica no botão <strong>Raw</strong>.</li>
+      <li>Copia a URL que abre — já é o link direto, sem precisar editar nada.</li>
+    </ol>
+
+    <p style="color:var(--slate);font-size:.9rem;"><strong>Mega:</strong> não recomendamos. O Mega não oferece um link direto de arquivo — mesmo os links no formato <span class="mono">mega.nz/file/...</span> sempre abrem a interface deles no navegador, sem entregar o arquivo puro, e por isso o app não consegue ler.</p>
+
     <h3 style="font-size:1.05rem;margin-top:20px;">Confira a leitura no app</h3>
-    <p>Após colar o link, toque em Carregar Contatos. O app vai mostrar quantos contatos foram lidos. Se aparecer zero, revise: se a primeira linha tem os cabeçalhos exatos (Telefone, Texto 1, Texto 2), se a planilha está compartilhada como qualquer pessoa com o link pode ler, e se não há linhas vazias entre os contatos.</p>
+    <p>Cole o link no campo <strong>Cole o link aqui</strong> e, em seguida, toque em <strong>Carregar contatos da web</strong>. O app vai mostrar quantos contatos foram lidos. Se aparecer zero, revise: se a primeira linha tem os cabeçalhos exatos (Telefone, Texto 1, Texto 2), se o arquivo está com acesso público (qualquer pessoa com o link pode ler), e se não há linhas vazias entre os contatos.</p>
   </div>
 </section>
 
