@@ -212,9 +212,10 @@
 .faq{margin-top:14px;}
 .faq-item{border-bottom:1px solid var(--line);padding:16px 0;}
 .faq-item summary{font-weight:600;cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;}
+.faq-item summary::before{content:'●';font-size:.6rem;color:var(--green);margin-right:10px;}
 .faq-item summary::after{content:'+';font-size:1.2rem;color:var(--slate);}
 .faq-item[open] summary::after{content:'−';}
-.faq-item p{margin:12px 0 0;color:var(--slate);font-size:.92rem;}
+.faq-item p{margin:12px 0 0;color:var(--slate);font-size:.92rem;padding-left:20px;}
 </style>
 </head>
 <body>
@@ -255,7 +256,7 @@
 
 <!-- Sidebar esquerda -->
 <div class="sidebar">
-  <div class="sidebar-version">v068</div>
+  <div class="sidebar-version">v069</div>
   <div class="sidebar-group compact">
     <div class="sidebar-label">Início</div>
     <a href="index.html">Home</a>
