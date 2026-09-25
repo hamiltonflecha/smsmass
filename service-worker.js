@@ -2,7 +2,7 @@
 // Estrategia: sempre busca a versao nova na internet primeiro.
 // A copia guardada so e usada quando o celular estiver sem sinal.
 // Chamadas a outros sites (Apps Script, Kiwify, WhatsApp) nunca passam por aqui.
-var CACHE = 'smsmass-v072';
+var CACHE = 'smsmass-v073';
 
 self.addEventListener('install', function (event) {
   event.waitUntil(

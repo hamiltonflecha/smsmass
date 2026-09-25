@@ -224,7 +224,7 @@
 
 <!-- Sidebar esquerda -->
 <div class="sidebar">
-  <div class="sidebar-version">v072</div>
+  <div class="sidebar-version">v073</div>
   <div class="sidebar-group compact">
     <div class="sidebar-label">Início</div>
     <a href="index.html">Home</a>
@@ -618,6 +618,14 @@
 
     <h3 style="font-size:1.05rem;margin-top:20px;">Confira a leitura no app</h3>
     <p>Cole o link no campo <strong>Cole o link aqui</strong> e, em seguida, toque em <strong>Carregar contatos da web</strong>. O app vai mostrar quantos contatos foram lidos. Se aparecer zero, revise: se a primeira linha tem os cabeçalhos exatos (Telefone, Texto 1, Texto 2), se o arquivo está com acesso público (qualquer pessoa com o link pode ler), e se não há linhas vazias entre os contatos.</p>
+      <h3 style="font-size:1.05rem;margin-top:28px;" id="contatos-agenda">Contatos da agenda do celular (a partir da V267)</h3>
+    <p>Se os números já estão salvos no seu celular, não precisa de planilha. Na tela principal, toque em 📇 Carregar da agenda do celular. Abre a tela da agenda, com duas formas de escolher os contatos:</p>
+    <ul>
+      <li>👤 Escolher um contato (rápido) — abre a lista de contatos do próprio Android, na hora, com a busca por nome dele. Cada contato escolhido entra na lista do SMSMass já marcado. Toque de novo no botão para cada contato. É o jeito mais prático para mandar para 3, 4 ou 5 pessoas, mesmo com uma agenda grande.</li>
+      <li>Carregar contatos da agenda — lê a agenda inteira de uma vez. Com muitos contatos pode demorar um pouco; o app mostra "Aguarde carregar a agenda" enquanto lê. Depois, use o campo de busca (nome, parte do nome ou número), 🔍 Procurar e os botões Marcar encontrados e Desmarcar encontrados para escolher vários de uma vez. Números repetidos aparecem uma vez só.</li>
+    </ul>
+    <p>Dá para misturar os dois: os contatos escolhidos pelo modo rápido continuam marcados se você carregar a agenda inteira depois. Para marcar ou desmarcar um contato, toque nele na lista. A tela mostra até 300 contatos por vez; use Procurar para achar os outros. No final, toque em Usar marcados para voltar à tela principal com os contatos carregados.</p>
+    <p style="color:var(--slate);font-size:.9rem;">Importante: nessa modalidade não é possível customização. A mensagem precisa ser genérica, sem {Texto 1} e {Texto 2}, porque os contatos da agenda não têm essas colunas. Se quiser personalizar com nome ou valor, use a planilha.</p>
   </div>
 </section>
 
@@ -870,6 +878,7 @@ const searchIndex = [
   {t:"Legislacao",d:"Base legal LGPD e regras para uso eleitoral",u:"manual.html#legislacao"},
   {t:"Criando sua mensagem",d:"Limite de 160 caracteres e mesclagem com a planilha",u:"manual.html#criando-mensagem"},
   {t:"Link dos contatos",d:"Modelo de planilha e preparacao do Google Sheets",u:"manual.html#obter-contatos"},
+  {t:"Contatos da agenda",d:"Escolher contatos direto da agenda do celular, sem planilha",u:"manual.html#contatos-agenda"},
   {t:"Como ativar a licenca",d:"Trial e planos pagos",u:"manual.html#ativar-licenca"},
   {t:"Intervalo entre disparos",d:"Ajuste de tempo entre SMS",u:"manual.html#intervalo-disparos"},
   {t:"Usar intervalo De/Ate",d:"Disparar parte da lista",u:"manual.html#intervalo-de-ate"},
