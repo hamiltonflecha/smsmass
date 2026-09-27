@@ -224,7 +224,7 @@
 
 <!-- Sidebar esquerda -->
 <div class="sidebar">
-  <div class="sidebar-version">v073</div>
+  <div class="sidebar-version">v074</div>
   <div class="sidebar-group compact">
     <div class="sidebar-label">Início</div>
     <a href="index.html">Home</a>
@@ -425,7 +425,7 @@
       <div class="app-screen-col">
         <h3 style="font-family:'Fraunces',serif;font-size:1.05rem;">Carregar contatos e envio avulso</h3>
         <ul class="app-legend">
-          <li><span class="app-legend-num">1</span><span><strong>Tempo (s) / Mínimo / Máximo</strong> — define o intervalo de tempo entre cada SMS enviado. Sugere-se tempo mínimo de 30s, para não sobrecarregar a operadora.</span></li>
+          <li><span class="app-legend-num">1</span><span><strong>Tempo (s) / Mínimo / Máximo</strong> — define o intervalo de tempo entre cada SMS enviado. A partir da V268, o app já abre com o campo Mínimo preenchido em 31s; ajuste para mais se quiser um envio mais seguro.</span></li>
           <li><span class="app-legend-num">2</span><span><strong>Cole o link aqui</strong> — cole aqui a URL da planilha com seus contatos. Aceita Google Sheets, e também <a href="#obter-contatos">links diretos do Dropbox ou GitHub</a>.</span></li>
           <li><span class="app-legend-num">3</span><span><strong>Carregar contatos da web / Total de contatos carregados</strong> — clique aqui pra carregar os contatos a partir do link colado acima.</span></li>
           <li><span class="app-legend-num">4</span><span><strong>Limpa tudo / Limpa mensagem / Limpa contatos e link</strong> — botões pra reiniciar cada parte do formulário, separadamente.</span></li>
@@ -697,12 +697,12 @@ document.getElementById('formRecuperarLicenca').addEventListener('submit', funct
     <div class="hop">8</div>
     <h2 style="font-size:1.25rem;">Intervalo entre disparos <span class="aviso-especial">⚠ Cuidado especial!</span></h2>
     <p>Configurar o intervalo errado é a causa mais comum de bloqueio de chip. Operadoras como Vivo, Claro e TIM monitoram o volume e a frequência de disparos saindo de um mesmo número — não é preciso nenhuma denúncia de destinatário para o sistema antifraude identificar um padrão de disparo em massa e bloquear o chip.</p>
-    <p>Recomendamos um tempo mínimo de pelo menos <strong>30 segundos</strong> entre cada SMS. Abaixo disso, o risco de bloqueio é praticamente certo.</p>
+    <p>Recomendamos um tempo mínimo de pelo menos <strong>31 segundos</strong> entre cada SMS — é o valor com que o app já abre, a partir da V268. Abaixo disso, o risco de bloqueio é praticamente certo.</p>
     <p>O tempo máximo define o teto da faixa: junto com o mínimo, ele forma o intervalo de onde o app sorteia, a cada envio, um tempo de espera diferente — de forma aleatória, e não um valor fixo repetido. Isso é importante porque um intervalo sempre igual (por exemplo, sempre exatos 30 segundos) cria um padrão fácil de identificar pelos sistemas das operadoras. Um intervalo aleatório dentro de uma faixa imita melhor o comportamento humano e reduz esse risco.</p>
     <p>Quanto maior a faixa (mínimo e máximo mais altos), mais seguro o envio — mas menos SMS por hora são enviados. É uma troca entre velocidade e segurança.</p>
     <div class="table-scroll"><table>
       <tr><th>Tempo mínimo</th><th>Tempo máximo</th><th>Tempo médio</th><th>SMS por hora (aprox.)</th><th>Risco</th></tr>
-      <tr><td>30s</td><td>60s</td><td>~45s</td><td>~80</td><td>Alto risco</td></tr>
+      <tr><td>31s</td><td>60s</td><td>~45s</td><td>~80</td><td>Alto risco</td></tr>
       <tr><td>60s</td><td>120s</td><td>~90s</td><td>~40</td><td>Risco moderado</td></tr>
       <tr><td>120s</td><td>180s</td><td>~150s</td><td>~24</td><td>Risco baixo</td></tr>
       <tr><td>180s</td><td>240s</td><td>~210s</td><td>~17</td><td>Seguro</td></tr>
