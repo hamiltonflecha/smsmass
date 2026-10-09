@@ -224,7 +224,7 @@
 
 <!-- Sidebar esquerda -->
 <div class="sidebar">
-  <div class="sidebar-version">v079</div>
+  <div class="sidebar-version">v080</div>
   <div class="sidebar-group compact">
     <div class="sidebar-label">Início</div>
     <a href="index.html">Home</a>
@@ -267,6 +267,7 @@
         <li><a href="manual.html#enviando">Enviando</a></li>
         <li><a href="manual.html#relatorio">Ler o relatório</a></li>
         <li><a href="manual.html#envio-avulso">Envio avulso</a></li>
+        <li><a href="manual.html#possiveis-problemas">Possíveis problemas</a></li>
         <li><a href="manual.html#faq">Perguntas frequentes</a></li>
       </ul>
     </details>
@@ -371,6 +372,7 @@
       <li><a href="#enviando">Enviando</a></li>
       <li><a href="#relatorio">Ler o relatório</a></li>
       <li><a href="#envio-avulso">Envio avulso</a></li>
+      <li><a href="#possiveis-problemas">Possíveis problemas</a></li>
       <li><a href="#faq">Perguntas frequentes</a></li>
     </ul>
   </div>
@@ -758,7 +760,8 @@ document.getElementById('formRecuperarLicenca').addEventListener('submit', funct
   <div class="wrap">
     <div class="hop">11</div>
     <h2 style="font-size:1.25rem;">Ler o relatório</h2>
-    <p style="color:var(--slate);">Interpretação do relatório de envios, mensagens de sucesso e mensagens falhadas. Em preparação.</p>
+    <p>A partir da versão 271, o relatório de cada envio é salvo automaticamente na pasta Download do celular, no arquivo relatorio_ seguido da data e hora de início (por exemplo, relatorio_09102026_162800.txt). Ele é atualizado a cada 20 mensagens, ao tocar em Parar, ao terminar e quando o envio para por limite do plano. Cada linha traz o telefone, o nome e a data e hora do envio.</p>
+    <p style="color:var(--slate);">Mais detalhes sobre a interpretação do relatório de envios, mensagens de sucesso e mensagens falhadas. Em preparação.</p>
   </div>
 </section>
 
@@ -776,9 +779,48 @@ document.getElementById('formRecuperarLicenca').addEventListener('submit', funct
   </div>
 </section>
 
-<section id="faq">
+<section id="possiveis-problemas">
   <div class="wrap">
     <div class="hop">13</div>
+    <h2 style="font-size:1.25rem;">Possíveis problemas</h2>
+    <p>Situações que podem interromper um envio longo, o que costuma causar cada uma e como resolver sem repetir mensagens para quem já recebeu.</p>
+
+    <h3 style="font-size:1.05rem;margin-top:20px;">"Limite do plano atingido", mas ainda há saldo</h3>
+    <p>A cada 20 mensagens enviadas o app confere o saldo da licença com o servidor. Se nesse momento a internet do celular cair, ou o servidor tiver uma falha passageira, a resposta chega incompleta. Nas versões anteriores à 271 o app interpretava essa resposta incompleta como fim do saldo e parava o envio com a mensagem "Limite do plano atingido!".</p>
+    <ul>
+      <li>Atualize o app para a versão 271 ou mais nova. A partir dela, uma falha de conferência não interrompe mais o envio: o app segue com o saldo que já tinha e confere de novo nos próximos 20 envios.</li>
+      <li>Se o seu plano ainda tem saldo, basta retomar o envio pelos campos De e Até (veja abaixo como calcular).</li>
+      <li>Se a mensagem continuar aparecendo com saldo disponível, fale com o suporte pelo WhatsApp.</li>
+    </ul>
+
+    <h3 style="font-size:1.05rem;margin-top:20px;">O envio parou depois de horas com a tela apagada</h3>
+    <p>Com a tela desligada por muito tempo, o Android entra em modo de economia de bateria e pode cortar a internet ou pausar aplicativos. Isso afeta principalmente envios longos, de várias horas, e piora com a bateria baixa.</p>
+    <ul>
+      <li>Mantenha a tela ligada durante o envio, com o brilho no mínimo.</li>
+      <li>Deixe o carregador conectado.</li>
+      <li>Desative a otimização de bateria para o SMSMass. O caminho varia por marca; em geral fica em Configurações, Aplicativos, SMSMass, Bateria, opção Sem restrições (ou Não otimizar).</li>
+      <li>Veja também as dicas em <a href="#enviando">Enviando</a>.</li>
+    </ul>
+
+    <h3 style="font-size:1.05rem;margin-top:20px;">Internet instável ou sem dados móveis</h3>
+    <p>O SMS sai pelo chip, mas o app usa a internet para conferir a licença e o saldo. Com sinal fraco, dados móveis desligados ou pacote de dados esgotado, as conferências falham. Prefira deixar o celular no Wi-Fi durante envios longos.</p>
+
+    <h3 style="font-size:1.05rem;margin-top:20px;">Como retomar sem repetir contatos</h3>
+    <p>Quando um envio para no meio, a tela mostra quantos contatos ficaram faltando ("restantes"). Para continuar de onde parou, mantenha o Até e calcule o novo De assim:</p>
+    <p style="margin-left:16px;">novo De = Até − restantes + 1</p>
+    <p>Exemplo: um envio De 72 até 1069 parou com 658 restantes. O novo De é 1069 − 658 + 1 = 412. Configure De 412 e Até 1069 e envie de novo. Mais detalhes em <a href="#intervalo-de-ate">Usar intervalo De/Até</a>.</p>
+
+    <h3 style="font-size:1.05rem;margin-top:20px;">Não encontro o relatório do envio</h3>
+    <p>A partir da versão 271, o relatório é salvo automaticamente na pasta Download do celular, num arquivo chamado relatorio_ seguido da data e hora de início do envio (por exemplo, relatorio_09102026_162800.txt). O arquivo é atualizado a cada 20 mensagens, ao tocar em Parar, ao terminar e também quando o envio para por limite do plano. Cada envio gera o seu próprio arquivo.</p>
+
+    <h3 style="font-size:1.05rem;margin-top:20px;">Muitos contatos seguidos sem entrega</h3>
+    <p>Pode ser bloqueio pela operadora do chip, e não um problema do app. Revise o <a href="#intervalo-disparos">intervalo entre disparos</a> e veja a explicação em <a href="#enviando">Enviando</a>.</p>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="wrap">
+    <div class="hop">14</div>
     <h2 style="font-size:1.25rem;">Perguntas frequentes</h2>
     <p style="color:var(--slate);">Dúvidas mais comuns sobre operação, licença, disparo e relatório. Em preparação.</p>
   </div>
@@ -890,6 +932,7 @@ const searchIndex = [
   {t:"Enviando",d:"O que aparece na tela durante o disparo",u:"manual.html#enviando"},
   {t:"Ler o relatorio",d:"Interpretacao do report de envios",u:"manual.html#relatorio"},
   {t:"Envio avulso",d:"Enviar SMS para um contato ou poucos",u:"manual.html#envio-avulso"},
+  {t:"Possiveis problemas",d:"Envio parou, limite do plano com saldo, tela apagada, retomar com De/Ate, onde fica o relatorio",u:"manual.html#possiveis-problemas"},
   {t:"Manual - Perguntas frequentes",d:"Duvidas comuns sobre o app",u:"manual.html#faq"},
   {t:"Ajuda",d:"FAQ geral e contato",u:"ajuda.html"},
   {t:"Mapa do site",d:"Todas as páginas do SMSMass em um só lugar",u:"mapa-do-site.html"}
