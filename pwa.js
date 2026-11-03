@@ -96,7 +96,7 @@
     if (!origem) { return; }
     try {
       var u = new URL(a.href);
-      if (!/(^|\.)kiwify\.(com\.br|app)$/.test(u.hostname)) { return; }
+      if (!/(^|\.)kiwify\.com\.br$/.test(u.hostname)) { return; }
       for (var k in origem) {
         if (origem.hasOwnProperty(k) && !u.searchParams.get(k)) { u.searchParams.set(k, origem[k]); }
       }
